@@ -1,0 +1,12 @@
+{
+  "name": "luna-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Luna Zhu's personal portfolio for senior product management and AI strategy roles.",
+  "scripts": {
+    "start": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "dev": "npm start",
+    "check": "node --check script.js",
+    "test:browser": "python3 review/check_portfolio.py"
+  }
+}
