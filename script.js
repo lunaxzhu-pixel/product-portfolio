@@ -1,124 +1,281 @@
 const cases = {
-  aws: {
-    kicker: 'AWS · Pricing, monetization & go-to-market',
-    title: 'A growth engine, built into the pricing.',
-    intro: 'Designing a commercial model for a new observability product—connecting customer value, competitive pricing, and infrastructure economics.',
-    metric: '$1B+', metricLabel: 'Projected revenue over five years. A business-case forecast, not realized revenue.',
-    sections: [
-      ['The challenge', 'Enterprise customers needed an end-to-end way to monitor application performance. The product also needed pricing that worked across very different customer sizes: predictable enough to adopt, competitive enough to switch, and sustainable enough to scale.'],
-      ['My role', 'As Finance Strategy Manager for Product Economics & Monetization, I owned the pricing, go-to-market, and financial strategy, partnering with Product, Engineering, Applied Science, Economics, and commercial teams.'],
-      ['The decisions that mattered', [
-        'Start with customer value: combine customer interviews, usage analysis, competitive research, and price elasticity modeling to define the pricing approach.',
-        'Connect the pricing unit to cost drivers: model compute, storage, indexing, and data transfer alongside customer-level cost to serve.',
-        'Design for adoption and expansion: use free trials, tiering, and bundling to address different workloads and customer needs.',
-        'Treat architecture as a commercial decision: evaluate infrastructure tradeoffs against price competitiveness and long-term margins.'
-      ]],
-      ['From strategy to launch', 'Aligned eight cross-functional teams around pricing, packaging, value metrics, and the monetization infrastructure. Free trial, tiering, and bundle pricing supported the product’s launch; post-launch measurement tracked adoption and revenue.'],
-      ['The impact', 'The resulting business model was projected to generate more than $1B in revenue over five years. Related work across the AWS portfolio improved product margins by 100+ basis points by addressing infrastructure inefficiencies.'],
-      ['My takeaway', 'Pricing is part of the product experience. The strongest model makes customer value easy to understand while giving the business a sustainable path to serve it.']
+  "aws": {
+    "kicker": "AWS · Cloud infrastructure monetization · Unit economics · Pricing & GTM",
+    "title": "A growth engine, built into the pricing.",
+    "intro": "Pricing & Monetization for the AWS Observability Portfolio: building a commercial model that pairs predictable customer costs with sustainable infrastructure economics.",
+    "metric": "$1B+",
+    "metricLabel": "Projected total revenue over five years for the AWS observability portfolio.",
+    "sections": [
+      [
+        "The problem",
+        "Increasingly complex enterprise cloud architectures made basic logs and metrics insufficient for fast incident triage. Datadog, Dynatrace, and New Relic offered specialized platforms, while AWS needed an end-to-end, full-stack observability solution. The challenge was to design pricing that gave small businesses and enterprise customers predictable costs while supporting cost-effective infrastructure and sustainable margins."
+      ],
+      [
+        "The approach",
+        "Built the pricing, packaging, and monetization strategy from the ground up for a new AWS observability product portfolio with a $100M+ ARR baseline. Designed a value-metric model that aligned customer cost directly with usage scale. Structured competitive total-cost-of-ownership models, free-tier and trial strategies, and multi-tier bundling to accelerate migration from third-party tools while maintaining healthy unit economics."
+      ],
+      [
+        "The outcome",
+        [
+          "Revenue and adoption — Established a model projecting $1B+ in total revenue over five years, with adoption across 1M+ business partners and enterprise customers.",
+          "Margin expansion — Improved overall portfolio operating margins by 100+ basis points by pairing efficient infrastructure architecture with predictable, tiered pricing.",
+          "Growth — Achieved annual growth rates exceeding 999%."
+        ]
+      ]
     ],
-    note: 'Based on my project presentation and resume. The portfolio margin result describes broader AWS work; it is not presented as an isolated result of this launch.'
+    "note": "The $1B+ figure is projected revenue over five years. The 100+ basis-point improvement refers to portfolio operating margins.",
+    "lifecycle": [
+      {
+        "phase": "Discover",
+        "title": "Customer elasticity & competitive research",
+        "body": "Combined pricing elasticity modeling with competitive total-cost-of-ownership (TCO) benchmarking against Datadog and Dynatrace across enterprise workloads. Identified demand for cost predictability and transparent usage-based billing."
+      },
+      {
+        "phase": "Define",
+        "title": "Monetization framework & value metrics",
+        "body": "Built pricing, packaging, and monetization from the ground up for a portfolio with a $100M+ annual recurring revenue baseline. Established six principles: cost-following pricing units, predictable billing, competitive TCO, margin-protective architecture, free-tier acquisition, and targeted migration paths."
+      },
+      {
+        "phase": "Design",
+        "title": "Architecture & pricing model pair",
+        "body": "Partnered with infrastructure architects to pair efficient logging and metrics pipelines with tiered bundling. Aligned customer costs with usage scale and designed free tiers, trials, and packaging to encourage migration from third-party tools while protecting unit economics."
+      },
+      {
+        "phase": "Build",
+        "title": "Cross-functional monetization infrastructure",
+        "body": "Coordinated eight teams across Engineering, Product, Finance, Business Development, and Economics to deliver automated metering, billing, and invoicing infrastructure."
+      },
+      {
+        "phase": "Launch",
+        "title": "Global AWS ecosystem rollout",
+        "body": "Shipped within the AWS Monitoring portfolio across global AWS regions, introducing free trials, tiered discounts, and bundle packaging."
+      },
+      {
+        "phase": "Measure",
+        "title": "Revenue & margin expansion",
+        "body": "Tracked customer adoption, migration velocity, revenue, and margins. Achieved annual growth rates exceeding 999% and established $1B+ in five-year projected revenue."
+      }
+    ]
   },
-  vto: {
-    kicker: 'Amazon Fashion · Generative AI & experimentation',
-    title: 'Less uncertainty. More confident shopping.',
-    intro: 'Exploring how generative AI could help customers compare apparel and make more confident purchase decisions—with experiments that looked beyond engagement alone.',
-    metric: '+10%', metricLabel: 'Engagement lift in virtual try-on experiments. Internal pilot; not a broad product launch.',
-    sections: [
-      ['The challenge', 'Customers struggle to predict how apparel will look and fit before it arrives. Product imagery and size charts provide information, but they do not always resolve the uncertainty that leads to trial purchases and returns.'],
-      ['My role', 'As Senior Product Manager, I led product strategy and roadmap development, partnering with engineering and applied science on technical requirements, success metrics, and A/B experiments.'],
-      ['The product insight', 'The value of virtual try-on comes from helping a customer make a decision—not simply generating an image. I focused the experience on personalized visualization, side-by-side comparison, and integration into the shopping journey.'],
-      ['How I tested the idea', [
-        'Defined engagement and fit-confidence behaviors alongside conversion-related signals.',
-        'Coordinated dependencies across AI, shopping interface, and customer returns teams.',
-        'Designed and executed A/B tests to assess how the experience changed customer behavior.',
-        'Evaluated customer-initiated returns alongside commercial metrics to avoid optimizing a single part of the journey.'
-      ]],
-      ['What the experiments showed', 'Experiments showed a 10% lift in engagement and a 25% improvement in behaviors correlated with conversion. That second measure is a behavioral signal, not a 25% increase in purchase conversion.'],
-      ['The launch decision', 'The pilot also exposed limitations in fit accuracy and an increase in customer-initiated returns. The product did not proceed to a broad launch. The results clarified the technical and customer-experience improvements needed before scaling.'],
-      ['My takeaway', 'A promising engagement result is a reason to investigate further. For AI commerce, the product needs to improve the whole purchase experience—including what happens after delivery.']
+  "vto": {
+    "kicker": "Amazon Fashion · GenAI applications · Product-led growth · Experimentation",
+    "title": "Less uncertainty. More confident shopping.",
+    "intro": "GenAI Virtual Try-On: reframing apparel visualization as a decision-support tool, validating demand through experimentation, and using unit economics to guide the rollout decision.",
+    "metric": "500K+",
+    "metricLabel": "Customers in the controlled Weblab A/B test. Full rollout was paused after the return-rate guardrail was triggered.",
+    "sections": [
+      [
+        "The problem",
+        "Online apparel shoppers could not confidently predict fit or appearance. Fit-related returns accounted for 40%, while trial shopping—ordering multiple sizes or colors with the intent to return—grew 14.6% year over year to 164M trial-ordered units. Earlier 3D/AR experiences added friction: VTO for Shoes saw 1% click-through versus 20% on standard product detail pages, and 25% of users cited poor rendering quality."
+      ],
+      [
+        "The approach",
+        "Reframed virtual try-on from an immersive gimmick into a low-friction decision-support tool. Personally prototyped four iterations of Figma UX integrated directly into the shopping flow: entry point, photo upload, side-by-side try-on, and seamless add-to-cart. Validated preferences through analysis of 13 market solutions and a 300-customer survey, leading to de-scoping non-essential features such as custom avatars. Partnered with Applied Science to evaluate proprietary diffusion models against open-source approaches, then deployed the experience through a controlled Weblab A/B test with 500K+ customers."
+      ],
+      [
+        "The outcome",
+        [
+          "Validated customer demand — Delivered statistically significant lifts in cart conversion, GMV, and OPS, demonstrating that GenAI visualization could increase purchase intent.",
+          "Identified the critical tradeoff — The experiment also triggered the return-rate guardrail. We hypothesized that visual try-on alone was insufficient without size-and-fit guidance.",
+          "Protected unit economics — Recommended pausing full rollout until fit prediction matured, avoiding a rollout that could materially increase return-related costs. Shifted the roadmap toward integrated size-and-fit capabilities and established a reusable AI evaluation framework."
+        ]
+      ]
     ],
-    note: 'Experimental metrics come from my resume. Pilot limitations and the launch decision come from the detailed lifecycle account in my project presentation.'
+    "note": "500K+ is experiment reach. The conversion gains did not lead to a full rollout because downstream returns failed the guardrail.",
+    "lifecycle": [
+      {
+        "phase": "Discover",
+        "title": "Identifying root friction via data telemetry",
+        "body": "Analyzed billion-scale purchase and return datasets and historical VTO Shoes telemetry to isolate friction and visual-realism problems. Surveyed 300 apparel shoppers to validate the sources of hesitation before adding to cart."
+      },
+      {
+        "phase": "Define",
+        "title": "Scoping the opportunity & data-driven de-scoping",
+        "body": "Benchmarked 13 market solutions and internal categories. Triangulated customer research, competitor analysis, and historical adoption to de-scope custom avatars before engineering investment. Set click-through, cart conversion, GMV, and Ordered Product Sales (OPS) as success measures, with Customer-Initiated Returns as the guardrail."
+      },
+      {
+        "phase": "Design",
+        "title": "Designing the low-friction experience",
+        "body": "Personally created four iterations of Figma prototypes, incorporating customer insights, UX tradeoffs, and L8/L10 leadership reviews. Integrated product-page entry, photo upload, side-by-side try-on, and seamless add-to-cart into the natural shopping journey."
+      },
+      {
+        "phase": "Build",
+        "title": "Translating customer needs into technical requirements",
+        "body": "Partnered with the Technical Product Manager, Applied Science, and engineering to define latency, scale, product-page integration, and measurement requirements. Compared proprietary Amazon diffusion models with open-source approaches and chose open source for pilot validation, balancing realism, development speed, latency, and infrastructure cost."
+      },
+      {
+        "phase": "Launch",
+        "title": "Large-scale Weblab experimentation",
+        "body": "Ran the complete experience through a controlled Weblab A/B test with 500K+ customers, measuring engagement and purchase intent alongside downstream fulfillment impact."
+      },
+      {
+        "phase": "Measure",
+        "title": "When a positive experiment becomes a no-go",
+        "body": "The experiment improved cart conversion, GMV, and OPS, but also increased Customer-Initiated Returns. I treated the return-rate movement as evidence that the product solved only part of the customer problem: visual realism helped answer “How will this look on me?” but not “Will this actually fit me?” Because fit prediction was not yet mature enough, I recommended against full rollout and shifted the roadmap toward integrated size-and-fit capabilities."
+      }
+    ]
   },
-  sizing: {
-    kicker: 'Amazon Fashion · Global strategy & platform thinking',
-    title: 'Better fit starts with better foundations.',
-    intro: 'Turning a regional returns problem into a scalable product opportunity by connecting sizing standards, seller inputs, and customer-facing recommendations.',
-    metric: 'One system', metricLabel: 'Global standards → structured seller data → more consistent fit recommendations.',
-    sections: [
-      ['The challenge', 'Cross-border apparel sellers operate across different sizing conventions and measurement standards. Inconsistent size charts make it difficult for customers to choose a size and limit the usefulness of downstream recommendation systems.'],
-      ['My role', 'I established a strategic partnership with the China team and aligned regional seller context, FBA needs, and global size-and-fit capabilities around the same customer problem.'],
-      ['Reframing the problem', 'Instead of asking only how to reduce returns from a seller population, I asked how to make sizing information reliable enough for customers and recommendation systems to make better decisions.'],
-      ['The approach', [
-        'Trace fit-related returns back to uncertainty in the shopping journey.',
-        'Connect global sizing standards with more structured and consistent seller inputs.',
-        'Design the foundation to support multiple downstream recommendation experiences.',
-        'Align teams around the relationship between input quality, customer decisions, and return economics.'
-      ]],
-      ['Measuring what matters', 'The measurement framework linked size-chart quality to recommendation effectiveness and, ultimately, fit-related return rates. This kept the initiative focused on customer outcomes rather than adoption of an internal standard alone.'],
-      ['The outcome', 'The work established a repeatable approach to sizing intelligence: standardize the data, improve the decision, and evaluate the economic impact. It created a path to extend the model beyond one regional seller population.'],
-      ['My takeaway', 'Sometimes the most valuable product work happens upstream. Improving the quality of the underlying information can unlock better experiences across an entire platform.']
+  "sizing": {
+    "kicker": "Amazon Fashion · Global platform strategy · ML recommendations · Unit economics",
+    "title": "Better fit starts with better foundations.",
+    "intro": "Global Size Intelligence for FBA Apparel Sellers: turning a cross-border sizing problem into an automated ML mapping platform, from root-cause research through scaled adoption.",
+    "metric": "100–200 bps",
+    "metricLabel": "Net sizing-defect return-rate gap isolated after category-mix normalization.",
+    "sections": [
+      [
+        "The problem",
+        "More than 30K China FBA apparel sellers had a return rate 400 basis points higher than domestic US sellers. Historical assumptions blamed customer trial behavior or product mix. By analyzing 3B+ records, building a category-mix normalization methodology, and benchmarking against Amazon Essentials, I isolated a net 100–200 basis-point sizing-defect gap—representing 100M+ extra returned units and $200M–$500M in annual logistics costs."
+      ],
+      [
+        "The approach",
+        "Conducted one-on-one interviews with top FBA sellers and found that sellers inflated size-chart measurements to keep shoppers from perceiving garments as too small, inadvertently driving returns. Research into GB/T 1335 versus ASTM D5585 standards revealed deeper size-mapping disconnects. Reframed the issue from regional compliance into a global ML platform opportunity: sellers provide raw garment measurements in Seller Central, and an ML model recommends optimal US size mappings."
+      ],
+      [
+        "The outcome",
+        [
+          "Cross-organizational alignment — Resolved years of regional misalignment over customer body-data access by aligning L8 leadership, US Tech, and China teams around garment-based ML recommendations.",
+          "Scaled adoption — Expanded from a 20-seller pilot to broad adoption across 30K+ China FBA sellers, with Europe and Japan on the expansion roadmap.",
+          "Customer and business impact — Expanded catalog recommendation coverage and seller adoption, reduced fit-related returns, and recovered tens of millions in annual operating margins."
+        ]
+      ]
     ],
-    note: 'This case study describes the strategy and measurement framework. Quantitative outcomes are omitted because the source presentation contains unfinalized figures.'
+    "note": "The 100–200 basis-point figure is the diagnosed sizing gap, not the achieved reduction. The $200M–$500M estimate describes the annual cost of the identified problem, separate from the margin recovery.",
+    "lifecycle": [
+      {
+        "phase": "Discover",
+        "title": "Data telemetry & qualitative root-cause isolation",
+        "body": "Analyzed 3B+ records and built a category-mix normalization methodology to isolate a 100–200 basis-point sizing defect within the initial 400 basis-point return gap, representing 100M+ extra returned units and $200M–$500M in fulfillment costs. Interviewed top sellers and four Mandarin-speaking internal teams, and audited physical measurements against size charts. Found that sellers inflated measurements—for example, labeling a 31-inch waist as 37 inches because the fabric stretched. Research into GB/T 1335 and ASTM D5585 revealed deeper sizing-standard mismatches."
+      },
+      {
+        "phase": "Define",
+        "title": "Reframing from regional fix to global ML platform",
+        "body": "Reframed a regional compliance issue as a global ML platform opportunity. Replaced manual chart corrections with garment-measurement inputs and automated US size mapping, resolving the need without sharing raw US customer body data."
+      },
+      {
+        "phase": "Design",
+        "title": "Requirements & input taxonomy",
+        "body": "Defined Seller Central input schemas, required fields, data freshness, and accuracy validation thresholds. Partnered with Applied Science to move from rule-based mapping to ML size recommendations."
+      },
+      {
+        "phase": "Build",
+        "title": "Cross-organizational alignment",
+        "body": "Aligned US Tech, China regional teams, Returns, Catalog, Seller Experience, and Applied Science. Used concrete ASIN measurement discrepancies to secure L8 leadership support and prioritize the Seller Central engineering work."
+      },
+      {
+        "phase": "Launch",
+        "title": "Phased rollout",
+        "body": "Tested usability and mapping precision with 20 top China FBA sellers, then expanded to all 30K+ China FBA sellers. Secured a roadmap for expansion to Europe and Japan."
+      },
+      {
+        "phase": "Measure",
+        "title": "Impact & margin recovery",
+        "body": "Tracked seller adoption, size-chart completeness, and recommendation coverage. Used Weblab testing to validate downstream reductions in fit-related returns and fulfillment costs."
+      }
+    ]
   }
 };
 
 const roles = {
-  rrd: {
-    company: 'R.R. Donnelley', title: 'Pricing Analyst',
-    period: 'August 2015 – August 2017', location: 'Los Angeles, CA',
-    focus: 'Pricing & analytics',
-    description: 'Built the analytical foundation for my work in product economics: understanding customer purchasing behavior, modeling pricing decisions, and evaluating deal profitability.',
-    skills: ['Statistical modeling', 'Scenario analysis', 'Pricing strategy', 'Oracle Database'],
-    achievements: [
-      'Built statistical pricing models and scenario simulations to optimize deal profitability.',
-      'Analyzed customer purchasing trends in Oracle Database to inform pricing strategy.'
+  "rrd": {
+    "company": "R.R. Donnelley",
+    "title": "Pricing Analyst",
+    "period": "August 2015 – August 2017",
+    "location": "Los Angeles, CA",
+    "focus": "Pricing & analytics",
+    "description": "Built the analytical foundation for my work in product economics: understanding customer purchasing behavior, modeling pricing decisions, and evaluating deal profitability.",
+    "skills": [
+      "Statistical modeling",
+      "Scenario analysis",
+      "Pricing strategy",
+      "Oracle Database"
     ],
-    cases: []
+    "achievements": [
+      "Built statistical pricing models and scenario simulations to optimize deal profitability.",
+      "Analyzed customer purchasing trends in Oracle Database to inform pricing strategy."
+    ],
+    "cases": []
   },
-  'internet-brands': {
-    company: 'Internet Brands', title: 'Senior Financial Analyst / Business Partner',
-    period: 'August 2017 – May 2021', location: 'Los Angeles, CA',
-    focus: 'SaaS growth & monetization',
-    description: 'Served as a product and finance partner for a $20M ARR SaaS business, connecting pricing, segmentation, and performance management across the customer lifecycle.',
-    skills: ['SaaS monetization', 'Customer segmentation', 'Funnel optimization', 'Salesforce & Tableau'],
-    achievements: [
-      'Increased ARR by 10% through bundling, upsell, and cross-sell monetization models.',
-      'Improved lead-to-paid conversion by 50% through digital funnel optimization.',
-      'Built Salesforce and Tableau dashboards for activation, churn, and revenue KPIs, reducing the reporting cycle from 10 days to 4.'
+  "internet-brands": {
+    "company": "Internet Brands",
+    "title": "Senior Financial Analyst / Business Partner",
+    "period": "August 2017 – May 2021",
+    "location": "Los Angeles, CA",
+    "focus": "SaaS growth & monetization",
+    "description": "Served as product and finance partner for a $20M ARR SaaS business, leading pricing, segmentation, and performance management across the customer lifecycle.",
+    "skills": [
+      "SaaS monetization",
+      "Customer segmentation",
+      "Funnel optimization",
+      "Salesforce & Tableau"
     ],
-    cases: []
+    "achievements": [
+      "Increased ARR by 10% through bundling, upsell, and cross-sell monetization models.",
+      "Improved lead-to-paid conversion by 50% through digital funnel optimization.",
+      "Built Salesforce and Tableau dashboards for activation, churn, and revenue, cutting reporting time from 10 days to 4."
+    ],
+    "cases": []
   },
-  aws: {
-    company: 'Amazon Web Services (AWS)', title: 'Finance Strategy Manager',
-    period: 'June 2021 – February 2025', location: 'Seattle, WA',
-    focus: 'Product economics & monetization',
-    description: 'Owned go-to-market, pricing, and financial strategy for a new observability product projected to generate $1B+ in revenue over five years. Partnered across Product, Engineering, Applied Science, Sales, Legal, and Economics to connect customer value with sustainable growth.',
-    skills: ['Pricing & packaging', 'Go-to-market strategy', 'Cloud unit economics', 'Investment planning'],
-    achievements: [
-      'Defined roadmap and pricing strategy through competitive research, customer interviews, usage analysis, and price elasticity modeling.',
-      'Led annual planning and forecasting; built product P&Ls and business cases to guide investment decisions.',
-      'Partnered with Engineering and Applied Science on architecture tradeoffs, improving product margins by 100+ basis points by addressing infrastructure inefficiencies.',
-      'Repriced an AWS service generating $50M in annual revenue, increasing gross margin by 30+ percentage points.',
-      'Led leadership business reviews that delivered $30M in capital expenditure savings.',
-      'Supported bundling and go-to-market economics for a product suite projected to generate $600M in revenue over five years.'
+  "aws": {
+    "company": "Amazon Web Services (AWS)",
+    "title": "Finance Strategy Manager",
+    "period": "June 2021 – February 2025",
+    "location": "Seattle, WA",
+    "focus": "Product economics & monetization",
+    "description": "Partnered directly with the L8 GM for AWS Application Performance Monitoring to drive portfolio strategy across pricing, monetization, P&L, investment planning, and margin optimization.",
+    "skills": [
+      "Early product roadmaps",
+      "Pricing & packaging",
+      "Go-to-market strategy",
+      "Cloud unit economics",
+      "Portfolio strategy"
     ],
-    cases: [{ key: 'aws', title: 'AWS observability: pricing for sustainable growth' }]
+    "achievements": [
+      "Defined the early roadmap, pricing, and go-to-market strategy for a new observability product projected to generate $1B+ over five years.",
+      "Translated customer interviews, competitive research, usage analysis, and elasticity modeling into feature priorities and packaging decisions.",
+      "Partnered with Engineering and Applied Science on compute, storage, indexing, and data-transfer tradeoffs, improving gross margin by 100+ basis points.",
+      "Owned APM pricing models, discount structures, and contract economics with Product, Sales, Finance, Legal, and Economics.",
+      "Repriced a service generating $50M in annual revenue and increased gross margin by 30+ percentage points."
+    ],
+    "cases": [
+      {
+        "key": "aws",
+        "title": "AWS observability: pricing for sustainable growth"
+      }
+    ]
   },
-  amazon: {
-    company: 'Amazon Retail · Fashion', title: 'Senior Product Manager',
-    period: 'February 2025 – Present', location: 'Seattle, WA',
-    focus: 'AI product strategy & customer experience',
-    description: 'Lead product strategy for Amazon Fashion’s next-generation virtual try-on platform, connecting customer insight, technical requirements, and experimentation to help customers make more confident shopping decisions.',
-    skills: ['Generative AI', 'Product roadmaps', 'A/B experimentation', 'Voice of Customer', 'Global strategy'],
-    achievements: [
-      'Shape a multi-year virtual try-on roadmap expected to influence 25% of apparel GMV and reduce return-driven losses by $50M annually; these are roadmap projections.',
-      'Designed and executed A/B tests showing a 10% engagement lift and a 25% improvement in behaviors correlated with conversion—not a 25% lift in purchase conversion.',
-      'Partner with engineering and applied science to define customer trial metrics, technical requirements, and experiments linking AI engagement to fit-confidence behaviors.',
-      'Built a unified Voice of Customer view across billion-plus records and structured signals for an internal AI agent, reducing insight retrieval time by 50% and saving 100 team hours per month.',
-      'Established a partnership with the China team to connect sizing standards, seller inputs, and customer-facing recommendations into a scalable global sizing approach.'
+  "amazon": {
+    "company": "Amazon Retail · Fashion",
+    "title": "Senior Product Manager",
+    "period": "February 2025 – Present",
+    "location": "Seattle, WA",
+    "focus": "GenAI experiences & global sizing platforms",
+    "description": "Lead product strategy across GenAI virtual try-on and sizing intelligence, connecting customer research, hands-on prototyping, controlled experimentation, and ML platform requirements with long-term unit economics.",
+    "skills": [
+      "GenAI product strategy",
+      "Figma UX prototyping",
+      "Weblab experimentation",
+      "SQL & customer research",
+      "ML platform requirements",
+      "Cross-functional leadership"
     ],
-    cases: [{ key: 'vto', title: 'Virtual try-on: testing customer confidence' }, { key: 'sizing', title: 'Global size intelligence: better foundations for fit' }]
+    "achievements": [
+      "Led 0-to-1 strategy and Figma UX prototyping for virtual try-on; de-scoped lower-value features such as custom avatars using research, historical adoption data, and benchmarking of 13 competing offerings.",
+      "Defined success and guardrail metrics and tested the end-to-end VTO experience with 500K+ customers. Made the strategic call with L8/L10 leadership to pause full rollout after elevated return-rate risk exposed fit-accuracy gaps.",
+      "Partnered with Applied Science to evaluate image realism, latency, scale, development speed, and infrastructure cost, contributing to the selection of an open-source approach for early validation.",
+      "Identified a 100–200 basis-point sizing-related return gap across 30K+ China FBA sellers after category-mix normalization, quantifying 100M+ excess annual returns and $200M–$500M in associated fulfillment cost.",
+      "Combined SQL analysis, seller interviews, ASIN-level audits, and GB/T versus ASTM research to define requirements for an ML-based size-mapping solution.",
+      "Aligned L8 leadership, US Tech, and China business teams around garment-based ML size mapping; expanded from a 20-seller pilot to adoption across 30K+ China FBA sellers, improving coverage and reducing fit-related returns."
+    ],
+    "cases": [
+      {
+        "key": "vto",
+        "title": "Virtual try-on: from prototype to go/no-go decision"
+      },
+      {
+        "key": "sizing",
+        "title": "Global size intelligence: research to ML requirements"
+      }
+    ]
   }
 };
 
@@ -210,6 +367,16 @@ function renderCase(key) {
       body.forEach(text => add('li', '', text, list));
     } else add('p', '', body, section);
   }
+  const lifecycle = add('section', 'case-section case-lifecycle', '');
+  add('h3', '', 'Product Development Lifecycle', lifecycle);
+  const steps = add('ol', 'lifecycle-steps', '', lifecycle);
+  item.lifecycle.forEach((step, index) => {
+    const entry = add('li', 'lifecycle-step', '', steps);
+    add('span', 'lifecycle-number', String(index + 1).padStart(2, '0'), entry).setAttribute('aria-hidden', 'true');
+    const detail = add('div', 'lifecycle-detail', '', entry);
+    add('h4', '', `${step.phase} — ${step.title}`, detail);
+    add('p', '', step.body, detail);
+  });
   add('p', 'case-note', item.note);
 }
 function openCase(key, trigger, origin = null) {

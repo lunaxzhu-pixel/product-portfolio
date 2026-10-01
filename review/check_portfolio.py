@@ -11,6 +11,8 @@ with sync_playwright() as p:
     page.on('pageerror', lambda e: errors.append(str(e)))
     page.goto('http://127.0.0.1:4173', wait_until='networkidle')
     page.screenshot(animations="disabled", path=str(ROOT / 'desktop.png'), full_page=True)
+    page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-desktop.png'))
+    page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-desktop.png'))
     assert page.title() == 'Luna Zhu — AI Product Strategy & Growth'
     assert page.locator('h1').count() == 1
     for key in ['aws', 'vto', 'sizing']:
@@ -56,6 +58,7 @@ with sync_playwright() as p:
     page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-desktop.png'))
     response = context.request.get('http://127.0.0.1:4173/assets/Luna-Zhu-Resume.pdf')
     assert response.status == 200 and response.body().startswith(b'%PDF')
+    assert response.body() == (ROOT.parent / 'assets' / 'Luna-Zhu-Resume.pdf').read_bytes(), 'Preview serves an outdated resume'
     for anchor in page.locator('a[href^="#"]').all():
         target = anchor.get_attribute('href')
         assert page.locator(target).count() == 1, target
@@ -70,8 +73,17 @@ with sync_playwright() as p:
         page.set_viewport_size({'width': width, 'height': 900})
         page.goto('http://127.0.0.1:4173', wait_until='networkidle')
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'Overflow at {width}'
+        for key in ['aws', 'vto', 'sizing']:
+            page.locator(f'[data-case="{key}"]').click()
+            assert page.locator('#case-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} dialog overflow at {width}'
+            if width in [390, 1440]:
+                page.locator('#case-dialog').screenshot(animations="disabled", path=str(ROOT / f'{key}-details-{width}.png'))
+            page.locator('.dialog-close').click()
+            page.wait_for_function('!document.body.classList.contains("modal-open")')
         if width == 390:
             page.screenshot(animations="disabled", path=str(ROOT / 'mobile.png'), full_page=True)
+            page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-mobile.png'))
+            page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-mobile.png'))
             page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-mobile.png'))
             assert page.locator('.trajectory-prev').is_disabled()
             page.locator('.trajectory-next').click()
