@@ -108,7 +108,18 @@ The [reference portfolio](https://saadmkhan.com/index.html) informed the navigat
 
 The site is ready for any static host. Publish `index.html`, `styles.css`, `script.js`, and the `assets` directory at the same level. The ZIP alongside this project contains these files plus this README. There is no backend, database, analytics, or contact-form service to configure. Contact uses email.
 
-The current preview is local to this computer and is not publicly hosted.
+### GitHub Pages
+
+The publishing repository is [lunaxzhu-pixel/product-portfolio](https://github.com/lunaxzhu-pixel/product-portfolio). The site needs no build step, and `.nojekyll` tells GitHub Pages to serve the static files directly.
+
+To publish:
+
+1. Push the local `main` branch with `git push -u origin main`.
+2. Open the repository's **Settings → Pages**.
+3. Under **Build and deployment**, select **Deploy from a branch**, choose **main** and **/(root)**, and click **Save**.
+4. Wait for the Pages deployment to finish in the repository's **Actions** tab.
+
+Once deployed, the site URL is https://lunaxzhu-pixel.github.io/product-portfolio/. Relative asset links support this repository path. Future pushes to `main` automatically publish updates after Pages is enabled.
 
 ## Verification
 
