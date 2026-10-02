@@ -121,6 +121,22 @@ To publish:
 
 Once deployed, the site URL is https://lunaxzhu-pixel.github.io/product-portfolio/. Relative asset links support this repository path. Future pushes to `main` automatically publish updates after Pages is enabled.
 
+### Custom domain: luna-zhu.com
+
+The root `CNAME` file specifies `luna-zhu.com`. After pushing this file, confirm **Settings → Pages → Custom domain** is set to `luna-zhu.com` and saved before adding the DNS records below.
+
+In Cloudflare, select **luna-zhu.com → DNS → Records** and add these records with **DNS only** (gray cloud) and **TTL: Auto**:
+
+| Type | Name | Content |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | lunaxzhu-pixel.github.io |
+
+Once GitHub's DNS check succeeds and its certificate is issued, enable **Enforce HTTPS** in Pages settings. DNS propagation and certificate provisioning can take up to 24 hours. The resulting website address is https://luna-zhu.com/; GitHub Pages also redirects `www.luna-zhu.com` to it. Keep `CNAME` in future deployments.
+
 ## Verification
 
 For the optional browser checks on macOS, install Google Chrome in its default Applications location, start the preview in one terminal, then run in a second terminal:
