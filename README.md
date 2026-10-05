@@ -64,7 +64,7 @@ Changes appear after refreshing the browser. No compilation or build step is req
 
 ## Profile photo
 
-The homepage opens with Luna Zhu, the positioning line “AI Product Strategy | Growth | Pricing & Monetization,” the supplied introduction, and a larger oval standalone portrait from `assets/luna-zhu.png`. The photo has no surrounding card; the original image is preserved.
+The homepage opens with Luna Zhu, the positioning line “AI Product Strategy | Pricing & Monetization,” the supplied introduction, and a larger oval standalone portrait from `assets/luna-zhu.png`. The photo has no surrounding card; the original image is preserved.
 
 To update the photo, replace `assets/luna-zhu.png` or update the image source in `index.html`. Adjust `.profile-photo`'s `object-position` in `styles.css` to change its placement within the frame.
 
