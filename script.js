@@ -3,8 +3,8 @@ const cases = {
     "kicker": "AWS · Cloud infrastructure monetization · Unit economics · Pricing & GTM",
     "title": "A growth engine, built into the pricing.",
     "intro": "Pricing & Monetization for the AWS Observability Portfolio: building a commercial model that pairs predictable customer costs with sustainable infrastructure economics.",
-    "metric": "$1B+",
-    "metricLabel": "Projected total revenue over five years for the AWS observability portfolio.",
+    "metric": "100+ bps",
+    "metricLabel": "Gross-margin improvement achieved through architecture and unit-economics tradeoffs.",
     "sections": [
       [
         "The problem",
@@ -12,18 +12,18 @@ const cases = {
       ],
       [
         "The approach",
-        "Built the pricing, packaging, and monetization strategy from the ground up for a new AWS observability product portfolio with a $100M+ ARR baseline. Designed a value-metric model that aligned customer cost directly with usage scale. Structured competitive total-cost-of-ownership models, free-tier and trial strategies, and multi-tier bundling to accelerate migration from third-party tools while maintaining healthy unit economics."
+        "Built the pricing, packaging, and monetization strategy from the ground up for a new AWS observability product portfolio with an established recurring-revenue baseline. Designed a value-metric model that aligned customer cost directly with usage scale. Structured competitive total-cost-of-ownership models, free-tier and trial strategies, and multi-tier bundling to accelerate migration from third-party tools while maintaining healthy unit economics."
       ],
       [
         "The outcome",
         [
-          "Revenue and adoption — Established a model projecting $1B+ in total revenue over five years, with adoption across 1M+ business partners and enterprise customers.",
-          "Margin expansion — Improved overall portfolio operating margins by 100+ basis points by pairing efficient infrastructure architecture with predictable, tiered pricing.",
-          "Growth — Achieved annual growth rates exceeding 999%."
+          "Revenue and adoption — Established a model projecting billion-dollar-scale revenue potential, with a strategy to support business partners and enterprise customers.",
+          "Margin expansion — Helped achieve a 100+ basis-point gross-margin improvement by translating architecture tradeoffs into customer performance and unit economics.",
+          "Growth — Supported product growth through pricing, packaging, and migration strategies."
         ]
       ]
     ],
-    "note": "The $1B+ figure is projected revenue over five years. The 100+ basis-point improvement refers to portfolio operating margins.",
+    "note": "The observability opportunity is described at billion-dollar scale; exact revenue forecasts and customer counts are omitted. The 100+ basis-point figure refers to achieved gross-margin improvement.",
     "lifecycle": [
       {
         "phase": "Discover",
@@ -33,7 +33,7 @@ const cases = {
       {
         "phase": "Define",
         "title": "Monetization framework & value metrics",
-        "body": "Built pricing, packaging, and monetization from the ground up for a portfolio with a $100M+ annual recurring revenue baseline. Established six principles: cost-following pricing units, predictable billing, competitive TCO, margin-protective architecture, free-tier acquisition, and targeted migration paths."
+        "body": "Built pricing, packaging, and monetization from the ground up for a portfolio with an established recurring-revenue baseline. Established six principles: cost-following pricing units, predictable billing, competitive TCO, margin-protective architecture, free-tier acquisition, and targeted migration paths."
       },
       {
         "phase": "Design",
@@ -43,7 +43,7 @@ const cases = {
       {
         "phase": "Build",
         "title": "Cross-functional monetization infrastructure",
-        "body": "Coordinated eight teams across Engineering, Product, Finance, Business Development, and Economics to deliver automated metering, billing, and invoicing infrastructure."
+        "body": "Partnered across Engineering, Product, Finance, Business Development, and Economics to deliver automated metering, billing, and invoicing infrastructure."
       },
       {
         "phase": "Launch",
@@ -53,7 +53,7 @@ const cases = {
       {
         "phase": "Measure",
         "title": "Revenue & margin expansion",
-        "body": "Tracked customer adoption, migration velocity, revenue, and margins. Achieved annual growth rates exceeding 999% and established $1B+ in five-year projected revenue."
+        "body": "Tracked customer adoption, migration velocity, revenue, and margins. Used these measures to guide pricing, packaging, and investment decisions for a billion-dollar-scale opportunity."
       }
     ]
   },
@@ -61,16 +61,16 @@ const cases = {
     "kicker": "Amazon Fashion · GenAI applications · Product-led growth · Experimentation",
     "title": "Less uncertainty. More confident shopping.",
     "intro": "GenAI Virtual Try-On: reframing apparel visualization as a decision-support tool, validating demand through experimentation, and using unit economics to guide the rollout decision.",
-    "metric": "500K+",
-    "metricLabel": "Customers in the controlled Weblab A/B test. Full rollout was paused after the return-rate guardrail was triggered.",
+    "metric": "Large-scale",
+    "metricLabel": "Controlled Weblab A/B experiment. Broader rollout was jointly paused with senior leadership after the return-rate guardrail was triggered.",
     "sections": [
       [
         "The problem",
-        "Online apparel shoppers could not confidently predict fit or appearance. Fit-related returns accounted for 40%, while trial shopping—ordering multiple sizes or colors with the intent to return—grew 14.6% year over year to 164M trial-ordered units. Earlier 3D/AR experiences added friction: VTO for Shoes saw 1% click-through versus 20% on standard product detail pages, and 25% of users cited poor rendering quality."
+        "Online apparel shoppers could not confidently predict fit or appearance. Fit-related returns and trial shopping pointed to unresolved customer uncertainty. Historical virtual try-on adoption data and customer research revealed friction and rendering-quality limitations in earlier experiences."
       ],
       [
         "The approach",
-        "Reframed virtual try-on from an immersive gimmick into a low-friction decision-support tool. Personally prototyped four iterations of Figma UX integrated directly into the shopping flow: entry point, photo upload, side-by-side try-on, and seamless add-to-cart. Validated preferences through analysis of 13 market solutions and a 300-customer survey, leading to de-scoping non-essential features such as custom avatars. Partnered with Applied Science to evaluate proprietary diffusion models against open-source approaches, then deployed the experience through a controlled Weblab A/B test with 500K+ customers."
+        "Reframed virtual try-on from an immersive gimmick into a low-friction decision-support tool. Personally prototyped Figma UX integrated directly into the shopping flow: entry point, photo upload, side-by-side try-on, and seamless add-to-cart. Validated preferences through analysis of 13 market solutions and customer surveys, leading to de-scoping non-essential features such as custom avatars. Partnered with Applied Science to evaluate proprietary diffusion models against open-source approaches, then deployed the experience through a large-scale controlled Weblab A/B test."
       ],
       [
         "The outcome",
@@ -81,12 +81,12 @@ const cases = {
         ]
       ]
     ],
-    "note": "500K+ is experiment reach. The conversion gains did not lead to a full rollout because downstream returns failed the guardrail.",
+    "note": "The experiment was conducted at scale. The conversion gains did not lead to a full rollout because downstream returns failed the guardrail.",
     "lifecycle": [
       {
         "phase": "Discover",
         "title": "Identifying root friction via data telemetry",
-        "body": "Analyzed billion-scale purchase and return datasets and historical VTO Shoes telemetry to isolate friction and visual-realism problems. Surveyed 300 apparel shoppers to validate the sources of hesitation before adding to cart."
+        "body": "Analyzed purchase and return datasets and historical VTO Shoes telemetry to isolate friction and visual-realism problems. Surveyed apparel shoppers to validate the sources of hesitation before adding to cart."
       },
       {
         "phase": "Define",
@@ -96,7 +96,7 @@ const cases = {
       {
         "phase": "Design",
         "title": "Designing the low-friction experience",
-        "body": "Personally created four iterations of Figma prototypes, incorporating customer insights, UX tradeoffs, and L8/L10 leadership reviews. Integrated product-page entry, photo upload, side-by-side try-on, and seamless add-to-cart into the natural shopping journey."
+        "body": "Personally created Figma prototypes, incorporating customer insights, UX tradeoffs, and senior leadership reviews. Integrated product-page entry, photo upload, side-by-side try-on, and seamless add-to-cart into the natural shopping journey."
       },
       {
         "phase": "Build",
@@ -106,7 +106,7 @@ const cases = {
       {
         "phase": "Launch",
         "title": "Large-scale Weblab experimentation",
-        "body": "Ran the complete experience through a controlled Weblab A/B test with 500K+ customers, measuring engagement and purchase intent alongside downstream fulfillment impact."
+        "body": "Ran the complete experience through a large-scale controlled Weblab A/B test, measuring engagement and purchase intent alongside downstream fulfillment impact."
       },
       {
         "phase": "Measure",
@@ -118,13 +118,13 @@ const cases = {
   "sizing": {
     "kicker": "Amazon Fashion · Global platform strategy · ML recommendations · Unit economics",
     "title": "Better fit starts with better foundations.",
-    "intro": "Global Size Intelligence for FBA Apparel Sellers: turning a cross-border sizing problem into an automated ML mapping platform, from root-cause research through scaled adoption.",
+    "intro": "Global Size Intelligence for FBA Apparel Sellers: diagnosing sizing-related returns and defining a garment-based ML mapping solution, from root-cause research to a top-seller pilot.",
     "metric": "100–200 bps",
     "metricLabel": "Net sizing-defect return-rate gap isolated after category-mix normalization.",
     "sections": [
       [
         "The problem",
-        "More than 30K China FBA apparel sellers had a return rate 400 basis points higher than domestic US sellers. Historical assumptions blamed customer trial behavior or product mix. By analyzing 3B+ records, building a category-mix normalization methodology, and benchmarking against Amazon Essentials, I isolated a net 100–200 basis-point sizing-defect gap—representing 100M+ extra returned units and $200M–$500M in annual logistics costs."
+        "China FBA apparel sellers had a higher return rate than domestic US sellers. Historical assumptions blamed customer trial behavior or product mix. Through SQL analysis, category-mix normalization, and benchmarking, I isolated a 100–200 basis-point sizing-related return-rate gap and validated the root causes through seller interviews and ASIN audits."
       ],
       [
         "The approach",
@@ -133,18 +133,18 @@ const cases = {
       [
         "The outcome",
         [
-          "Cross-organizational alignment — Resolved years of regional misalignment over customer body-data access by aligning L8 leadership, US Tech, and China teams around garment-based ML recommendations.",
-          "Scaled adoption — Expanded from a 20-seller pilot to broad adoption across 30K+ China FBA sellers, with Europe and Japan on the expansion roadmap.",
-          "Customer and business impact — Expanded catalog recommendation coverage and seller adoption, reduced fit-related returns, and recovered tens of millions in annual operating margins."
+          "Cross-organizational alignment — Aligned senior leadership, U.S. Tech, and China business teams to prioritize a previously deprioritized sizing issue and pursue garment-based ML recommendations.",
+          "Pilot launch — Launched a top-seller pilot to validate usability and mapping precision and establish a path toward broader U.S. rollout.",
+          "Next steps — Defined adoption, recommendation coverage, and fit-related returns as measures for broader rollout, with potential international expansion."
         ]
       ]
     ],
-    "note": "The 100–200 basis-point figure is the diagnosed sizing gap, not the achieved reduction. The $200M–$500M estimate describes the annual cost of the identified problem, separate from the margin recovery.",
+    "note": "The 100–200 basis-point figure is the diagnosed sizing-related return-rate gap, not an achieved reduction. The solution reached a top-seller pilot; broader rollout and international expansion remain prospective.",
     "lifecycle": [
       {
         "phase": "Discover",
         "title": "Data telemetry & qualitative root-cause isolation",
-        "body": "Analyzed 3B+ records and built a category-mix normalization methodology to isolate a 100–200 basis-point sizing defect within the initial 400 basis-point return gap, representing 100M+ extra returned units and $200M–$500M in fulfillment costs. Interviewed top sellers and four Mandarin-speaking internal teams, and audited physical measurements against size charts. Found that sellers inflated measurements—for example, labeling a 31-inch waist as 37 inches because the fabric stretched. Research into GB/T 1335 and ASTM D5585 revealed deeper sizing-standard mismatches."
+        "body": "Used SQL analysis and category-mix normalization to isolate a 100–200 basis-point sizing-related return-rate gap. Interviewed sellers and Mandarin-speaking internal teams, and audited garment measurements against size charts. Identified inconsistent measurements and size mappings as root causes."
       },
       {
         "phase": "Define",
@@ -159,17 +159,17 @@ const cases = {
       {
         "phase": "Build",
         "title": "Cross-organizational alignment",
-        "body": "Aligned US Tech, China regional teams, Returns, Catalog, Seller Experience, and Applied Science. Used concrete ASIN measurement discrepancies to secure L8 leadership support and prioritize the Seller Central engineering work."
+        "body": "Aligned US Tech, China regional teams, Returns, Catalog, Seller Experience, and Applied Science. Used concrete ASIN measurement discrepancies to secure senior leadership support and prioritize the Seller Central engineering work."
       },
       {
         "phase": "Launch",
-        "title": "Phased rollout",
-        "body": "Tested usability and mapping precision with 20 top China FBA sellers, then expanded to all 30K+ China FBA sellers. Secured a roadmap for expansion to Europe and Japan."
+        "title": "Top-seller pilot",
+        "body": "Launched a top-seller pilot to evaluate usability and mapping precision, establishing a path toward broader U.S. rollout and potential international expansion."
       },
       {
         "phase": "Measure",
-        "title": "Impact & margin recovery",
-        "body": "Tracked seller adoption, size-chart completeness, and recommendation coverage. Used Weblab testing to validate downstream reductions in fit-related returns and fulfillment costs."
+        "title": "Measurement framework",
+        "body": "Defined seller adoption, size-chart completeness, recommendation coverage, and fit-related returns as measures to evaluate the pilot and guide broader rollout decisions."
       }
     ]
   }
@@ -221,7 +221,7 @@ const roles = {
     "period": "June 2021 – February 2025",
     "location": "Seattle, WA",
     "focus": "Product economics & monetization",
-    "description": "Partnered directly with the L8 GM for AWS Application Performance Monitoring to drive portfolio strategy across pricing, monetization, P&L, investment planning, and margin optimization.",
+    "description": "Partnered directly with the GM for AWS Application Performance Monitoring to drive portfolio strategy across pricing, monetization, P&L, investment planning, and margin optimization.",
     "skills": [
       "Early product roadmaps",
       "Pricing & packaging",
@@ -230,9 +230,9 @@ const roles = {
       "Portfolio strategy"
     ],
     "achievements": [
-      "Defined the early roadmap, pricing, and go-to-market strategy for a new observability product projected to generate $1B+ over five years.",
+      "Defined the early roadmap, pricing, and go-to-market strategy for a new observability product with billion-dollar-scale potential.",
       "Translated customer interviews, competitive research, usage analysis, and elasticity modeling into feature priorities and packaging decisions.",
-      "Partnered with Engineering and Applied Science on compute, storage, indexing, and data-transfer tradeoffs, improving gross margin by 100+ basis points.",
+      "Partnered with Engineering and Applied Science on compute, storage, indexing, and data-transfer tradeoffs, helping achieve a 100+ basis-point gross-margin improvement.",
       "Owned APM pricing models, discount structures, and contract economics with Product, Sales, Finance, Legal, and Economics.",
       "Repriced a service generating $50M in annual revenue and increased gross margin by 30+ percentage points."
     ],
@@ -260,11 +260,11 @@ const roles = {
     ],
     "achievements": [
       "Led 0-to-1 strategy and Figma UX prototyping for virtual try-on; de-scoped lower-value features such as custom avatars using research, historical adoption data, and benchmarking of 13 competing offerings.",
-      "Defined success and guardrail metrics and tested the end-to-end VTO experience with 500K+ customers. Made the strategic call with L8/L10 leadership to pause full rollout after elevated return-rate risk exposed fit-accuracy gaps.",
+      "Defined success and guardrail metrics and tested the end-to-end VTO experience through a large-scale Weblab A/B experiment. Made the strategic call with senior leadership to pause full rollout after elevated return-rate risk exposed fit-accuracy gaps.",
       "Partnered with Applied Science to evaluate image realism, latency, scale, development speed, and infrastructure cost, contributing to the selection of an open-source approach for early validation.",
-      "Identified a 100–200 basis-point sizing-related return gap across 30K+ China FBA sellers after category-mix normalization, quantifying 100M+ excess annual returns and $200M–$500M in associated fulfillment cost.",
+      "Diagnosed a 100–200 basis-point sizing-related return-rate gap among China FBA sellers after normalizing for category mix; traced the gap to inconsistent garment measurements and size mappings.",
       "Combined SQL analysis, seller interviews, ASIN-level audits, and GB/T versus ASTM research to define requirements for an ML-based size-mapping solution.",
-      "Aligned L8 leadership, US Tech, and China business teams around garment-based ML size mapping; expanded from a 20-seller pilot to adoption across 30K+ China FBA sellers, improving coverage and reducing fit-related returns."
+      "Aligned senior leadership, U.S. Tech, and China business teams to prioritize the sizing issue; launched a top-seller pilot to establish a path toward broader U.S. rollout and potential international expansion."
     ],
     "cases": [
       {

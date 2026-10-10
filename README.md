@@ -59,7 +59,7 @@ Changes appear after refreshing the browser. No compilation or build step is req
 - `index.html`: homepage text, career milestone cards, contact information, and resume links.
 - `script.js`: career role details, three case-study narratives, dialog behavior, timeline scrolling, mobile navigation, and email copy.
 - `styles.css`: responsive layouts, colors, and typography.
-- `assets/Luna-Zhu-Resume.pdf`: the updated `LunaZhu Resume_Product.pdf` supplied on September 30, 2026. All resume buttons link to this file.
+- `assets/Luna-Zhu-Resume.pdf`: the updated `Luna Zhu Resume_Product.pdf` supplied on October 9, 2026. All resume buttons link to this file.
 - `assets/fonts`: self-hosted DM Sans and Manrope fonts, with their SIL Open Font Licenses.
 
 ## Profile photo
@@ -84,25 +84,17 @@ Article cards live in `index.html`; their styles use `writing-` classes in `styl
 
 ## Content sources and editorial decisions
 
-Current sources (reviewed September 30, 2026): `Downloads/LunaZhu Resume_Product.pdf` and the [updated project presentation](https://docs.google.com/presentation/d/1bLC-m8F8lt2LuWG3BswLLjb3vwQher_eRsiDI-bkJj0/edit?slide=id.g3f673470032_0_55#slide=id.g3f673470032_0_55), last modified September 29, 2026. The linked AWS problem/approach/outcome slide was read directly as well as the complete deck text. The user explicitly selected the PowerPoint as the source for each case study.
+The updated `Luna Zhu Resume_Product.pdf`, supplied October 9, 2026, is the reference for public numeric detail and rollout status. The project presentation informs the qualitative case-study structure.
 
-The [reference portfolio](https://saadmkhan.com/index.html) informed the navigation, career exploration, and case-study structure. The visual design and code are original.
-
-- Positioning follows the requested senior product management and AI strategy focus. The new PDF retains a strategic-finance headline, while its updated experience emphasizes hands-on product work.
-- Employment dates and titles follow the resume. AWS end date uses February 2025 from the resume rather than January 2025 from the deck overview.
-- The $1B+ figure is a five-year AWS observability revenue projection, not realized revenue. The AWS case follows the deck’s portfolio framing, adoption figures, operating-margin improvement, and lifecycle growth result.
-- VTO now emphasizes 13 competing offerings, a 300-customer survey, four Figma prototype iterations, open-source model evaluation, and a 500K+ customer Weblab experiment.
-- The prior +10% engagement and +25% behavioral-lift claims are removed because they are not finalized in the updated source materials. Purchase-intent improvements are described qualitatively.
-- VTO remains an experiment with a paused full rollout after return-rate guardrails exposed fit-accuracy gaps. No commercial launch is implied.
-- Sizing distinguishes the initial 400 bps return gap from the 100–200 bps gap isolated after category-mix normalization. Neither is presented as an achieved return-rate reduction.
-- The sizing case uses 30K+ for the analyzed seller population and subsequent adoption, following the deck. The 100M+ excess return units and $200M–$500M cost estimate quantify the identified problem, separate from the deck’s reported recovery of tens of millions in annual operating margins.
-- **Source precedence:** the resume describes a top-seller pilot, while the deck describes rollout across 30K+ sellers. Following the user’s subsequent instruction to use the PowerPoint for each case study, the sizing case, homepage teaser, and related role achievement now follow the deck’s rollout account. EU/JP expansion remains future scope.
-- Selected work is ordered vertically: GenAI Virtual Try-On (featured), AWS monetization, then FBA Global Size Intelligence. Each project highlights three metrics and three key decisions. The accompanying concepts illustrate the try-on shopping flow, observability tiered pricing, and garment-to-size ML mapping.
-- Each case study starts with The problem, The approach, and The outcome, followed by a separate Product Development Lifecycle section. Six numbered steps preserve Discover, Define, Design, Build, Launch, and Measure from the presentation. Resume-only service repricing details remain in the career role rather than the AWS case.
-- All `xx` draft placeholders are omitted. Case-study metrics follow the supplied presentation; diagnosed gaps, costs, projected revenue, and achieved outcomes are labeled separately.
-- Point of View articles, LinkedIn links, the compact dark-green photo card, and career interactions are preserved.
-- Illustrations are conceptual artwork, not product screenshots or measured data charts.
-- Contact email, the updated resume, and the supplied LinkedIn profile are included. The profile card uses the supplied portrait.
+- Exact experiment participation, survey size, seller counts, detailed revenue forecasts, growth rates, and return-volume/cost estimates omitted from the updated resume are also omitted from the website and role dialogs.
+- Resume-retained metrics remain, including competitor benchmarks, the diagnosed sizing-related return-rate gap, gross-margin improvement, and earlier pricing and SaaS achievements.
+- AWS observability is described as a billion-dollar-scale opportunity; revenue potential is distinct from realized revenue.
+- Virtual try-on remains a large-scale experiment with broader rollout jointly paused with senior leadership after the return-rate guardrail was triggered.
+- Sizing reached a top-seller pilot. Broader U.S. rollout and potential international expansion are prospective. The diagnosed sizing gap is not an achieved return-rate reduction.
+- All three project cards include sanitized decision diagrams and prominent buttons opening detailed case studies. Diagrams reconstruct the decision logic rather than reproducing internal interfaces.
+- Mobile shows the latest career role first; desktop and laptop retain chronological order.
+- The resume asset is replaced with the supplied PDF unchanged. Its link includes a version query to bypass older browser caches.
+- Contact details, articles, LinkedIn links, portrait, and case-study interactions are preserved.
 
 ## Hosting
 

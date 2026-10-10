@@ -56,7 +56,8 @@ with sync_playwright() as p:
     assert 'Amazon Retail' in page.locator('.career-company').inner_text()
     page.locator('.dialog-done').click()
     page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-desktop.png'))
-    response = context.request.get('http://127.0.0.1:4173/assets/Luna-Zhu-Resume.pdf')
+    resume_link = page.locator('a:has-text("View resume")').get_attribute('href')
+    response = context.request.get('http://127.0.0.1:4173/' + resume_link)
     assert response.status == 200 and response.body().startswith(b'%PDF')
     assert response.body() == (ROOT.parent / 'assets' / 'Luna-Zhu-Resume.pdf').read_bytes(), 'Preview serves an outdated resume'
     for anchor in page.locator('a[href^="#"]').all():

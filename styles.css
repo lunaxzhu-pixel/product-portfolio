@@ -218,7 +218,7 @@
 
 /* Sanitized product flow and descriptive project labels. */
 .project-copy>p.project-label{font-size:12px;font-weight:700;letter-spacing:.025em;color:var(--ink);margin:0 0 12px;line-height:1.5}
-.work-section>.project.featured .decision-visual{margin:0;padding:32px 28px;height:auto;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.work-section .project .project-visual.decision-visual{margin:0;padding:32px 28px;height:auto;min-height:0;display:flex;flex-direction:column;justify-content:center}
 .decision-visual figcaption>.eyebrow{font-size:9px;letter-spacing:.1em;color:#435647}
 .decision-visual h4{font-family:Manrope,Arial,sans-serif;font-size:24px;line-height:1.25;letter-spacing:-.04em;font-weight:500;margin:14px 0 10px}
 .decision-visual figcaption>p{font-size:11px;line-height:1.65;color:#435647}
@@ -235,4 +235,12 @@
 .flow-decision .eyebrow{color:#d4e6ac;font-size:9px;margin-bottom:7px;display:block}
 .flow-decision strong{display:block;font-family:Manrope,Arial,sans-serif;font-size:19px;line-height:1.4;font-weight:500}
 .flow-decision p{color:#e1e9d9}
-@media(max-width:600px){.work-section>.project.featured .decision-visual{padding:26px 22px;height:auto}.decision-visual h4{font-size:23px}.project-copy>p.project-label{font-size:12px}}
+@media(max-width:600px){.work-section .project .project-visual.decision-visual{padding:26px 22px;height:auto}.decision-visual h4{font-size:23px}.project-copy>p.project-label{font-size:12px}}
+
+.work-section .project .sizing-visual-flow{background:#eae6da}
+.case-study-button{display:flex;align-items:center;justify-content:space-between;gap:24px;align-self:flex-start;max-width:100%;margin-top:26px;padding:16px 20px;border:1px solid var(--ink);border-radius:9px;background:var(--ink);color:#fff;text-align:left;font-size:14px;font-weight:600;line-height:1.5;box-shadow:0 3px 8px #193e3512;transition:background .2s,transform .2s}
+.case-study-button small{display:block;font-size:11px;font-weight:400;color:#e1e9d9;margin-top:3px}
+.case-button-arrow{font-size:24px;line-height:1}
+.case-study-button:hover{background:#2c5746;transform:translateY(-2px)}
+.case-study-button:focus-visible{outline:3px solid #798c3e;outline-offset:5px}
+@media(max-width:600px){.case-study-button{width:100%;gap:16px;padding:16px}}
