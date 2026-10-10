@@ -428,6 +428,23 @@ document.querySelectorAll('[data-role]').forEach(button => button.addEventListen
 const trajectoryScroll = document.querySelector('#trajectory-scroll');
 const earlierRole = document.querySelector('.trajectory-prev');
 const laterRole = document.querySelector('.trajectory-next');
+const trajectoryTrack = document.querySelector('.trajectory-track');
+const chronologicalMilestones = [...trajectoryTrack.children];
+chronologicalMilestones.forEach((milestone, index) => milestone.dataset.chronologicalOrder = index + 1);
+const mobileTrajectory = window.matchMedia('(max-width: 600px)');
+function updateTrajectoryOrder() {
+  const mobile = mobileTrajectory.matches;
+  trajectoryTrack.append(...(mobile ? [...chronologicalMilestones].reverse() : chronologicalMilestones));
+  trajectoryScroll.setAttribute('aria-label', `Career milestones, ordered from ${mobile ? 'latest to earliest' : 'earliest to latest'}`);
+  document.querySelector('.trajectory-toolbar > span').innerHTML = mobile
+    ? 'TODAY <span aria-hidden="true">→</span> 2015'
+    : '2015 <span aria-hidden="true">→</span> TODAY';
+  earlierRole.setAttribute('aria-label', mobile ? 'Scroll to later roles' : 'Scroll to earlier roles');
+  laterRole.setAttribute('aria-label', mobile ? 'Scroll to earlier roles' : 'Scroll to later roles');
+  trajectoryScroll.scrollLeft = 0;
+  updateTrajectoryControls();
+}
+mobileTrajectory.addEventListener('change', updateTrajectoryOrder);
 function updateTrajectoryControls() {
   const maxScroll = trajectoryScroll.scrollWidth - trajectoryScroll.clientWidth;
   document.querySelector('.trajectory-controls').hidden = maxScroll < 2;
@@ -443,7 +460,7 @@ earlierRole.addEventListener('click', () => scrollTrajectory(-1));
 laterRole.addEventListener('click', () => scrollTrajectory(1));
 trajectoryScroll.addEventListener('scroll', updateTrajectoryControls, { passive: true });
 window.addEventListener('resize', updateTrajectoryControls);
-updateTrajectoryControls();
+updateTrajectoryOrder();
 if ('IntersectionObserver' in window) {
   const trajectoryObserver = new IntersectionObserver(entries => {
     if (entries.some(entry => entry.isIntersecting)) {

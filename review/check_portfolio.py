@@ -73,6 +73,8 @@ with sync_playwright() as p:
         page.set_viewport_size({'width': width, 'height': 900})
         page.goto('http://127.0.0.1:4173', wait_until='networkidle')
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'Overflow at {width}'
+        expected_roles = ['amazon', 'aws', 'internet-brands', 'rrd'] if width <= 600 else ['rrd', 'internet-brands', 'aws', 'amazon']
+        assert page.locator('.trajectory-track [data-role]').evaluate_all('(buttons) => buttons.map(button => button.dataset.role)') == expected_roles
         for key in ['aws', 'vto', 'sizing']:
             page.locator(f'[data-case="{key}"]').click()
             assert page.locator('#case-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} dialog overflow at {width}'

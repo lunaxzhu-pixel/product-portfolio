@@ -178,18 +178,18 @@
 /* Grow each milestone card along the career timeline. */
 .trajectory-track{grid-template-columns:minmax(190px,.75fr) minmax(220px,.9fr) minmax(270px,1.15fr) minmax(310px,1.35fr);gap:18px;min-width:1100px}
 .trajectory-track:before{left:9%;right:16%}
-.trajectory-track li:nth-child(1) .milestone-card{min-height:310px}
-.trajectory-track li:nth-child(2) .milestone-card{min-height:345px}
-.trajectory-track li:nth-child(3) .milestone-card{min-height:380px}
-.trajectory-track li:nth-child(4) .milestone-card{min-height:415px}
+.trajectory-track li[data-chronological-order="1"] .milestone-card{min-height:310px}
+.trajectory-track li[data-chronological-order="2"] .milestone-card{min-height:345px}
+.trajectory-track li[data-chronological-order="3"] .milestone-card{min-height:380px}
+.trajectory-track li[data-chronological-order="4"] .milestone-card{min-height:415px}
 .milestone-expanded .milestone-tag{margin-top:14px}
-.trajectory-track li:nth-child(1) .milestone-company{font-size:21px}
-.trajectory-track li:nth-child(2) .milestone-company{font-size:23px}
-.trajectory-track li:nth-child(3) .milestone-company{font-size:26px}
-.trajectory-track li:nth-child(4) .milestone-company{font-size:29px}
-.trajectory-track li:nth-child(2) .milestone-card{background:#f3f6ed}
-.trajectory-track li:nth-child(3) .milestone-card{background:#ebf1e3}
-.trajectory-track li:nth-child(4) .milestone-card{background:#e4edda}
+.trajectory-track li[data-chronological-order="1"] .milestone-company{font-size:21px}
+.trajectory-track li[data-chronological-order="2"] .milestone-company{font-size:23px}
+.trajectory-track li[data-chronological-order="3"] .milestone-company{font-size:26px}
+.trajectory-track li[data-chronological-order="4"] .milestone-company{font-size:29px}
+.trajectory-track li[data-chronological-order="2"] .milestone-card{background:#f3f6ed}
+.trajectory-track li[data-chronological-order="3"] .milestone-card{background:#ebf1e3}
+.trajectory-track li[data-chronological-order="4"] .milestone-card{background:#e4edda}
 @media(max-width:800px){.trajectory-track{grid-template-columns:minmax(210px,.75fr) minmax(240px,.9fr) minmax(280px,1.15fr) minmax(320px,1.35fr);min-width:1150px}.trajectory-track:before{left:9%;right:16%}}
 
 /* Show each project in its own full-width row and give each visual its context. */
@@ -213,3 +213,26 @@
 .work-section .sizing-composition .size-caption{display:block;position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:8px;line-height:1.4;letter-spacing:.1em;color:#615e4a}
 @media(max-width:800px){.work-section .project-grid .project{grid-template-columns:.72fr 1.28fr}}
 @media(max-width:600px){.work-section>.project.featured{grid-template-columns:1fr}.work-section>.project.featured .project-visual{height:230px;min-height:0}.work-section .project-grid .project{grid-template-columns:1fr}.work-section .project-grid .compact .project-visual{height:220px;min-height:0}.project-metrics{gap:6px}.project-metrics>div{padding:7px;min-height:72px}.project-metrics strong{font-size:12px}.project-metrics span{font-size:7px}.project-decisions li{font-size:11px}}
+
+@media(max-width:600px){.trajectory-track{grid-template-columns:minmax(320px,1.35fr) minmax(280px,1.15fr) minmax(240px,.9fr) minmax(210px,.75fr)}.trajectory-track:before{left:16%;right:9%;background:linear-gradient(90deg,#325741,#bccca7)}}
+
+/* Sanitized product flow and descriptive project labels. */
+.project-copy>p.project-label{font-size:12px;font-weight:700;letter-spacing:.025em;color:var(--ink);margin:0 0 12px;line-height:1.5}
+.work-section>.project.featured .decision-visual{margin:0;padding:32px 28px;height:auto;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.decision-visual figcaption>.eyebrow{font-size:9px;letter-spacing:.1em;color:#435647}
+.decision-visual h4{font-family:Manrope,Arial,sans-serif;font-size:24px;line-height:1.25;letter-spacing:-.04em;font-weight:500;margin:14px 0 10px}
+.decision-visual figcaption>p{font-size:11px;line-height:1.65;color:#435647}
+.tryon-flow{list-style:none;margin:24px 0;padding:0;display:grid;gap:10px}
+.tryon-flow li{display:flex;align-items:flex-start;gap:12px;padding:13px 12px;background:#f8faf3;border:1px solid #cbd5c3;border-radius:9px;position:relative}
+.tryon-flow li+li:before{content:'';position:absolute;height:11px;width:1px;background:#829777;top:-11px;left:25px}
+.flow-number{font-size:10px;font-weight:700;line-height:24px;flex-shrink:0;width:26px;text-align:center;border-radius:50%;background:#e0e8d5}
+.tryon-flow strong,.flow-evaluation>strong{display:block;font-size:12px;line-height:1.5;font-weight:600}
+.tryon-flow p,.flow-decision p{font-size:11px;line-height:1.65;margin-top:4px;color:#435647}
+.flow-evaluation{text-align:center;border-top:1px solid #bdcbb3;padding-top:20px}
+.flow-evaluation>.eyebrow{font-size:9px;letter-spacing:.08em;display:block;margin-bottom:10px}
+.flow-arrow{display:block;font-size:22px;margin:6px 0;color:#435647}
+.flow-decision{background:var(--ink);border-radius:9px;padding:16px;color:#f7f8f2;text-align:left}
+.flow-decision .eyebrow{color:#d4e6ac;font-size:9px;margin-bottom:7px;display:block}
+.flow-decision strong{display:block;font-family:Manrope,Arial,sans-serif;font-size:19px;line-height:1.4;font-weight:500}
+.flow-decision p{color:#e1e9d9}
+@media(max-width:600px){.work-section>.project.featured .decision-visual{padding:26px 22px;height:auto}.decision-visual h4{font-size:23px}.project-copy>p.project-label{font-size:12px}}
