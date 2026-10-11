@@ -2,7 +2,7 @@ const cases = {
   "aws": {
     "kicker": "AWS · Cloud infrastructure monetization · Unit economics · Pricing & GTM",
     "title": "A growth engine, built into the pricing.",
-    "intro": "Pricing & Monetization for the AWS Observability Portfolio: building a commercial model that pairs predictable customer costs with sustainable infrastructure economics.",
+    "intro": "I owned pricing and monetization strategy for AWS observability, shaping the early roadmap, packaging, and GTM while partnering on infrastructure economics.",
     "metric": "100+ bps",
     "metricLabel": "Gross-margin improvement achieved through architecture and unit-economics tradeoffs.",
     "sections": [
@@ -12,14 +12,13 @@ const cases = {
       ],
       [
         "The approach",
-        "Built the pricing, packaging, and monetization strategy from the ground up for a new AWS observability product portfolio with an established recurring-revenue baseline. Designed a value-metric model that aligned customer cost directly with usage scale. Structured competitive total-cost-of-ownership models, free-tier and trial strategies, and multi-tier bundling to accelerate migration from third-party tools while maintaining healthy unit economics."
+        "Aligned pricing units with customer usage and value. Used competitive TCO research, elasticity modeling, and customer interviews to shape predictable tiers, free trials, and bundles. Partnered on architecture choices to protect unit economics."
       ],
       [
         "The outcome",
         [
           "Revenue and adoption — Established a model projecting billion-dollar-scale revenue potential, with a strategy to support business partners and enterprise customers.",
-          "Margin expansion — Helped achieve a 100+ basis-point gross-margin improvement by translating architecture tradeoffs into customer performance and unit economics.",
-          "Growth — Supported product growth through pricing, packaging, and migration strategies."
+          "Margin expansion — Helped achieve a 100+ basis-point gross-margin improvement by translating architecture tradeoffs into customer performance and unit economics."
         ]
       ]
     ],
@@ -60,7 +59,7 @@ const cases = {
   "vto": {
     "kicker": "Amazon Fashion · GenAI applications · Product-led growth · Experimentation",
     "title": "Less uncertainty. More confident shopping.",
-    "intro": "GenAI Virtual Try-On: reframing apparel visualization as a decision-support tool, validating demand through experimentation, and using unit economics to guide the rollout decision.",
+    "intro": "I led GenAI virtual try-on strategy, MVP prioritization, and Figma UX prototyping, using customer research and controlled experimentation to guide the rollout decision.",
     "metric": "Large-scale",
     "metricLabel": "Controlled Weblab A/B experiment. Broader rollout was jointly paused with senior leadership after the return-rate guardrail was triggered.",
     "sections": [
@@ -70,7 +69,7 @@ const cases = {
       ],
       [
         "The approach",
-        "Reframed virtual try-on from an immersive gimmick into a low-friction decision-support tool. Personally prototyped Figma UX integrated directly into the shopping flow: entry point, photo upload, side-by-side try-on, and seamless add-to-cart. Validated preferences through analysis of 13 market solutions and customer surveys, leading to de-scoping non-essential features such as custom avatars. Partnered with Applied Science to evaluate proprietary diffusion models against open-source approaches, then deployed the experience through a large-scale controlled Weblab A/B test."
+        "Embedded photo upload, side-by-side try-on, and add-to-cart in the existing shopping flow. Customer surveys and 13 competitor benchmarks informed MVP priorities and the decision to exclude custom avatars. Partnered with Applied Science on model selection and tested the experience in a large-scale Weblab A/B experiment."
       ],
       [
         "The outcome",
@@ -118,7 +117,7 @@ const cases = {
   "sizing": {
     "kicker": "Amazon Fashion · Global platform strategy · ML recommendations · Unit economics",
     "title": "Better fit starts with better foundations.",
-    "intro": "Global Size Intelligence for FBA Apparel Sellers: diagnosing sizing-related returns and defining a garment-based ML mapping solution, from root-cause research to a top-seller pilot.",
+    "intro": "I diagnosed sizing-related returns, defined requirements for garment-based ML mapping, and aligned U.S. Tech and China business teams around a top-seller pilot.",
     "metric": "100–200 bps",
     "metricLabel": "Net sizing-defect return-rate gap isolated after category-mix normalization.",
     "sections": [
@@ -128,7 +127,7 @@ const cases = {
       ],
       [
         "The approach",
-        "Conducted one-on-one interviews with top FBA sellers and found that sellers inflated size-chart measurements to keep shoppers from perceiving garments as too small, inadvertently driving returns. Research into GB/T 1335 versus ASTM D5585 standards revealed deeper size-mapping disconnects. Reframed the issue from regional compliance into a global ML platform opportunity: sellers provide raw garment measurements in Seller Central, and an ML model recommends optimal US size mappings."
+        "Seller interviews and ASIN audits traced the gap to inconsistent garment measurements and size mappings. I reframed the issue as a garment-based ML platform opportunity: sellers provide raw dimensions in Seller Central, and the model recommends U.S. size mappings without requiring customer body data."
       ],
       [
         "The outcome",
@@ -480,7 +479,13 @@ function setMenu(open) {
 }
 menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
 navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
+    const focusInNavigation = navigation.contains(document.activeElement);
+    setMenu(false);
+    if (focusInNavigation) menu.focus({ preventScroll: true });
+  }
+});
 document.addEventListener('click', event => { if (!event.target.closest('.nav')) setMenu(false); });
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
