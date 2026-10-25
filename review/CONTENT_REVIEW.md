@@ -76,3 +76,16 @@ Existing qualitative accounts still warrant review before a production release: 
 The existing resume is unchanged and retains details omitted from website copy. Financial values, customer counts, internal platform naming, team counts, and approval ranks remain excluded from the case narratives. The precise later-bundle month remains unverified and omitted.
 
 This refinement is authorized for the review branch and an external Preview only. It must not merge to main or update production. Use `PORTFOLIO_BASE_URL=<preview-url> .venv/bin/python review/check_portfolio.py` to run the same checks against the deployed preview.
+
+
+## Product Development Lifecycle expansion
+
+The five cards, their decision previews, all seven existing overview sections, project diagrams, and public milestones are preserved. Each detailed case adds six numbered stages with a focus question, personal contribution, methods/evidence, decision/tradeoff, and supported result or next step. The pivotal stage differs by project: VTO measurement/no-go, sizing requirements, Application Signals prioritization, X-Ray model definition, and internal-platform buy-in.
+
+A keyboard-accessible jump opens the lifecycle reading position; a return control goes back to the overview. Focus stays inside the native dialog, the sticky header does not cover the lifecycle heading, and scrolling respects reduced-motion preferences. Mobile stages stack with 14px body text.
+
+New private survey/prototyping counts, directional experiment results, a specific follow-on roadmap commitment, executive ranks, exact later-bundling date, and financial outcomes are excluded pending authorization. Qualitative methods derive from the user's supplied material, not fabricated artifacts. The sizing conversion is explained conditionally on comparable measurement bases; no new significance or causality is asserted. Detailed pending claims and evidence gaps are recorded in the ignored local disclosure ledger.
+
+This update remains review-branch / Preview only. The resume and production domain configuration are unchanged.
+
+Validation of the lifecycle addition passed at 320, 390, 600, 601, 700, 768, 800, 1024, and 1440px. The suite verifies six stages per case, all four stage detail fields, pivotal-decision emphasis, jump/return focus, visible jump targets below the sticky header, reduced-motion scrolling, all existing navigation, and overflow. Desktop and 390px lifecycle screenshots were visually reviewed. JavaScript syntax and diff checks passed; the static project has no separate build/lint/type-check commands.

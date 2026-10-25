@@ -8,6 +8,13 @@ BASE_URL = os.environ.get('PORTFOLIO_BASE_URL', 'http://127.0.0.1:4173').rstrip(
 CASE_KEYS = ['vto', 'sizing', 'aws', 'xray', 'internal-platform']
 CASE_NAMES = ['GenAI Virtual Try-On', 'Global Size Intelligence', 'CloudWatch Application Signals', 'AWS X-Ray Repricing', 'AWS Internal Usage Platform']
 HEADINGS = ['Problem', 'Ownership', 'Insights', 'Product Decisions', 'Execution', 'Outcomes', 'Lessons & Tradeoffs']
+LIFECYCLE_PHASES = {
+    'vto': ['Discover', 'Define', 'Design', 'Build', 'Launch', 'Measure'],
+    'sizing': ['Discover', 'Diagnose', 'Define', 'Build', 'Pilot', 'Measure'],
+    'aws': ['Discover', 'Define', 'Prioritize', 'Build', 'Launch', 'Iterate'],
+    'xray': ['Diagnose', 'Evaluate', 'Define', 'Align', 'Implement', 'Measure'],
+    'internal-platform': ['Discover', 'Size Opportunity', 'Secure Buy-in', 'Build', 'Launch', 'Scale'],
+}
 VIEWPORTS = [320, 390, 600, 601, 700, 768, 800, 1024, 1440]
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless=True)
@@ -33,6 +40,16 @@ with sync_playwright() as p:
         assert len(page.locator('#case-title').inner_text()) > 10
         assert page.locator('.case-section h3').all_text_contents() == HEADINGS
         assert page.locator('#case-content').get_attribute('data-active-case') == key
+        assert page.locator('.case-lifecycle h3').inner_text() == 'Product Development Lifecycle'
+        assert page.locator('.lifecycle-phase').all_text_contents() == LIFECYCLE_PHASES[key]
+        assert page.locator('.lifecycle-points > li').count() == 24
+        assert page.locator('.lifecycle-stage.is-pivotal').count() == 1
+        assert page.locator('#work .case-lifecycle').count() == 0
+        page.locator('.lifecycle-jump').focus()
+        page.keyboard.press('Enter')
+        assert page.locator('.case-lifecycle h3').evaluate('(e) => e === document.activeElement')
+        page.locator('.lifecycle-back').click()
+        assert page.locator('#case-title').evaluate('(e) => e === document.activeElement')
         page.locator('.case-framework summary').click()
         assert page.locator('.case-framework').get_attribute('open') is not None
         assert page.locator('.case-framework figure').is_visible()
@@ -150,6 +167,19 @@ with sync_playwright() as p:
         for key in CASE_KEYS:
             page.locator(f'[data-case="{key}"]').click()
             assert page.locator('#case-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} dialog overflow at {width}'
+            for stage in page.locator('.lifecycle-stage').all():
+                assert stage.evaluate('(e) => e.scrollWidth <= e.clientWidth + 1'), f'{key} lifecycle overflow at {width}'
+            if width == 390:
+                for point in page.locator('.lifecycle-points > li').all():
+                    assert point.evaluate('(e) => parseFloat(getComputedStyle(e).fontSize) >= 14')
+                page.locator('.lifecycle-jump').click()
+                page.wait_for_function('document.querySelector("#case-dialog").scrollTop > 100')
+                page.wait_for_function('''() => {
+                    const heading = document.querySelector('.case-lifecycle h3').getBoundingClientRect();
+                    const top = document.querySelector('.dialog-top').getBoundingClientRect();
+                    return heading.top >= top.bottom && heading.bottom <= document.querySelector('#case-dialog').getBoundingClientRect().bottom;
+                }''')
+                page.locator('.lifecycle-back').click()
             page.locator('.case-framework summary').click()
             if width == 390:
                 for label in page.locator('.case-framework .framework-node p, .case-framework .tryon-flow p, .case-framework .framework-lane li, .case-framework .framework-stages p').all():
@@ -198,6 +228,11 @@ with sync_playwright() as p:
     page.locator('[data-case="internal-platform"]').focus()
     page.keyboard.press('Enter')
     assert page.locator('#case-dialog').evaluate('(d) => d.open')
+    page.locator('.lifecycle-jump').click()
+    assert page.locator('.case-lifecycle h3').evaluate('(e) => e === document.activeElement')
+    assert page.locator('#case-dialog').evaluate('(d) => d.scrollTop > 100')
+    page.locator('.lifecycle-back').click()
+    assert page.locator('#case-dialog').evaluate('(d) => d.scrollTop === 0')
     page.keyboard.press('Escape')
     page.wait_for_function('!document.body.classList.contains("modal-open")')
     assert page.locator('[data-case="internal-platform"]').evaluate('(e) => e === document.activeElement')
@@ -212,5 +247,5 @@ with sync_playwright() as p:
     for asset in ['assets/favicon.svg', 'assets/luna-zhu.png', 'styles.css', 'script.js']:
         assert context.request.get(BASE_URL + '/' + asset).status == 200, asset
     assert not errors, errors
-    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
+    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['30 lifecycle stages', 'lifecycle jump and return focus', 'lifecycle mobile readability', 'lifecycle reduced-motion scrolling', 'five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
     browser.close()

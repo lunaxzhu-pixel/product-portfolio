@@ -309,6 +309,48 @@ function openRole(key) {
   dialog.scrollTop = 0;
   document.querySelector('.dialog-close').focus({ preventScroll: true });
 }
+function renderLifecycle(key) {
+  const lifecycle = cases[key].lifecycle;
+  const section = addElement('section', 'case-lifecycle');
+  section.id = `lifecycle-${key}`;
+  const headingId = `lifecycle-${key}-title`;
+  section.setAttribute('aria-labelledby', headingId);
+  const header = addElement('header', 'lifecycle-header', undefined, section);
+  addElement('p', 'eyebrow', 'FROM EVIDENCE TO EXECUTION', header);
+  const heading = addElement('h3', '', 'Product Development Lifecycle', header);
+  heading.id = headingId;
+  heading.tabIndex = -1;
+  addElement('p', 'lifecycle-intro', lifecycle.intro, header);
+  const stages = addElement('ol', 'lifecycle-stages', undefined, section);
+  stages.setAttribute('role', 'list');
+  lifecycle.stages.forEach((stage, index) => {
+    const pivotal = index === lifecycle.highlight;
+    const item = addElement('li', `lifecycle-stage${pivotal ? ' is-pivotal' : ''}`, undefined, stages);
+    const stageHeader = addElement('header', 'lifecycle-stage-header', undefined, item);
+    addElement('span', 'lifecycle-number', String(index + 1).padStart(2, '0'), stageHeader).setAttribute('aria-hidden', 'true');
+    const title = addElement('div', '', undefined, stageHeader);
+    if (pivotal) addElement('p', 'eyebrow', 'PIVOTAL DECISION', title);
+    const stageTitle = addElement('h4', '', undefined, title);
+    addElement('span', 'lifecycle-phase', stage.phase, stageTitle);
+    stageTitle.append(document.createTextNode(` — ${stage.title}`));
+    const body = addElement('div', 'lifecycle-stage-body', undefined, item);
+    addElement('p', 'lifecycle-focus', stage.focus, body);
+    const points = addElement('ul', 'lifecycle-points', undefined, body);
+    [['My contribution', stage.work], ['Methods & evidence', stage.method], ['Decision & tradeoff', stage.decision], ['Result / next step', stage.result]].forEach(([label, text]) => {
+      const point = addElement('li', label === 'Decision & tradeoff' ? 'lifecycle-decision' : '', undefined, points);
+      addElement('strong', '', label + ': ', point);
+      point.append(document.createTextNode(text));
+    });
+  });
+  const back = addElement('button', 'lifecycle-back', 'Back to case overview ↑', section);
+  back.type = 'button';
+  back.addEventListener('click', () => {
+    document.querySelector('#case-title').focus({ preventScroll: true });
+    dialog.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
+  return section;
+}
+
 function renderCase(key) {
   const item = cases[key];
   if (!item) return;
@@ -317,8 +359,18 @@ function renderCase(key) {
   const add = (tag, className, text, parent = content) => addElement(tag, className, text, parent);
   add('p', 'case-kicker', item.kicker);
   add('p', 'case-project-name', item.name);
-  add('h2', '', item.title).id = 'case-title';
+  const title = add('h2', '', item.title);
+  title.id = 'case-title';
+  title.tabIndex = -1;
   add('p', 'case-deck', item.intro);
+  const lifecycleJump = add('button', 'lifecycle-jump', 'Explore the product development lifecycle ↓');
+  lifecycleJump.type = 'button';
+  lifecycleJump.setAttribute('aria-controls', `lifecycle-${key}`);
+  lifecycleJump.addEventListener('click', () => {
+    const target = document.querySelector(`#lifecycle-${key}-title`);
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
   const stat = add('div', 'case-stat', '');
   add('strong', '', item.metric, stat);
   add('span', '', item.metricLabel, stat);
@@ -343,6 +395,7 @@ function renderCase(key) {
       body.forEach(text => add('li', '', text, list));
     } else add('p', '', body, section);
   }
+  content.append(renderLifecycle(key));
   if (item.sources && item.sources.length) {
     const sources = add('div', 'case-sources', '');
     add('span', 'eyebrow', 'PUBLIC PRODUCT CONTEXT', sources);
