@@ -136,7 +136,7 @@ function renderDecisionDiagram(key, scope) {
   if (diagram.sources) {
     const sources = addElement('div', 'framework-sources', undefined, figure);
     diagram.sources.forEach(pair => node(pair, sources));
-    addElement('p', 'framework-connector', 'Two evidence sources → one product requirement', figure);
+    addElement('p', 'framework-connector', 'Evidence → requirements', figure);
   }
   if (diagram.options) {
     const options = addElement('div', 'framework-options', undefined, figure);
@@ -182,6 +182,27 @@ function renderDecisionDiagram(key, scope) {
   return figure;
 }
 
+function renderDecisionPreview(key) {
+  const item = cases[key];
+  const preview = item.preview;
+  const figure = addElement('figure', `project-visual decision-visual decision-framework decision-preview diagram-${item.diagram.variant}`);
+  const titleId = `card-${key}-diagram-title`;
+  figure.setAttribute('aria-labelledby', titleId);
+  const caption = addElement('figcaption', '', undefined, figure);
+  addElement('span', 'eyebrow', 'THE PRODUCT CHOICE', caption);
+  addElement('h4', '', preview.title, caption).id = titleId;
+  const choices = addElement('dl', 'preview-choices', undefined, figure);
+  preview.steps.forEach(([label, text]) => {
+    const step = addElement('div', '', undefined, choices);
+    addElement('dt', '', label, step);
+    addElement('dd', '', text, step);
+  });
+  const tradeoff = addElement('div', 'flow-decision', undefined, figure);
+  addElement('span', 'eyebrow', 'THE TRADEOFF', tradeoff);
+  addElement('strong', '', preview.tradeoff, tradeoff);
+  return figure;
+}
+
 function renderWork() {
   const container = document.querySelector('#project-list');
   const jumpLinks = document.querySelector('#work-index');
@@ -200,7 +221,6 @@ function renderWork() {
     item.category.forEach(tag => addElement('span', '', tag, tags));
     addElement('p', 'project-label', item.name, copy);
     addElement('h3', '', item.title, copy).id = `project-${key}-title`;
-    addElement('p', 'project-summary', item.summary, copy);
     const ownership = addElement('p', 'project-ownership', undefined, copy);
     addElement('strong', '', 'My ownership: ', ownership);
     ownership.append(document.createTextNode(item.ownership));
@@ -221,7 +241,7 @@ function renderWork() {
     const label = addElement('span', '', 'Read the full case study', button);
     addElement('small', '', 'Decisions, delivery & outcomes', label);
     addElement('span', 'case-button-arrow', '→', button).setAttribute('aria-hidden', 'true');
-    card.append(renderDecisionDiagram(key, 'card'));
+    card.append(renderDecisionPreview(key));
   });
 }
 renderWork();
@@ -315,6 +335,8 @@ function renderCase(key) {
   framework.append(renderDecisionDiagram(key, 'detail'));
   for (const [heading, body] of item.sections) {
     const section = add('section', 'case-section', '');
+    if (heading === 'Product Decisions') section.classList.add('case-key-decision');
+    if (heading === 'Lessons & Tradeoffs') section.classList.add('case-key-tradeoff');
     add('h3', '', heading, section);
     if (Array.isArray(body)) {
       const list = add('ul', '', '', section);

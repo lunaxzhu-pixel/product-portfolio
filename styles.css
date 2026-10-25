@@ -316,6 +316,29 @@
 .case-pagination button:not(:disabled):hover{background:#dce8ce}
 .case-sources{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
 .case-sources a{font-size:12px;line-height:1.6}
+.decision-preview{justify-content:center}
+.decision-preview figcaption{margin-bottom:22px}
+.preview-choices{display:grid;gap:20px;margin:0 0 26px}
+.preview-choices>div{padding-left:15px;border-left:2px solid #a5b596;min-width:0}
+.preview-choices dt{font-size:13px;font-weight:600;line-height:1.5;color:var(--ink)}
+.preview-choices dd{margin:6px 0 0;font-size:15px;line-height:1.65;color:#435647}
+.decision-preview .flow-decision{margin-top:0}
+.case-key-decision{padding:20px;border-left:3px solid #789169;border-radius:0 9px 9px 0;background:#edf2e5}
+.case-key-tradeoff{padding-top:20px;border-top:2px solid #c6bea4}
 @media(max-width:1000px){.work-section .project-grid .project .project-copy,.work-section .project-grid .project .decision-framework{padding:26px 24px}.framework-lanes{gap:9px}}
 @media(max-width:700px){.work-section .project-grid .project{grid-template-columns:1fr}.work-section .project-grid .project .decision-framework{padding:26px 24px}.case-study-button{width:100%}.work-index{gap:8px}.work-index a{flex:1 1 145px}.case-framework .decision-framework{padding:18px}.framework-lane li{padding:12px 9px}}
+@media(max-width:600px){
+  .decision-framework .framework-node strong,.decision-framework .framework-node p,
+  .decision-framework .tryon-flow strong,.decision-framework .tryon-flow p,
+  .decision-framework .framework-lane li,.decision-framework .framework-stages strong,
+  .decision-framework .framework-stages p,.decision-framework figcaption>p{font-size:14px;line-height:1.6}
+  .decision-framework .eyebrow,.framework-connector{font-size:11px;line-height:1.6}
+  .framework-sources,.framework-branches,.framework-options{grid-template-columns:1fr}
+  .framework-options .framework-node{text-align:left;padding:12px}
+  .framework-lane>.eyebrow{min-height:36px;font-size:11px}
+  .framework-lane li{min-height:72px;overflow-wrap:normal}
+  .case-key-decision{padding:16px}
+  .case-section p,.case-section li{font-size:14px}
+  .case-framework>summary{min-height:48px;display:list-item}
+}
 @media(max-width:360px){.framework-sources,.framework-branches,.framework-lanes{grid-template-columns:1fr}.framework-options{grid-template-columns:1fr}.framework-options .framework-node{text-align:left}.case-milestones{grid-template-columns:1fr;gap:0}.case-pagination{grid-template-columns:1fr}.framework-lane>.eyebrow{min-height:0}.hero-domains{font-size:8px}}

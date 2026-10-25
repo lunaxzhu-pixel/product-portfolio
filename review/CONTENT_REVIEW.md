@@ -13,7 +13,7 @@
 
 `case-studies.js` is the shared data source for the five full-width cards and detailed cases. Explicit ordering is VTO, sizing, Application Signals, X-Ray, internal usage platform. The fifth name follows the user's preference for descriptive public naming.
 
-Each case has a category, headline, summary, precise ownership, three evidence points, seven narrative sections, and a distinct framework. Card and dialog diagrams use the same data and renderer. All five preserve the established style and mobile summary-first ordering. Details include expandable frameworks and previous/next navigation.
+Each case has a category, headline, summary, precise ownership, three evidence points, seven narrative sections, and a distinct framework. Overview cards use concise decision previews; dialogs retain the detailed project-specific frameworks. All five preserve the established style and mobile summary-first ordering. Details include expandable frameworks and previous/next navigation.
 
 Narrative sections: Problem, Ownership, Insights, Product Decisions, Execution, Outcomes, Lessons & Tradeoffs.
 
@@ -56,3 +56,23 @@ Completed validation:
 - Desktop cards and mobile dialogs were visually reviewed for typography, spacing, and readable diagrams.
 - About and Point of View match the starting revision; the resume PDF is byte-for-byte unchanged.
 - Validation completed before publication. The user subsequently authorized publication; individual AWS financial claims remain excluded from website narratives.
+
+
+## Focused review-branch refinement
+
+- Overview cards retain headlines, ownership, and evidence; remove the repeated summary paragraph and replace full frameworks with two decision notes plus a tradeoff.
+- Full cases retain all seven narrative sections. Product Decisions and Lessons & Tradeoffs receive visual emphasis; repeated attribution and outcome wording are reduced.
+- At 390px, primary diagram labels and descriptions use at least 14px text. Shorter labels and stacked options replace cramped multi-column content; the two Application Signals ownership tracks remain distinct.
+- X-Ray explains the GB/data-volume and spans/tracing-activity rationale alongside bill-impact analysis without invented rankings or numerical comparisons.
+- Application Signals retains the public preview/GA dates and later bundling, with shared roadmap iteration and independently led commercial strategy clearly distinguished.
+- The internal-platform evidence now names customer goals, usage metering, and adoption follow-up. Its descriptive public name is unchanged.
+
+### Disclosure items for owner review
+
+No new internal metrics were added. Prior explicit clearance still covers the benchmark count, experiment population, category-adjusted sizing gap, and pilot result. That clearance does not automatically extend to other nonpublic facts.
+
+Existing qualitative accounts still warrant review before a production release: the VTO avatar and rollout decisions and fit/return findings; seller cohort and pilot context; internal pricing/economics deliberations and X-Ray migration planning; and internal-platform commitments, prioritization, and adoption details. These are retained from the baseline rather than treated as externally verified facts. Conceptual diagrams do not disclose infrastructure measurements or implementation architecture.
+
+The existing resume is unchanged and retains details omitted from website copy. Financial values, customer counts, internal platform naming, team counts, and approval ranks remain excluded from the case narratives. The precise later-bundle month remains unverified and omitted.
+
+This refinement is authorized for the review branch and an external Preview only. It must not merge to main or update production. Use `PORTFOLIO_BASE_URL=<preview-url> .venv/bin/python review/check_portfolio.py` to run the same checks against the deployed preview.

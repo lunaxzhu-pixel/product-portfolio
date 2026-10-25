@@ -30,35 +30,34 @@ const cases = {
     "sections": [
       [
         "Problem",
-        "Fashion customers cannot confidently visualize how apparel will look on them before buying. A generated image could help, but the experience also needed to support realistic expectations about fit."
+        "Fashion customers struggle to picture apparel on themselves. A generated image could help, but visual appeal alone could not establish realistic expectations about fit."
       ],
       [
         "Ownership",
-        "I led product strategy and MVP prioritization across engineering, UX, and research teams. I synthesized customer research, adoption data, and 13 competitor benchmarks; led iterative Figma prototypes; and partnered on implementation tradeoffs. Technical partners owned the engineering build."
+        "I led product strategy, MVP prioritization, and Figma prototyping across engineering, UX, and research. I defined experiment measures and quality guardrails, then partnered with leadership on the rollout decision. Engineering owned implementation."
       ],
       [
         "Insights",
-        "A try-on experience had to fit into the existing shopping journey. Research and adoption evidence challenged the value of custom avatars: extra setup could increase friction before customers reached a useful preview."
+        "Customer research, adoption data, and 13 competitor benchmarks challenged the value of custom avatars. Setup added friction before shoppers reached a useful preview."
       ],
       [
         "Product Decisions",
-        "I deprioritized custom avatars and focused the MVP on product-page entry, photo upload, comparison, and a clear path to purchase. We evaluated implementation feasibility and defined success measures alongside a return-rate quality guardrail."
+        "I deprioritized custom avatars to focus the MVP on the core try-on journey. Fit accuracy and return-rate guardrails would determine whether the experience was ready to scale."
       ],
       [
         "Execution",
-        "I worked across disciplines to translate the experience into an achievable MVP, iterate on the prototype, and evaluate the full experience in a 500K+ customer A/B test. I reviewed the evidence with technical partners and senior leadership to inform rollout."
+        "I iterated on the prototype with UX and technical partners, evaluated implementation tradeoffs, and reviewed results from a 500K+ customer A/B test with senior leadership."
       ],
       [
         "Outcomes",
         [
-          "Validated the rollout decision — The test surfaced fit-accuracy and return-rate concerns that required further work before scaling.",
-          "Protected the quality bar — I partnered with senior leadership to pause broader rollout. The next product decision was to address fit and trust limitations before expanding the experience.",
-          "Scope — This was a controlled experiment. No broad launch, return reduction, or conversion improvement is claimed."
+          "The experiment surfaced fit-accuracy and return-rate concerns. I partnered with leadership to pause broader rollout while those issues were addressed.",
+          "The result was a rollout decision, not a broad launch or a demonstrated reduction in returns. No conversion improvement is claimed."
         ]
       ],
       [
         "Lessons & Tradeoffs",
-        "A compelling generated experience must help customers make a dependable decision. The tradeoff was between faster reach and confidence in product quality. Guardrails gave the team a concrete reason to keep learning before scaling."
+        "Removing avatar setup reduced MVP scope; it did not remove the need to evaluate the AI experience. The harder tradeoff was reach versus trust: compelling output was insufficient when fit expectations and return risks remained unresolved."
       ]
     ],
     "note": "Scope: controlled customer experimentation and a rollout decision. The diagram is a conceptual view of the decision process.",
@@ -68,25 +67,25 @@ const cases = {
       "intro": "Work backward from the decision the shopper needs to make.",
       "steps": [
         [
-          "Customer uncertainty",
-          "What will this look like on me?"
+          "Shopper question",
+          "How will this look on me?"
         ],
         [
-          "MVP prioritization",
-          "Keep the core journey; remove avatar setup."
+          "Core MVP",
+          "Defer avatar setup."
         ],
         [
-          "Experimentation",
-          "Test the experience with 500K+ customers."
+          "A/B test",
+          "Evaluate the experience."
         ]
       ],
       "branches": [
         [
-          "Quality bar met",
-          "Consider broader rollout"
+          "Meets quality bar",
+          "Consider scale"
         ],
         [
-          "Fit / return concerns",
+          "Fit / return risks",
           "Pause and iterate"
         ]
       ],
@@ -96,7 +95,21 @@ const cases = {
       ]
     },
     "kicker": "GENERATIVE AI / PRODUCT EXPERIMENTATION",
-    "intro": "An AI shopping experience evaluated against customer trust, fit accuracy, and return economics."
+    "intro": "An AI shopping experience evaluated against customer trust, fit accuracy, and return economics.",
+    "preview": {
+      "title": "Trust before scale.",
+      "steps": [
+        [
+          "MVP choice",
+          "Defer custom avatars."
+        ],
+        [
+          "Rollout gate",
+          "Resolve fit and return risks."
+        ]
+      ],
+      "tradeoff": "A compelling image must also support a dependable buying decision."
+    }
   },
   "sizing": {
     "name": "Global Size Intelligence",
@@ -126,73 +139,86 @@ const cases = {
     "sections": [
       [
         "Problem",
-        "China-based FBA apparel sellers experienced a higher sizing-related return rate, even after adjusting for category mix. We needed to understand which part of that gap a product intervention could address."
+        "China-based FBA apparel sellers had a higher sizing-related return rate even after category adjustment. We needed to isolate the part a product intervention could address."
       ],
       [
         "Ownership",
-        "I led the SQL investigation, seller interviews, and ASIN-level audits. I translated the findings into ML size-mapping requirements and worked across U.S. technical and China business teams to launch a top-seller pilot."
+        "I led SQL analysis, seller interviews, and ASIN-level audits, then translated the findings into ML size-mapping requirements. I aligned U.S. technical and China business teams around a top-seller pilot."
       ],
       [
         "Insights",
-        "Category-adjusted analysis isolated a 100–200 basis-point sizing-related gap. Interviews and product-listing audits identified inconsistent sizing information and mapping problems, connecting the return signal to a specific upstream data issue."
+        "Adjusting for category mix isolated a 100–200 basis-point gap. Seller interviews and listing audits linked the return signal to inconsistent size information and mapping problems."
       ],
       [
         "Product Decisions",
-        "I framed the opportunity around more consistent size mapping and translated the research into requirements for ML-assisted recommendations. We chose a top-seller pilot to test the solution before making broader rollout commitments."
+        "I focused the requirements on size mapping rather than treating the gap as an assortment problem. A top-seller pilot would test the intervention before a broader rollout commitment."
       ],
       [
         "Execution",
-        "I connected the quantitative investigation with seller context, aligned regional and technical partners, and supported delivery of the pilot. Validation linked the mapping intervention back to the sizing-related return gap."
+        "I connected the data investigation with seller context, aligned requirements across regions, and supported pilot delivery. Validation measured progress against the diagnosed sizing-related return gap."
       ],
       [
         "Outcomes",
         [
-          "Measured pilot result — Approximately 10% of the diagnosed gap was closed, equivalent to roughly a 10–20 basis-point return-rate reduction.",
-          "Reusable foundation — Seller evidence and data analysis became product requirements for an ML size-mapping solution.",
-          "Future — Further expansion remains a rollout decision. These results do not represent a global launch or a 10% reduction in all returns."
+          "The pilot closed approximately 10% of the gap, equivalent to roughly a 10–20 basis-point return-rate reduction.",
+          "The findings became ML size-mapping requirements. Expansion remains a separate decision; the pilot is neither a global launch nor a 10% reduction in all returns."
         ]
       ],
       [
         "Lessons & Tradeoffs",
-        "Better recommendations begin with understanding where input data becomes unreliable. Category adjustment and seller research helped separate a product problem from an assortment effect. A focused pilot produced evidence before a broader commitment."
+        "Category adjustment prevented an assortment effect from being mistaken for a sizing problem. A focused seller pilot made validation practical, but its result should not be generalized to every seller or category."
       ]
     ],
     "note": "Baseline gap and pilot improvement are distinct measures. The observed result applies to the top-seller pilot; expansion remains a separate decision.",
     "diagram": {
       "variant": "mapping",
       "title": "From evidence to a mapping requirement.",
-      "intro": "Combine quantitative and seller evidence before choosing the intervention.",
+      "intro": "Use data and seller context to choose the intervention.",
       "sources": [
         [
           "SQL analysis",
-          "Adjust for category mix"
+          "Adjust category mix"
         ],
         [
           "Seller research",
-          "Interviews + listing audits"
+          "Interviews + ASIN audits"
         ]
       ],
       "steps": [
         [
-          "Identify the root cause",
-          "Inconsistent size information and mappings"
+          "Find the cause",
+          "Size data and mapping gaps"
         ],
         [
-          "Define ML requirements",
-          "Translate seller evidence into a product direction"
+          "Define requirements",
+          "ML-assisted size mapping"
         ],
         [
-          "Pilot with top sellers",
-          "Validate against the diagnosed return gap"
+          "Run a seller pilot",
+          "Measure the diagnosed gap"
         ]
       ],
       "decision": [
-        "PILOT EVIDENCE",
-        "≈10% gap closure · broader rollout remains a next step."
+        "PILOT SCOPE",
+        "Validate locally before considering expansion."
       ]
     },
     "kicker": "MACHINE LEARNING / SELLER PLATFORM",
-    "intro": "A category-adjusted returns investigation became an ML size-mapping initiative, validated with top sellers."
+    "intro": "A category-adjusted returns investigation became an ML size-mapping initiative, validated with top sellers.",
+    "preview": {
+      "title": "Fix the input, then validate.",
+      "steps": [
+        [
+          "Root cause",
+          "Separate sizing from category mix."
+        ],
+        [
+          "Product choice",
+          "Pilot ML-assisted size mapping."
+        ]
+      ],
+      "tradeoff": "Evidence from top sellers supports a pilot decision, not a global rollout."
+    }
   },
   "aws": {
     "name": "CloudWatch Application Signals",
@@ -236,35 +262,34 @@ const cases = {
     "sections": [
       [
         "Problem",
-        "Developers need connected application performance signals to investigate issues. Adoption also depends on supported workloads, useful integrations, and pricing customers can understand and predict."
+        "Developers need connected application signals to investigate issues. Adoption also depends on workload support, useful integrations, and predictable usage costs."
       ],
       [
         "Ownership",
-        "I co-owned the roadmap, product requirements, feature prioritization, and launch readiness with a Product Manager and Engineering. I independently led pricing, business strategy, and cost economics, working with senior technical and go-to-market partners. Engineering owned implementation."
+        "I co-owned the roadmap, PRDs, prioritization, and launch readiness with a Product Manager and Engineering. I independently led pricing, business strategy, and cost economics. Engineering owned implementation."
       ],
       [
         "Insights",
-        "Customer needs and workload analysis informed both feature priorities and the commercial model. Technical availability alone was insufficient: language support, integration, and predictable customer costs affected whether teams could adopt the product."
+        "Customer needs and workload analysis connected adoption barriers to roadmap choices. Language support and integration mattered alongside the commercial model; technical availability alone was not enough."
       ],
       [
         "Product Decisions",
-        "I designed a three-tier usage-based pricing structure with free and usage-based allowances, and advocated for retaining that structure through leadership review. I worked with Engineering on usage efficiency and cost tradeoffs while we jointly prioritized product capabilities. Cross-service bundled pricing was a subsequent phase, separate from the initial GA."
+        "I designed a three-tier usage-based structure with free and usage-based allowances. With Product and Engineering, I connected feature priorities to adoption needs and evaluated usage efficiency against cost economics. Later cross-service bundling was a separate iteration, not part of initial GA."
       ],
       [
         "Execution",
-        "I connected pricing and cost requirements to shared roadmap and launch decisions, collaborated on economics validation, and supported integration and adoption work across teams. Public preview began November 30, 2023, followed by general availability on June 10, 2024. Product and pricing iteration continued after launch."
+        "I coordinated commercial requirements with roadmap and launch decisions, partnered on economics validation, and supported integration and adoption work. After launch, I advanced bundled pricing across observability services."
       ],
       [
         "Outcomes",
         [
-          "Delivered — A new application observability product reached preview and GA with a tiered usage-based commercial model.",
-          "Subsequent work — I advanced a cross-service bundled pricing approach after the initial launch and supported decisions about product integration and adoption.",
-          "Attribution — The product roadmap and launch were shared responsibilities; pricing, business strategy, and cost economics were my independent scope. Engineering owned the implementation."
+          "Application Signals reached public preview on November 30, 2023, and GA on June 10, 2024.",
+          "Post-launch work continued across product integration, adoption decisions, and later cross-service bundling. No customer-growth or financial result is claimed here."
         ]
       ],
       [
         "Lessons & Tradeoffs",
-        "Roadmap decisions and commercial design should reinforce one another. A simpler bill must still work across different workloads, while a technically available product must fit the customer’s investigation workflow. Launch created a starting point for continued adoption work."
+        "Launch readiness and adoption readiness are different. Product usefulness, integration effort, bill predictability, and infrastructure economics must inform one another. The roadmap and commercial model need room to evolve as customers use the product."
       ]
     ],
     "note": "Official announcements support the preview and GA dates. The later bundle is not presented as part of the initial GA, and this account does not claim sole ownership of implementation.",
@@ -285,32 +310,46 @@ const cases = {
     "diagram": {
       "variant": "lanes",
       "title": "Two tracks. One product decision.",
-      "intro": "Coordinate product usefulness with a sustainable commercial model.",
+      "intro": "Connect adoption needs with commercial decisions.",
       "lanes": [
         [
-          "SHARED PRODUCT SCOPE",
+          "SHARED PRODUCT",
           [
-            "Customer observability needs",
-            "Roadmap & feature tradeoffs",
-            "Launch readiness"
+            "Customer needs",
+            "Roadmap choices",
+            "Launch & adoption"
           ]
         ],
         [
-          "MY COMMERCIAL SCOPE",
+          "MY COMMERCIAL",
           [
-            "Tiered pricing design",
-            "Economics validation",
+            "Tiered pricing",
+            "Cost economics",
             "Pricing iteration"
           ]
         ]
       ],
       "decision": [
         "DELIVERY SEQUENCE",
-        "Preview → GA → later cross-service bundling."
+        "Preview → GA → Later Bundling"
       ]
     },
     "kicker": "CLOUD PRODUCT / 0-TO-1 LAUNCH",
-    "intro": "A cloud product shaped through customer needs, roadmap tradeoffs, understandable pricing, and viable infrastructure economics."
+    "intro": "A cloud product shaped through customer needs, roadmap tradeoffs, understandable pricing, and viable infrastructure economics.",
+    "preview": {
+      "title": "Two tracks, one launch.",
+      "steps": [
+        [
+          "Shared product scope",
+          "Roadmap, features, and launch."
+        ],
+        [
+          "My commercial scope",
+          "Pricing and cost economics."
+        ]
+      ],
+      "tradeoff": "Make the product useful to adopt and the usage model understandable to buy."
+    }
   },
   "xray": {
     "name": "AWS X-Ray Repricing",
@@ -340,50 +379,49 @@ const cases = {
     "sections": [
       [
         "Problem",
-        "The legacy per-trace charging unit no longer consistently followed the infrastructure work behind a trace. That mismatch put pressure on service economics and made the relationship between usage, charges, and cost less sustainable."
+        "Per-trace charging no longer consistently reflected the infrastructure work behind a trace. Changing the price alone would not resolve the mismatch between usage, customer charges, and cost."
       ],
       [
         "Ownership",
-        "I identified margin deterioration and its root causes, evaluated alternative models, and led product requirements and pricing documentation. I partnered with Engineering on metering and billing changes, modeled customer impacts, and prepared the executive recommendation and rollout plan. Engineering owned the technical implementation."
+        "I diagnosed the economics problem, compared models, and led pricing documentation and product requirements. I modeled customer impact and partnered with Engineering on metering, billing requirements, and rollout planning. Engineering owned implementation."
       ],
       [
         "Insights",
-        "Application complexity changed how much work a trace represented. Understanding the underlying cost drivers showed that changing a price point alone would not resolve the structural issue; the charging unit also needed attention."
+        "A trace is not a uniform unit of work: application complexity changes what it represents. The evaluation needed to consider both data volume and tracing activity, alongside what each alternative would mean for customer bills."
       ],
       [
         "Product Decisions",
-        "I compared usage-volume, activity-based, and hybrid options, then selected a cost-aligned GB + spans model. A span represents an operation within a trace. Customer bill-impact, elasticity, and multi-year scenarios helped evaluate the model alongside migration risk."
+        "I selected a hybrid GB + spans model after evaluating volume-based and activity-based alternatives. GB represents data volume; spans represent operations within traces. Together they reflect two dimensions of usage instead of treating every trace as equivalent. I evaluated customer bill changes, elasticity, and multi-year scenarios alongside cost alignment; no quantitative ranking of alternatives is claimed."
       ],
       [
         "Execution",
-        "I defined the product and commercial requirements, partnered on metering and billing logic, and built the case for leadership approval. Rollout planning incorporated customer migration and billing-risk considerations so the transition was part of the product decision."
+        "I translated the model into metering and billing requirements with Engineering, prepared the leadership recommendation, and incorporated customer bill impact and migration risk into rollout planning."
       ],
       [
         "Outcomes",
         [
-          "Delivered — The redesign moved from per-trace billing to a hybrid GB + spans approach, supported by requirements, customer-impact analysis, and rollout planning.",
-          "Ownership — My contribution was leading the redesign and the decision framework. Engineering partners delivered the underlying system changes.",
-          "Time boundary — Later service performance was observed after my transition out of AWS. It is separate from my delivery work and is not presented as a measured launch result."
+          "The redesign established a GB + spans approach supported by product requirements, customer-impact analysis, and rollout planning.",
+          "Later service performance was observed after my transition out of AWS. It is separate from my redesign work and is not presented as a personally measured launch result."
         ]
       ],
       [
         "Lessons & Tradeoffs",
-        "Pricing and billing are part of a technical product’s customer experience. Sustainable monetization requires understanding actual cost drivers, while migration planning has to account for customers whose bills change. The right long-term model can involve short-term commercial tradeoffs."
+        "A hybrid model can better represent cost drivers while making bills harder to explain than a single charging unit. Evaluating the customer transition was therefore part of selecting the model, not a task to postpone until after pricing approval."
       ]
     ],
     "note": "Historical product account, not a statement that all current X-Ray usage follows one pricing model. Later financial results and customer migration metrics are omitted.",
     "diagram": {
       "variant": "comparison",
       "title": "Change the unit, then plan the transition.",
-      "intro": "Diagnose cost drivers and compare the charging alternatives.",
+      "intro": "Evaluate cost alignment and customer bill changes together.",
       "options": [
         [
-          "Volume",
-          "Data consumed"
+          "GB",
+          "Data volume"
         ],
         [
-          "Activity",
-          "Operations counted"
+          "Spans",
+          "Tracing activity"
         ],
         [
           "GB + spans",
@@ -392,25 +430,39 @@ const cases = {
       ],
       "steps": [
         [
-          "Define requirements",
-          "Metering and billing behavior"
+          "Define metering",
+          "Translate units into billing"
         ],
         [
-          "Model customer impact",
-          "Bills, elasticity, and migration risk"
+          "Evaluate bills",
+          "Model impact and migration risk"
         ],
         [
-          "Approve & roll out",
-          "Monitor the transition and subsequent outcomes"
+          "Plan transition",
+          "Prepare rollout requirements"
         ]
       ],
       "decision": [
         "PRODUCT TRADEOFF",
-        "Align service economics while protecting the customer transition."
+        "Cost alignment must work for customers, too."
       ]
     },
     "kicker": "MONETIZATION / BILLING PRODUCT REDESIGN",
-    "intro": "A structural mismatch between the charging unit and service cost drivers called for a product and billing redesign."
+    "intro": "A structural mismatch between the charging unit and service cost drivers called for a product and billing redesign.",
+    "preview": {
+      "title": "Cost fit meets bill impact.",
+      "steps": [
+        [
+          "Model choice",
+          "Represent volume and tracing activity."
+        ],
+        [
+          "Migration lens",
+          "Evaluate changes to customer bills."
+        ]
+      ],
+      "tradeoff": "Better cost alignment adds billing complexity that customers must be able to understand."
+    }
   },
   "internal-platform": {
     "name": "AWS Internal Usage Platform",
@@ -423,16 +475,16 @@ const cases = {
     "ownership": "I developed the business case and adoption strategy, secured customer commitments, and partnered with Engineering on delivery and internal teams on value realization.",
     "evidence": [
       [
-        "Buy-in",
-        "internal customer sponsorship"
+        "Customer goals",
+        "commitments informed prioritization"
       ],
       [
-        "Delivery",
-        "platform launch with Engineering"
+        "Metering",
+        "usage platform launched with Engineering"
       ],
       [
-        "Adoption",
-        "usage visibility tied to action"
+        "Follow-up",
+        "adoption and consumption review"
       ]
     ],
     "metric": "Adoption",
@@ -440,66 +492,79 @@ const cases = {
     "sections": [
       [
         "Problem",
-        "Manual tracking limited visibility into logging usage and the opportunities for internal teams to optimize consumption. Platform delivery had to compete for engineering capacity."
+        "Manual tracking limited logging-usage visibility and consumption optimization. The internal platform also had to compete for engineering capacity."
       ],
       [
         "Ownership",
-        "I identified internal customer teams and optimization opportunities, developed the business case and adoption strategy, and helped restore executive priority. I joined an initiative with an existing product and technical design; Engineering owned the core architecture and implementation."
+        "I identified customer teams and opportunities, developed the business case, and led adoption planning. I joined an initiative with an existing product and technical design; Engineering owned architecture and implementation."
       ],
       [
         "Insights",
-        "Usage visibility would create value only if teams were ready to act on it. Early customer commitments gave the platform a concrete value proposition and provided evidence for the prioritization discussion."
+        "Visibility would create value only if teams acted on it. Customer commitments made the opportunity concrete enough to inform prioritization."
       ],
       [
         "Product Decisions",
-        "I connected opportunity sizing to customer commitments, then used that business case with engineering partners to seek renewed priority. The adoption plan connected platform launch to team ownership of consumption and follow-up on benefits."
+        "I used opportunity sizing and customer commitments to seek renewed priority with Engineering and leadership. I tied platform delivery to an adoption plan and follow-up on consumption, rather than treating launch as the outcome."
       ],
       [
         "Execution",
-        "I partnered with Engineering to launch the platform and coordinated with internal teams on adoption and value realization. I tracked progress and helped identify optimization opportunities from usage patterns as the program expanded."
+        "I partnered with Engineering on launch, coordinated adoption with internal teams, and tracked value realization as the optimization program expanded."
       ],
       [
         "Outcomes",
         [
-          "Delivered — The internal platform launched through partnership with Engineering, supported by a business case and customer commitments.",
-          "Adoption — Internal teams used the platform as part of a broader consumption-optimization program, extending the work beyond the initial commitments.",
-          "Measurement — Commitments are planned impact; realized annualized savings are a separate later measure. Tracking value realization remained distinct from securing the initial commitments."
+          "The usage and metering platform launched with Engineering, supported by a customer business case.",
+          "Internal adoption extended the optimization program beyond its initial commitments. Commitments remained distinct from subsequently realized benefits; financial amounts are omitted."
         ]
       ],
       [
         "Lessons & Tradeoffs",
-        "Internal products need a customer value proposition as much as external products do. Commitments helped change priority, but delivery alone could not establish the outcome. The program needed adoption and follow-through to connect visibility with economic value."
+        "Internal demand must compete with other engineering priorities. Commitments can support an investment decision, but they are not realized value. Delivery, adoption, and benefit tracking each need ownership."
       ]
     ],
     "note": "Scope: shared delivery of an internal usage platform, customer adoption, and follow-through on consumption optimization.",
     "diagram": {
       "variant": "adoption",
       "title": "Visibility becomes value through adoption.",
-      "intro": "Connect the engineering investment to accountable customer action.",
+      "intro": "Connect delivery to customer action.",
       "stages": [
         [
           "Opportunity",
-          "Identify visibility gaps and size the opportunity."
+          "Find usage-visibility gaps."
         ],
         [
-          "Commitment",
-          "Secure customer goals and restore priority."
+          "Commitments",
+          "Inform engineering priority."
         ],
         [
           "Delivery",
-          "Launch the usage platform with Engineering."
+          "Launch with Engineering."
         ],
         [
-          "Realization",
-          "Drive adoption and track actual outcomes."
+          "Follow-through",
+          "Track adoption and benefits."
         ]
       ],
       "decision": [
-        "MEASUREMENT DISCIPLINE",
-        "Customer commitments and realized savings are different measures."
+        "VALUE REALIZATION",
+        "Commitments are not realized benefits."
       ]
     },
     "kicker": "INTERNAL CLOUD PLATFORM / PRODUCT ADOPTION",
-    "intro": "Customer commitments and an adoption plan helped restore priority for an internal logging usage and metering platform."
+    "intro": "Customer commitments and an adoption plan helped restore priority for an internal logging usage and metering platform.",
+    "preview": {
+      "title": "Demand before investment.",
+      "steps": [
+        [
+          "Prioritization",
+          "Connect customer goals to the business case."
+        ],
+        [
+          "Value realization",
+          "Follow delivery with adoption work."
+        ]
+      ],
+      "tradeoff": "Commitments justify prioritization; realized benefits require follow-through."
+    }
   }
 };

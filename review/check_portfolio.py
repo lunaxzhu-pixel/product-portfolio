@@ -1,8 +1,10 @@
 import json
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent
+BASE_URL = os.environ.get('PORTFOLIO_BASE_URL', 'http://127.0.0.1:4173').rstrip('/')
 CASE_KEYS = ['vto', 'sizing', 'aws', 'xray', 'internal-platform']
 CASE_NAMES = ['GenAI Virtual Try-On', 'Global Size Intelligence', 'CloudWatch Application Signals', 'AWS X-Ray Repricing', 'AWS Internal Usage Platform']
 HEADINGS = ['Problem', 'Ownership', 'Insights', 'Product Decisions', 'Execution', 'Outcomes', 'Lessons & Tradeoffs']
@@ -14,9 +16,9 @@ with sync_playwright() as p:
     errors = []
     page.on('pageerror', lambda e: errors.append(str(e)))
     page.on('console', lambda message: errors.append(message.text) if message.type == 'error' else None)
-    page.on('response', lambda response: errors.append(f'{response.status}: {response.url}') if response.status >= 400 and '127.0.0.1' in response.url else None)
+    page.on('response', lambda response: errors.append(f'{response.status}: {response.url}') if response.status >= 400 and BASE_URL in response.url else None)
     page.on('requestfailed', lambda request: errors.append(f'{request.failure}: {request.url}'))
-    page.goto('http://127.0.0.1:4173', wait_until='networkidle')
+    page.goto(BASE_URL, wait_until='networkidle')
     page.screenshot(animations="disabled", path=str(ROOT / 'desktop.png'), full_page=True)
     page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-desktop.png'))
     page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-desktop.png'))
@@ -35,7 +37,11 @@ with sync_playwright() as p:
         assert page.locator('.case-framework').get_attribute('open') is not None
         assert page.locator('.case-framework figure').is_visible()
         assert page.locator('.case-framework figure').evaluate('(e) => e.scrollWidth <= e.clientWidth')
-        assert page.locator('.case-framework figure h4').inner_text() == page.locator(f'#project-{key} figure h4').inner_text()
+        preview = page.locator(f'#project-{key} .decision-preview')
+        assert preview.locator('.preview-choices dt').count() == 2
+        assert len(preview.inner_text()) < len(page.locator('.case-framework figure').inner_text())
+        assert page.locator('.case-key-decision h3').inner_text() == 'Product Decisions'
+        assert page.locator('.case-key-tradeoff h3').inner_text() == 'Lessons & Tradeoffs'
         page.locator('.case-framework summary').click()
         assert page.evaluate('new Set([...document.querySelectorAll("[id]")].map(e => e.id)).size === document.querySelectorAll("[id]").length')
         page.locator('.dialog-close').focus()
@@ -84,12 +90,12 @@ with sync_playwright() as p:
     page.locator('.dialog-close').click()
     assert page.locator('[data-role="aws"]').evaluate('(e) => e === document.activeElement')
     page.wait_for_function('!document.body.classList.contains("modal-open")')
-    page.goto('http://127.0.0.1:4173/#role-amazon', wait_until='networkidle')
+    page.goto(BASE_URL + '/#role-amazon', wait_until='networkidle')
     assert 'Amazon Retail' in page.locator('.career-company').inner_text()
     page.locator('.dialog-done').click()
     page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-desktop.png'))
     resume_link = page.locator('a:has-text("View resume")').get_attribute('href')
-    response = context.request.get('http://127.0.0.1:4173/' + resume_link)
+    response = context.request.get(BASE_URL + '/' + resume_link)
     assert response.status == 200 and response.body().startswith(b'%PDF')
     assert response.body() == (ROOT.parent / 'assets' / 'Luna-Zhu-Resume.pdf').read_bytes(), 'Preview serves an outdated resume'
     for anchor in page.locator('a[href^="#"]').all():
@@ -100,14 +106,14 @@ with sync_playwright() as p:
     page.wait_for_function('document.querySelector("#copy-status").textContent.includes("copied")')
     assert page.evaluate('navigator.clipboard.readText()') == 'luna.x.zhu@gmail.com'
     for key in CASE_KEYS:
-        page.goto(f'http://127.0.0.1:4173/#case-{key}', wait_until='networkidle')
+        page.goto(f'{BASE_URL}/#case-{key}', wait_until='networkidle')
         assert page.locator('#case-dialog').evaluate('(d) => d.open')
         assert page.locator('.case-section h3').count() == 7
         page.locator('.dialog-close').click()
         page.wait_for_function('!document.body.classList.contains("modal-open")')
     # Legacy links must continue to open the corresponding renamed case.
     for alias, canonical in [('timber', 'internal-platform'), ('application-signals', 'aws')]:
-        page.goto(f'http://127.0.0.1:4173/#case-{alias}', wait_until='networkidle')
+        page.goto(f'{BASE_URL}/#case-{alias}', wait_until='networkidle')
         assert page.locator('#case-content').get_attribute('data-active-case') == canonical
         page.keyboard.press('Escape')
         page.wait_for_function('!document.body.classList.contains("modal-open")')
@@ -126,7 +132,7 @@ with sync_playwright() as p:
     assert page.locator('[data-case="vto"]').evaluate('(e) => e === document.activeElement')
     for width in VIEWPORTS:
         page.set_viewport_size({'width': width, 'height': 900})
-        page.goto('http://127.0.0.1:4173', wait_until='networkidle')
+        page.goto(BASE_URL, wait_until='networkidle')
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'Overflow at {width}'
         for card in page.locator('#work .project').all():
             summary = card.locator('.project-copy').bounding_box()
@@ -145,6 +151,13 @@ with sync_playwright() as p:
             page.locator(f'[data-case="{key}"]').click()
             assert page.locator('#case-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} dialog overflow at {width}'
             page.locator('.case-framework summary').click()
+            if width == 390:
+                for label in page.locator('.case-framework .framework-node p, .case-framework .tryon-flow p, .case-framework .framework-lane li, .case-framework .framework-stages p').all():
+                    assert label.evaluate('(e) => parseFloat(getComputedStyle(e).fontSize) >= 14')
+                    assert label.evaluate('(e) => e.scrollWidth <= e.clientWidth + 1')
+                if key == 'aws':
+                    assert page.locator('.framework-lane').count() == 2
+                    assert page.locator('.case-milestones strong').all_text_contents() == ['Nov 30, 2023', 'Jun 10, 2024', 'After GA']
             assert page.locator('.case-framework figure').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} expanded framework overflow at {width}'
             page.locator('.case-framework summary').click()
             if width in [390, 1440]:
@@ -179,7 +192,7 @@ with sync_playwright() as p:
             page.locator('.dialog-done').click()
             assert not page.locator('#case-dialog').evaluate('(d) => d.open')
     page.set_viewport_size({'width': 1440, 'height': 1000})
-    page.goto('http://127.0.0.1:4173', wait_until='networkidle')
+    page.goto(BASE_URL, wait_until='networkidle')
     page.locator('#project-internal-platform').screenshot(animations="disabled", path=str(ROOT / 'platform-desktop.png'))
     page.emulate_media(reduced_motion='reduce')
     page.locator('[data-case="internal-platform"]').focus()
@@ -192,12 +205,12 @@ with sync_playwright() as p:
     page.locator('#copy-email').click()
     page.wait_for_function("document.querySelector('#copy-status').textContent.includes('Copy the address')")
     # Sensitive values must not be embedded in the public case data or rendered copy.
-    data_response = context.request.get('http://127.0.0.1:4173/case-studies.js')
+    data_response = context.request.get(BASE_URL + '/case-studies.js')
     assert data_response.status == 200
     for withheld in ['$10M', '$30M', '$100M', '97%', '1,000 customers', '30 percentage points', 'SVP', '40+', 'Timber']:
         assert withheld not in data_response.text(), withheld
     for asset in ['assets/favicon.svg', 'assets/luna-zhu.png', 'styles.css', 'script.js']:
-        assert context.request.get('http://127.0.0.1:4173/' + asset).status == 200, asset
+        assert context.request.get(BASE_URL + '/' + asset).status == 200, asset
     assert not errors, errors
     print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
     browser.close()
