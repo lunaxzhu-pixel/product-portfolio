@@ -10,3 +10,6 @@ __pycache__/
 review/*.png
 dist/
 *.zip
+
+# Local disclosure review; never publish private source notes.
+.private-review/

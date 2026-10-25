@@ -3,6 +3,9 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent
+CASE_KEYS = ['vto', 'sizing', 'aws', 'xray', 'internal-platform']
+CASE_NAMES = ['GenAI Virtual Try-On', 'Global Size Intelligence', 'CloudWatch Application Signals', 'AWS X-Ray Repricing', 'AWS Internal Usage Platform']
+HEADINGS = ['Problem', 'Ownership', 'Insights', 'Product Decisions', 'Execution', 'Outcomes', 'Lessons & Tradeoffs']
 VIEWPORTS = [320, 390, 600, 601, 700, 768, 800, 1024, 1440]
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless=True)
@@ -10,27 +13,44 @@ with sync_playwright() as p:
     page = context.new_page()
     errors = []
     page.on('pageerror', lambda e: errors.append(str(e)))
+    page.on('console', lambda message: errors.append(message.text) if message.type == 'error' else None)
+    page.on('response', lambda response: errors.append(f'{response.status}: {response.url}') if response.status >= 400 and '127.0.0.1' in response.url else None)
+    page.on('requestfailed', lambda request: errors.append(f'{request.failure}: {request.url}'))
     page.goto('http://127.0.0.1:4173', wait_until='networkidle')
     page.screenshot(animations="disabled", path=str(ROOT / 'desktop.png'), full_page=True)
     page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-desktop.png'))
     page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-desktop.png'))
-    assert page.title() == 'Luna Zhu — AI Products & Cloud Platforms'
+    assert page.title() == 'Luna Zhu — AI/ML Products, Cloud Platforms & Monetization'
     assert page.locator('h1').count() == 1
     assert page.locator('.hero-intro').inner_text().startswith('Senior Product Manager at Amazon, ex-AWS, with 11+ years')
     assert '11+ years' in page.locator('.hero-intro').inner_text()
-    for key in ['aws', 'vto', 'sizing', 'xray', 'timber']:
+    for key in CASE_KEYS:
         button = page.locator(f'[data-case="{key}"]')
         button.click()
         assert page.locator('#case-dialog').evaluate('(d) => d.open')
         assert len(page.locator('#case-title').inner_text()) > 10
-        assert page.locator('.case-section h3').all_text_contents() == ['Problem', 'Ownership', 'Decisions', 'Tradeoffs', 'Execution', 'Outcomes', 'Lessons']
+        assert page.locator('.case-section h3').all_text_contents() == HEADINGS
+        assert page.locator('#case-content').get_attribute('data-active-case') == key
+        page.locator('.case-framework summary').click()
+        assert page.locator('.case-framework').get_attribute('open') is not None
+        assert page.locator('.case-framework figure').is_visible()
+        assert page.locator('.case-framework figure').evaluate('(e) => e.scrollWidth <= e.clientWidth')
+        assert page.locator('.case-framework figure h4').inner_text() == page.locator(f'#project-{key} figure h4').inner_text()
+        page.locator('.case-framework summary').click()
+        assert page.evaluate('new Set([...document.querySelectorAll("[id]")].map(e => e.id)).size === document.querySelectorAll("[id]").length')
+        page.locator('.dialog-close').focus()
+        page.keyboard.press('Shift+Tab')
+        assert page.locator('#case-dialog').evaluate('(d) => d.contains(document.activeElement)')
         if key == 'vto':
             page.locator('#case-dialog').screenshot(animations="disabled", path=str(ROOT / 'case-study.png'))
         page.keyboard.press('Escape')
         assert not page.locator('#case-dialog').evaluate('(d) => d.open')
         assert button.evaluate('(e) => e === document.activeElement')
-    assert page.locator('#work .project').count() == 3
-    assert page.locator('.additional-project').count() == 2
+    assert page.locator('#work .project').count() == 5
+    assert page.locator('#work [data-project]').evaluate_all('(items) => items.map(item => item.dataset.project)') == CASE_KEYS
+    assert page.locator('#work .project-label').all_text_contents() == CASE_NAMES
+    assert page.locator('#work-index a').count() == 5
+    assert page.locator('#work .project-metrics > div').count() == 15
     milestones = page.locator('[data-role]')
     assert milestones.count() == 4
     for key, company in [('rrd', 'R.R. Donnelley'), ('internet-brands', 'Internet Brands'), ('aws', 'Amazon Web Services'), ('amazon', 'Amazon Retail')]:
@@ -41,7 +61,7 @@ with sync_playwright() as p:
         assert page.locator('.role-achievements li').count() >= 2
         assert button.evaluate('(e) => e.classList.contains("is-active")')
         if key == 'aws':
-            for related in ['aws', 'xray', 'timber']:
+            for related in ['aws', 'xray', 'internal-platform']:
                 page.locator(f'[data-related-case="{related}"]').click()
                 assert page.locator('.case-section h3').count() == 7
                 page.locator('.dialog-done').click()
@@ -49,7 +69,7 @@ with sync_playwright() as p:
         if key == 'amazon':
             page.locator('#case-dialog').screenshot(animations="disabled", path=str(ROOT / 'career-details.png'))
             page.locator('[data-related-case="vto"]').click()
-            assert 'Less uncertainty' in page.locator('#case-title').inner_text()
+            assert 'Building shopping confidence' in page.locator('#case-title').inner_text()
             assert page.locator('.dialog-done').inner_text() == 'Back to role'
             page.locator('.dialog-done').click()
             assert 'Amazon Retail' in page.locator('.career-company').inner_text()
@@ -60,7 +80,7 @@ with sync_playwright() as p:
     page.keyboard.press('Enter')
     assert 'Amazon Web Services' in page.locator('.career-company').inner_text()
     page.locator('[data-related-case="aws"]').click()
-    assert 'knowing where to act' in page.locator('#case-title').inner_text()
+    assert 'scalable observability business' in page.locator('#case-title').inner_text()
     page.locator('.dialog-close').click()
     assert page.locator('[data-role="aws"]').evaluate('(e) => e === document.activeElement')
     page.wait_for_function('!document.body.classList.contains("modal-open")')
@@ -79,12 +99,31 @@ with sync_playwright() as p:
     page.locator('#copy-email').click()
     page.wait_for_function('document.querySelector("#copy-status").textContent.includes("copied")')
     assert page.evaluate('navigator.clipboard.readText()') == 'luna.x.zhu@gmail.com'
-    for key in ['aws', 'vto', 'sizing', 'xray', 'timber']:
+    for key in CASE_KEYS:
         page.goto(f'http://127.0.0.1:4173/#case-{key}', wait_until='networkidle')
         assert page.locator('#case-dialog').evaluate('(d) => d.open')
         assert page.locator('.case-section h3').count() == 7
         page.locator('.dialog-close').click()
         page.wait_for_function('!document.body.classList.contains("modal-open")')
+    # Legacy links must continue to open the corresponding renamed case.
+    for alias, canonical in [('timber', 'internal-platform'), ('application-signals', 'aws')]:
+        page.goto(f'http://127.0.0.1:4173/#case-{alias}', wait_until='networkidle')
+        assert page.locator('#case-content').get_attribute('data-active-case') == canonical
+        page.keyboard.press('Escape')
+        page.wait_for_function('!document.body.classList.contains("modal-open")')
+    page.locator('[data-case="vto"]').click()
+    assert page.locator('.case-pagination button').first.is_disabled()
+    for key in CASE_KEYS[1:]:
+        page.locator('.case-pagination button').last.click()
+        assert page.locator('#case-content').get_attribute('data-active-case') == key
+    assert page.locator('.case-pagination button').last.is_disabled()
+    for key in reversed(CASE_KEYS[:-1]):
+        page.locator('.case-pagination button').first.click()
+        assert page.locator('#case-content').get_attribute('data-active-case') == key
+    page.locator('.dialog-done').click()
+    page.wait_for_function('!document.body.classList.contains("modal-open")')
+    assert page.url.endswith('#work')
+    assert page.locator('[data-case="vto"]').evaluate('(e) => e === document.activeElement')
     for width in VIEWPORTS:
         page.set_viewport_size({'width': width, 'height': 900})
         page.goto('http://127.0.0.1:4173', wait_until='networkidle')
@@ -96,17 +135,18 @@ with sync_playwright() as p:
                 assert summary['y'] + summary['height'] <= diagram['y'] + 1, f'Mobile summary order at {width}'
             else:
                 assert diagram['x'] + diagram['width'] <= summary['x'] + 1, f'Desktop diagram placement at {width}'
-        for card in page.locator('.additional-project').all():
-            assert card.evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'Additional project overflow at {width}'
         for diagram in page.locator('.decision-visual').all():
             assert diagram.evaluate('(e) => e.scrollWidth <= e.clientWidth && e.scrollHeight <= e.clientHeight + 1'), f'Clipped diagram at {width}'
         heights = page.locator('.milestone-card').evaluate_all('(cards) => cards.map(card => card.getBoundingClientRect().height)')
         assert max(heights) - min(heights) <= 1, f'Uneven career cards at {width}'
         expected_roles = ['amazon', 'aws', 'internet-brands', 'rrd'] if width <= 600 else ['rrd', 'internet-brands', 'aws', 'amazon']
         assert page.locator('.trajectory-track [data-role]').evaluate_all('(buttons) => buttons.map(button => button.dataset.role)') == expected_roles
-        for key in ['aws', 'vto', 'sizing', 'xray', 'timber']:
+        for key in CASE_KEYS:
             page.locator(f'[data-case="{key}"]').click()
             assert page.locator('#case-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} dialog overflow at {width}'
+            page.locator('.case-framework summary').click()
+            assert page.locator('.case-framework figure').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} expanded framework overflow at {width}'
+            page.locator('.case-framework summary').click()
             if width in [390, 1440]:
                 page.locator('#case-dialog').screenshot(animations="disabled", path=str(ROOT / f'{key}-details-{width}.png'))
             page.locator('.dialog-close').click()
@@ -114,7 +154,7 @@ with sync_playwright() as p:
         if width == 390:
             page.screenshot(animations="disabled", path=str(ROOT / 'mobile.png'), full_page=True)
             page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-mobile.png'))
-            page.locator('.additional-work').screenshot(animations="disabled", path=str(ROOT / 'additional-mobile.png'))
+            page.locator('#project-xray').screenshot(animations="disabled", path=str(ROOT / 'xray-mobile.png'))
             page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-mobile.png'))
             page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-mobile.png'))
             assert page.locator('.trajectory-prev').is_disabled()
@@ -140,17 +180,24 @@ with sync_playwright() as p:
             assert not page.locator('#case-dialog').evaluate('(d) => d.open')
     page.set_viewport_size({'width': 1440, 'height': 1000})
     page.goto('http://127.0.0.1:4173', wait_until='networkidle')
-    page.locator('.additional-work').screenshot(animations="disabled", path=str(ROOT / 'additional-desktop.png'))
+    page.locator('#project-internal-platform').screenshot(animations="disabled", path=str(ROOT / 'platform-desktop.png'))
     page.emulate_media(reduced_motion='reduce')
-    page.locator('[data-case="timber"]').focus()
+    page.locator('[data-case="internal-platform"]').focus()
     page.keyboard.press('Enter')
     assert page.locator('#case-dialog').evaluate('(d) => d.open')
     page.keyboard.press('Escape')
     page.wait_for_function('!document.body.classList.contains("modal-open")')
-    assert page.locator('[data-case="timber"]').evaluate('(e) => e === document.activeElement')
+    assert page.locator('[data-case="internal-platform"]').evaluate('(e) => e === document.activeElement')
     page.evaluate("Object.defineProperty(navigator, 'clipboard', {value: {writeText: () => Promise.reject(new Error('denied'))}, configurable: true})")
     page.locator('#copy-email').click()
     page.wait_for_function("document.querySelector('#copy-status').textContent.includes('Copy the address')")
+    # Sensitive values must not be embedded in the public case data or rendered copy.
+    data_response = context.request.get('http://127.0.0.1:4173/case-studies.js')
+    assert data_response.status == 200
+    for withheld in ['$10M', '$30M', '$100M', '97%', '1,000 customers', '30 percentage points', 'SVP', '40+', 'Timber']:
+        assert withheld not in data_response.text(), withheld
+    for asset in ['assets/favicon.svg', 'assets/luna-zhu.png', 'styles.css', 'script.js']:
+        assert context.request.get('http://127.0.0.1:4173/' + asset).status == 200, asset
     assert not errors, errors
-    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['case studies', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
+    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
     browser.close()

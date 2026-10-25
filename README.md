@@ -1,6 +1,6 @@
 # Luna Zhu — Personal Portfolio
 
-A responsive, standalone portfolio focused on Senior Product Manager, AI Product Manager, and Technical Product Manager roles, across AI experiences and cloud platforms. Built with HTML, CSS, and vanilla JavaScript; no build step or runtime dependencies. Fonts and resume are included locally.
+A responsive, standalone portfolio focused on Senior and Principal Product Manager roles in AI/ML products, cloud platforms, and monetization. Built with HTML, CSS, and vanilla JavaScript; no build step or runtime dependencies. Fonts and resume are included locally.
 
 ## Preview
 
@@ -30,7 +30,8 @@ Visit http://127.0.0.1:4173. The clipboard button works on localhost and HTTPS; 
 luna-portfolio/
 ├── index.html             Homepage and career milestone cards
 ├── styles.css             Styling and responsive layouts
-├── script.js              Role/case-study content and interactions
+├── case-studies.js        Shared case content, evidence, and diagram data
+├── script.js              Card/diagram renderers, role content, and interactions
 ├── assets/
 │   ├── Luna-Zhu-Resume.pdf
 │   ├── favicon.svg
@@ -49,7 +50,8 @@ This folder has its own local Git repository. Generated screenshots, local envir
 ## Development commands
 
 - `npm run dev` or `npm start`: serve the portfolio locally at port 4173.
-- `npm run check`: check JavaScript syntax.
+- `npm run check`: check both JavaScript files.
+- No lint, type-check, or build commands are configured; the site has no compilation step.
 - `npm run test:browser`: run the optional browser checks after setting up the test environment below.
 
 Changes appear after refreshing the browser. No compilation or build step is required.
@@ -57,7 +59,8 @@ Changes appear after refreshing the browser. No compilation or build step is req
 ## Edit
 
 - `index.html`: homepage text, career milestone cards, contact information, and resume links.
-- `script.js`: career role details, five case-study narratives, dialog behavior, timeline scrolling, mobile navigation, and email copy.
+- `case-studies.js`: ordered case content, ownership, evidence, diagrams, milestones, and public source links.
+- `script.js`: shared card/diagram renderers, career details, dialog navigation, timeline scrolling, mobile navigation, and email copy.
 - `styles.css`: responsive layouts, colors, and typography.
 - `assets/Luna-Zhu-Resume.pdf`: the `Luna_Zhu_Product_Resume.pdf` explicitly selected for publication on October 24, 2026. All resume buttons link to this file.
 - `assets/fonts`: self-hosted DM Sans and Manrope fonts, with their SIL Open Font Licenses.
@@ -71,7 +74,7 @@ To update the photo, replace `assets/luna-zhu.png` or update the image source in
 ## Strategic Trajectory
 
 
-Four clickable milestones trace R.R. Donnelley → Internet Brands → AWS → Amazon Fashion in progressively larger cards. Each opens a keyboard-accessible dialog with dates, responsibilities, skills, and achievements. AWS and Amazon include links to relevant case studies and a return-to-role action. On smaller screens, swipe or use the arrow controls to explore the timeline. Role detail links can be shared locally with `#role-rrd`, `#role-internet-brands`, `#role-aws`, and `#role-amazon`.
+Four clickable milestones trace R.R. Donnelley → Internet Brands → AWS → Amazon Retail in progressively larger cards. Each opens a keyboard-accessible dialog with dates, responsibilities, skills, and achievements. AWS and Amazon include links to relevant case studies and a return-to-role action. On smaller screens, swipe or use the arrow controls to explore the timeline. Role detail links can be shared locally with `#role-rrd`, `#role-internet-brands`, `#role-aws`, and `#role-amazon`.
 
 ## Point of View and LinkedIn
 
@@ -82,29 +85,45 @@ The `#writing` section features two published LinkedIn articles with summaries, 
 
 Article cards live in `index.html`; their styles use `writing-` classes in `styles.css`. Links open the original LinkedIn articles in a new tab. The writing section, contact section, and footer link to the supplied [LinkedIn profile](https://www.linkedin.com/in/lunazhu555). Navigation includes a Point of View anchor. The editorial hierarchy draws inspiration from the [reference writing section](https://rachellemaranon.dev/#writing), using the portfolio's existing visual style.
 
-## Content sources and editorial decisions
+## Selected Work: five cases
 
-The repository remains the implementation source of truth. On October 19, 2026, the live homepage was confirmed to match the checkout before editing. The current brief, existing case studies, and local project notes informed the revised narratives. Source notes are not shipped with the website.
+The site retains its static HTML/CSS/JavaScript architecture and editorial design. `case-studies.js` provides the single content model for cards and dialogs; `caseOrder` determines the visible sequence:
 
-- The primary projects remain GenAI Virtual Try-On, Application Signals (the existing `#case-aws` URL), and Global ML Size Intelligence.
-- AWS X-Ray and Timber appear as smaller supporting projects with `#case-xray` and `#case-timber` URLs. Both are linked from the AWS career dialog.
-- Cases use Problem, Ownership, Decisions, Tradeoffs, Execution, Outcomes, and Lessons. Explicit role boundaries distinguish product ownership from engineering implementation and executive decisions.
-- The headline evidence is 13 competitor benchmarks, four UX iterations, a 500K+ customer VTO experiment, and a 0-to-1 cloud product launch. These are scope and delivery indicators, not claims of business uplift.
-- AWS financial figures and internal architecture measurements remain omitted from website narratives. The resume PDF is the exact file explicitly selected by the user on October 24, 2026; it is published unchanged.
-- VTO describes an experiment with a paused broader rollout. Sizing describes a top-seller pilot that closed 10% of the diagnosed sizing-related return-rate gap (a 10–20 basis-point reduction), as stated in the selected resume. Broader expansion remains prospective. Adoption observations are not presented as causal effects.
-- The three main decision diagrams retain their layout. Application Signals now covers discovery, architecture, billing delivery, and post-launch learning. The two additional cards include compact conceptual flows.
-- Point of View, About, portrait, fonts, navigation, email/clipboard behavior, and LinkedIn links are preserved. Contact copy now names the target roles.
-- See [the content review](review/CONTENT_REVIEW.md) for source attribution, the October 24 resume update, and distinctions between pilot outcomes and broader rollout.
+1. GenAI Virtual Try-On — `#case-vto`
+2. Global Size Intelligence — `#case-sizing`
+3. CloudWatch Application Signals — `#case-aws`
+4. AWS X-Ray Repricing — `#case-xray`
+5. AWS Internal Usage Platform — `#case-internal-platform`
 
-### Resume and career timeline
+The fifth project uses a descriptive public name at the user's direction. A legacy project hash and `#case-application-signals` remain supported for existing inbound links.
 
-The user explicitly selected `Luna_Zhu_Product_Resume.pdf` for the website on October 24, 2026. It is copied unchanged to `assets/Luna-Zhu-Resume.pdf`; the link uses `?v=20261024` to bypass the previous cached version.
+All five use the same full-width editorial card, ownership summary, three evidence points, and case-study CTA. The work index links to individual cards. Cards place the diagram on the left on desktop and the summary first on mobile. Each project has its own decision visualization: quality gate, combined research evidence, parallel product/commercial tracks, charging-model comparison, or adoption/value sequence.
 
-The four role dates match the resume. Timeline cards and role dialogs use its job titles and responsibilities: Pricing Analyst at R.R. Donnelley; Senior Financial Analyst in SaaS Product Strategy & Monetization at Internet Brands; Finance Strategy Manager in AWS Product Strategy & Monetization; and Senior Product Manager at Amazon Retail. AWS narratives remain qualitative about financial outcomes. Amazon Retail includes the 500K+ VTO experiment, sizing pilot results, and framework adoption across teams.
+Details retain the native accessible dialog and add an expandable framework and previous/next case navigation. Closing restores the opening trigger. Role-to-case navigation still returns to the role. Existing hash links, Escape handling, keyboard focus, mobile navigation, and reduced-motion behavior are retained.
+
+## Content and disclosure decisions
+
+The user authorized pushing and publishing this revision on October 24, 2026, after reviewing the local preview. Publish through the existing GitHub Pages repository; keep the disclosure choices below intact.
+
+- The user cleared 13 competitor benchmarks, the 500K+ customer experiment, the 100–200 basis-point category-adjusted sizing gap, and approximately 10% pilot gap closure / 10–20 basis-point reduction.
+- The user selected descriptive naming and qualitative internal-team scope and approval wording for AWS work. Those choices are applied to cards, dialogs, and career references.
+- Financial outcomes and other uncleared internal measures are omitted from the public case data, including hidden data or alternate metric fields.
+- VTO describes disciplined experimentation and a paused broader rollout, without claiming conversion lift or return reduction.
+- Sizing distinguishes the baseline gap from the achieved pilot result and future expansion. No model architecture or accuracy is invented.
+- Application Signals distinguishes shared product ownership from independent commercial strategy. Public preview and GA dates link to AWS announcements. Later bundling is distinct from initial GA; the exact bundle date is not asserted without public corroboration.
+- X-Ray distinguishes redesign leadership from performance observed after the move out of AWS. Later financial outcomes are omitted.
+- The internal platform case distinguishes customer commitments, platform delivery, adoption, and later value realization.
+- Point of View, About, portrait, fonts, existing external links, and the resume file are preserved.
+
+The public-safe [content review](review/CONTENT_REVIEW.md) records the audit and editorial decisions. Detailed outstanding disclosure items are kept in the ignored `.private-review/` directory, not in website code or tracked documentation.
+
+### Resume
+
+The existing `assets/Luna-Zhu-Resume.pdf` and its `?v=20261024` link remain unchanged. It contains AWS financial figures and an internal platform name that are excluded from the new website copy. The user subsequently authorized publishing the reviewed revision, which preserves this previously published PDF. This does not clear its financial claims for reuse in website narratives. Do not silently rewrite the user-selected file.
 
 ## Hosting
 
-The site is ready for any static host. Publish `index.html`, `styles.css`, `script.js`, and the `assets` directory at the same level. The ZIP alongside this project contains these files plus this README. There is no backend, database, analytics, or contact-form service to configure. Contact uses email.
+The site is ready for any static host. Publish `index.html`, `styles.css`, `case-studies.js`, `script.js`, and the `assets` directory at the same level. There is no backend, database, analytics, or contact-form service to configure. Contact uses email.
 
 ### GitHub Pages
 
@@ -149,6 +168,6 @@ npm run test:browser
 
 The browser test script currently uses the standard macOS Chrome path; adjust `executable_path` for other operating systems.
 
-`review/check_portfolio.py` checks nine viewport widths (320, 390, 600, 601, 700, 768, 800, 1024, and 1440px), horizontal overflow, all five case dialogs, Escape/focus restoration, direct case URLs, four career milestone dialogs, related case-study navigation, keyboard activation, mobile timeline scrolling, internal anchors, the PDF, mobile navigation, clipboard success and fallback behavior, reduced-motion keyboard interaction, supporting project layouts, and JavaScript errors.
+`review/check_portfolio.py` checks nine viewport widths (320, 390, 600, 601, 700, 768, 800, 1024, and 1440px), horizontal overflow, all five case dialogs, Escape/focus restoration, direct case URLs, four career milestone dialogs, related case-study navigation, keyboard activation, mobile timeline scrolling, internal anchors, the PDF, mobile navigation, clipboard success and fallback behavior, reduced-motion keyboard interaction, five-project ordering, expandable decision diagrams, case pagination, legacy hashes, focus containment, disclosure-safe case data, asset responses, and JavaScript errors.
 
 Desktop, mobile, and case-study screenshots are stored in `review/`. Review files are excluded from the deployment ZIP.

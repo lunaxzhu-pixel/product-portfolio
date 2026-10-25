@@ -1,39 +1,58 @@
-# Portfolio content review — October 24, 2026
+# Five-case portfolio review
 
-## Source and authorization
+## Phase 1: implementation audit
 
-The user explicitly requested publication of `Luna_Zhu_Product_Resume.pdf` and asked that the career timeline follow that resume. The file was copied unchanged to `assets/Luna-Zhu-Resume.pdf`, replacing the previous version. The resume link uses `?v=20261024`.
+- Static HTML, vanilla JavaScript, plain CSS, no framework or build step.
+- `index.html` originally hardcoded three large work cards and two smaller supporting cards. All five detailed views already used a shared `cases` object.
+- Navigation uses page anchors and case/role hashes. Detail views use a native `<dialog>` with Escape, backdrop close, focus restoration, and role-return behavior.
+- The design uses locally hosted DM Sans and Manrope, a green/cream palette, editorial typography, responsive grid cards, and a scrolling career timeline.
+- Assets include the portrait, favicon, fonts, and existing product resume. GitHub Pages serves `main` at the repository root, with `.nojekyll` and `CNAME` retained.
+- The fetched live homepage and script matched the checkout at audit time. The only pre-existing workspace change was an untracked package lock; it was left untouched.
 
-The October 19 website work remains part of this revision: broader AI/cloud positioning, three primary projects, X-Ray and Timber supporting projects, and seven-section case narratives. The earlier missing-resume dependency is resolved by the October 24 instruction.
+## Phase 2: changes
 
-## Timeline alignment
+`case-studies.js` is the shared data source for the five full-width cards and detailed cases. Explicit ordering is VTO, sizing, Application Signals, X-Ray, internal usage platform. The fifth name follows the user's preference for descriptive public naming.
 
-| Role | Dates | Updated emphasis |
-| --- | --- | --- |
-| R.R. Donnelley — Pricing Analyst | August 2015–August 2017 | Quantitative pricing, Oracle Database, scenario analysis, deal win rates and margins. |
-| Internet Brands — Senior Financial Analyst | August 2017–May 2021 | SaaS product strategy and monetization; ARR and conversion improvements; reporting reduced from 10 days to 4. |
-| AWS — Finance Strategy Manager | June 2021–February 2025 | Shared Application Signals product ownership, X-Ray requirements and billing redesign, Timber delivery and adoption, four-service portfolio strategy. |
-| Amazon Retail — Senior Product Manager | February 2025–Present | VTO product strategy and guardrails, ML sizing pilot results, reusable decision frameworks adopted across teams. |
+Each case has a category, headline, summary, precise ownership, three evidence points, seven narrative sections, and a distinct framework. Card and dialog diagrams use the same data and renderer. All five preserve the established style and mobile summary-first ordering. Details include expandable frameworks and previous/next navigation.
 
-AWS financial figures from the selected resume are not duplicated into the timeline or cases. The downloadable PDF is the exact user-selected document, including its contents. Internal architecture measurements, customer names, and unprovided financial details remain excluded.
+Narrative sections: Problem, Ownership, Insights, Product Decisions, Execution, Outcomes, Lessons & Tradeoffs.
 
-## Outcome distinctions
+The existing AWS hash is retained. Legacy renamed-project links are resolved to the matching case. Career links and summaries, metadata, target-role copy, and the headline case count are synchronized. About and Point of View are preserved.
 
-- VTO: 13 competitor benchmarks and a 500K+ customer A/B test are stated in the selected resume. Four Figma iterations remain supported by the earlier explicit brief and project notes. Broader rollout was paused; no global launch or avoided-cost claim is made.
-- Sizing: the new resume reports a 100–200 basis-point baseline sizing-related return-rate gap and 10% gap closure in the top-seller pilot. The equivalent 10–20 basis-point reduction is a pilot result, not a 10% reduction in all returns. Prior text saying that no pilot result was available has been corrected.
-- Application Signals: roadmap, PRDs, prioritization, and launch readiness were shared with PM and Engineering. Commercial and cost ownership remain distinguished from engineering implementation. Adoption improvement is described as an observation rather than an experimental causal lift.
-- X-Ray: the selected resume confirms the transition to GB + spans billing. The case now reflects delivery, without adding an uncertain launch date or attributing later service growth to one initiative. Timeline copy follows the resume’s VP approval wording; case copy uses the broader “executive approval.”
-- Timber: the existing design, engineering implementation, Luna’s prioritization and coordination work, and customer-team adoption remain distinct. No savings amount is duplicated in the website narratives.
+## Disclosure decisions
 
-## Limits on future claims
+- Explicitly cleared by the user: 13 competitor benchmarks, 500K+ experiment customers, 100–200 bps category-adjusted sizing gap, and approximately 10% pilot gap closure / 10–20 bps reduction.
+- User directed descriptive naming and qualitative internal-team scope and approval wording. These replace the internal platform name, team count, and specific executive levels in public-facing narratives.
+- Financial claims remain omitted pending individual clearance. Historical publication and private notes are not treated as fresh approval.
+- VTO has no claimed conversion improvement, broad launch, or return reduction.
+- Sizing shows pilot results without implying global rollout or invented model implementation.
+- Application Signals separates initial preview/GA from subsequent cross-service bundling and shared product ownership from independent pricing/cost scope.
+- X-Ray separates redesign leadership from later outcomes observed after transition out of AWS.
+- Internal-platform commitments and later realized value remain distinct.
 
-The resume is the user-selected factual source, not an independent audit of employment or outcomes. Future updates should verify experiment denominators before using more specific wording, confirm launch dates against public announcements, and obtain explicit clearance before adding internal measurements or new financial claims. No hypothetical scenario from project notes is presented as a delivered result.
+## Public product sources
 
-## Public product context
+- [Preview announcement](https://aws.amazon.com/about-aws/whats-new/2023/11/amazon-cloudwatch-applications-signals-observe-preview/) — November 30, 2023.
+- [GA announcement](https://aws.amazon.com/about-aws/whats-new/2024/06/amazon-cloudwatch-application-signals-application-monitoring/) — June 10, 2024.
+- [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/) — public three-tier pricing example and trial/usage allowances; it does not verify personal ownership or historical approval details.
 
-- [Application Signals general availability](https://aws.amazon.com/about-aws/whats-new/2024/06/amazon-cloudwatch-application-signals-application-monitoring/) supports the public product context, not personal ownership claims.
-- [AWS transaction visibility announcement](https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-cloudwatch-visibility-application-transactions/) provides tracing context, without implying that the historical project changed every current X-Ray pricing option.
+The supplied October 2024 bundle milestone was not independently corroborated by an official source in this review. Public copy uses “After GA” and does not present later bundling as an initial launch feature.
 
-## Validation
+## Release boundary
 
-`node --check script.js` and `git diff --check` validate syntax and patch formatting. The existing browser suite checks nine viewport widths, all five case dialogs, role dialogs and related links, direct hashes, keyboard/focus behavior, responsive layouts, clipboard behavior, and exact served PDF bytes. The October 24 check additionally compares the deployed PDF with the user-selected source file.
+The user authorized pushing and publishing the reviewed revision on October 24, 2026. The previously published resume remains unchanged and still contains details omitted from website narratives. Publication authorization does not clear those claims for reuse in the new narratives. Detailed withheld claims remain only in ignored local review notes.
+
+## Phase 3: validation
+
+Use `npm run check`, start the local server, and run `.venv/bin/python review/check_portfolio.py`. The suite covers the requested ordering, five dialogs, seven narrative sections, tailored expandable diagrams, previous/next navigation, role links, legacy hashes, keyboard focus, mobile navigation, assets, resume delivery, clipboard, responsive overflow, and console errors.
+
+No lint, type-check, or build command exists. Do not install a framework or add a build pipeline solely for those checks.
+
+Completed validation:
+
+- `npm run check` and `git diff --check` passed.
+- The Playwright suite passed at 320, 390, 600, 601, 700, 768, 800, 1024, and 1440 pixels, including all five cases, their diagrams, navigation, focus management, reduced-motion behavior, and local asset delivery.
+- No JavaScript errors, console errors, failed asset requests, or horizontal overflow were reported.
+- Desktop cards and mobile dialogs were visually reviewed for typography, spacing, and readable diagrams.
+- About and Point of View match the starting revision; the resume PDF is byte-for-byte unchanged.
+- Validation completed before publication. The user subsequently authorized publication; individual AWS financial claims remain excluded from website narratives.
