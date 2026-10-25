@@ -1,6 +1,6 @@
 # Luna Zhu — Personal Portfolio
 
-A responsive, standalone portfolio focused on senior product management, AI strategy, growth, and monetization. Built with HTML, CSS, and vanilla JavaScript; no build step or runtime dependencies. Fonts and resume are included locally.
+A responsive, standalone portfolio focused on Senior Product Manager, AI Product Manager, and Technical Product Manager roles, across AI experiences and cloud platforms. Built with HTML, CSS, and vanilla JavaScript; no build step or runtime dependencies. Fonts and resume are included locally.
 
 ## Preview
 
@@ -57,14 +57,14 @@ Changes appear after refreshing the browser. No compilation or build step is req
 ## Edit
 
 - `index.html`: homepage text, career milestone cards, contact information, and resume links.
-- `script.js`: career role details, three case-study narratives, dialog behavior, timeline scrolling, mobile navigation, and email copy.
+- `script.js`: career role details, five case-study narratives, dialog behavior, timeline scrolling, mobile navigation, and email copy.
 - `styles.css`: responsive layouts, colors, and typography.
-- `assets/Luna-Zhu-Resume.pdf`: the updated `Luna Zhu Resume_Product.pdf` supplied on October 9, 2026. All resume buttons link to this file.
+- `assets/Luna-Zhu-Resume.pdf`: the `Luna_Zhu_Product_Resume.pdf` explicitly selected for publication on October 24, 2026. All resume buttons link to this file.
 - `assets/fonts`: self-hosted DM Sans and Manrope fonts, with their SIL Open Font Licenses.
 
 ## Profile photo
 
-The homepage opens with Luna Zhu, the positioning line “AI Product Strategy | Pricing & Monetization,” the supplied introduction, and a larger oval standalone portrait from `assets/luna-zhu.png`. The photo has no surrounding card; the original image is preserved.
+The homepage opens with Luna Zhu, the positioning “AI product experiences. Cloud platforms. Better customer decisions.”, an introduction connecting discovery, technical tradeoffs, and unit economics, and an oval portrait from `assets/luna-zhu.png`. The photo has no surrounding card; the original image is preserved.
 
 To update the photo, replace `assets/luna-zhu.png` or update the image source in `index.html`. Adjust `.profile-photo`'s `object-position` in `styles.css` to change its placement within the frame.
 
@@ -84,17 +84,23 @@ Article cards live in `index.html`; their styles use `writing-` classes in `styl
 
 ## Content sources and editorial decisions
 
-The updated `Luna Zhu Resume_Product.pdf`, supplied October 9, 2026, is the reference for public numeric detail and rollout status. The project presentation informs the qualitative case-study structure.
+The repository remains the implementation source of truth. On October 19, 2026, the live homepage was confirmed to match the checkout before editing. The current brief, existing case studies, and local project notes informed the revised narratives. Source notes are not shipped with the website.
 
-- Exact experiment participation, survey size, seller counts, detailed revenue forecasts, growth rates, and return-volume/cost estimates omitted from the updated resume are also omitted from the website and role dialogs.
-- Resume-retained metrics remain, including competitor benchmarks, the diagnosed sizing-related return-rate gap, gross-margin improvement, and earlier pricing and SaaS achievements.
-- AWS observability is described as a billion-dollar-scale opportunity; revenue potential is distinct from realized revenue.
-- Virtual try-on remains a large-scale experiment with broader rollout jointly paused with senior leadership after the return-rate guardrail was triggered.
-- Sizing reached a top-seller pilot. Broader U.S. rollout and potential international expansion are prospective. The diagnosed sizing gap is not an achieved return-rate reduction.
-- All three project cards include sanitized decision diagrams and prominent buttons opening detailed case studies. Diagrams reconstruct the decision logic rather than reproducing internal interfaces.
-- Mobile shows the latest career role first; desktop and laptop retain chronological order.
-- The resume asset is replaced with the supplied PDF unchanged. Its link includes a version query to bypass older browser caches.
-- Contact details, articles, LinkedIn links, portrait, and case-study interactions are preserved.
+- The primary projects remain GenAI Virtual Try-On, Application Signals (the existing `#case-aws` URL), and Global ML Size Intelligence.
+- AWS X-Ray and Timber appear as smaller supporting projects with `#case-xray` and `#case-timber` URLs. Both are linked from the AWS career dialog.
+- Cases use Problem, Ownership, Decisions, Tradeoffs, Execution, Outcomes, and Lessons. Explicit role boundaries distinguish product ownership from engineering implementation and executive decisions.
+- The headline evidence is 13 competitor benchmarks, four UX iterations, a 500K+ customer VTO experiment, and a 0-to-1 cloud product launch. These are scope and delivery indicators, not claims of business uplift.
+- AWS financial figures and internal architecture measurements remain omitted from website narratives. The resume PDF is the exact file explicitly selected by the user on October 24, 2026; it is published unchanged.
+- VTO describes an experiment with a paused broader rollout. Sizing describes a top-seller pilot that closed 10% of the diagnosed sizing-related return-rate gap (a 10–20 basis-point reduction), as stated in the selected resume. Broader expansion remains prospective. Adoption observations are not presented as causal effects.
+- The three main decision diagrams retain their layout. Application Signals now covers discovery, architecture, billing delivery, and post-launch learning. The two additional cards include compact conceptual flows.
+- Point of View, About, portrait, fonts, navigation, email/clipboard behavior, and LinkedIn links are preserved. Contact copy now names the target roles.
+- See [the content review](review/CONTENT_REVIEW.md) for source attribution, the October 24 resume update, and distinctions between pilot outcomes and broader rollout.
+
+### Resume and career timeline
+
+The user explicitly selected `Luna_Zhu_Product_Resume.pdf` for the website on October 24, 2026. It is copied unchanged to `assets/Luna-Zhu-Resume.pdf`; the link uses `?v=20261024` to bypass the previous cached version.
+
+The four role dates match the resume. Timeline cards and role dialogs use its job titles and responsibilities: Pricing Analyst at R.R. Donnelley; Senior Financial Analyst in SaaS Product Strategy & Monetization at Internet Brands; Finance Strategy Manager in AWS Product Strategy & Monetization; and Senior Product Manager at Amazon Retail. AWS narratives remain qualitative about financial outcomes. Amazon Retail includes the 500K+ VTO experiment, sizing pilot results, and framework adoption across teams.
 
 ## Hosting
 
@@ -143,6 +149,6 @@ npm run test:browser
 
 The browser test script currently uses the standard macOS Chrome path; adjust `executable_path` for other operating systems.
 
-`review/check_portfolio.py` checks five viewport widths (320, 390, 768, 1024, and 1440px), horizontal overflow, all case dialogs, Escape/focus restoration, direct case URLs, four career milestone dialogs, related case-study navigation, keyboard activation, mobile timeline scrolling, internal anchors, the PDF, mobile navigation, clipboard behavior, and JavaScript errors.
+`review/check_portfolio.py` checks nine viewport widths (320, 390, 600, 601, 700, 768, 800, 1024, and 1440px), horizontal overflow, all five case dialogs, Escape/focus restoration, direct case URLs, four career milestone dialogs, related case-study navigation, keyboard activation, mobile timeline scrolling, internal anchors, the PDF, mobile navigation, clipboard success and fallback behavior, reduced-motion keyboard interaction, supporting project layouts, and JavaScript errors.
 
 Desktop, mobile, and case-study screenshots are stored in `review/`. Review files are excluded from the deployment ZIP.

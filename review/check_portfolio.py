@@ -14,20 +14,23 @@ with sync_playwright() as p:
     page.screenshot(animations="disabled", path=str(ROOT / 'desktop.png'), full_page=True)
     page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-desktop.png'))
     page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-desktop.png'))
-    assert page.title() == 'Luna Zhu — AI Product Strategy & Growth'
+    assert page.title() == 'Luna Zhu — AI Products & Cloud Platforms'
     assert page.locator('h1').count() == 1
-    assert page.locator('.hero-intro').inner_text().startswith('Senior Product Manager at Amazon, ex-AWS, with 11+ years of experience')
+    assert page.locator('.hero-intro').inner_text().startswith('Senior Product Manager at Amazon, ex-AWS, with 11+ years')
     assert '11+ years' in page.locator('.hero-intro').inner_text()
-    for key in ['aws', 'vto', 'sizing']:
+    for key in ['aws', 'vto', 'sizing', 'xray', 'timber']:
         button = page.locator(f'[data-case="{key}"]')
         button.click()
         assert page.locator('#case-dialog').evaluate('(d) => d.open')
         assert len(page.locator('#case-title').inner_text()) > 10
+        assert page.locator('.case-section h3').all_text_contents() == ['Problem', 'Ownership', 'Decisions', 'Tradeoffs', 'Execution', 'Outcomes', 'Lessons']
         if key == 'vto':
             page.locator('#case-dialog').screenshot(animations="disabled", path=str(ROOT / 'case-study.png'))
         page.keyboard.press('Escape')
         assert not page.locator('#case-dialog').evaluate('(d) => d.open')
         assert button.evaluate('(e) => e === document.activeElement')
+    assert page.locator('#work .project').count() == 3
+    assert page.locator('.additional-project').count() == 2
     milestones = page.locator('[data-role]')
     assert milestones.count() == 4
     for key, company in [('rrd', 'R.R. Donnelley'), ('internet-brands', 'Internet Brands'), ('aws', 'Amazon Web Services'), ('amazon', 'Amazon Retail')]:
@@ -37,6 +40,12 @@ with sync_playwright() as p:
         assert company in page.locator('.career-company').inner_text()
         assert page.locator('.role-achievements li').count() >= 2
         assert button.evaluate('(e) => e.classList.contains("is-active")')
+        if key == 'aws':
+            for related in ['aws', 'xray', 'timber']:
+                page.locator(f'[data-related-case="{related}"]').click()
+                assert page.locator('.case-section h3').count() == 7
+                page.locator('.dialog-done').click()
+                assert 'Amazon Web Services' in page.locator('.career-company').inner_text()
         if key == 'amazon':
             page.locator('#case-dialog').screenshot(animations="disabled", path=str(ROOT / 'career-details.png'))
             page.locator('[data-related-case="vto"]').click()
@@ -51,7 +60,7 @@ with sync_playwright() as p:
     page.keyboard.press('Enter')
     assert 'Amazon Web Services' in page.locator('.career-company').inner_text()
     page.locator('[data-related-case="aws"]').click()
-    assert 'growth engine' in page.locator('#case-title').inner_text()
+    assert 'knowing where to act' in page.locator('#case-title').inner_text()
     page.locator('.dialog-close').click()
     assert page.locator('[data-role="aws"]').evaluate('(e) => e === document.activeElement')
     page.wait_for_function('!document.body.classList.contains("modal-open")')
@@ -70,9 +79,12 @@ with sync_playwright() as p:
     page.locator('#copy-email').click()
     page.wait_for_function('document.querySelector("#copy-status").textContent.includes("copied")')
     assert page.evaluate('navigator.clipboard.readText()') == 'luna.x.zhu@gmail.com'
-    page.goto('http://127.0.0.1:4173/#case-vto')
-    assert page.locator('#case-dialog').evaluate('(d) => d.open')
-    page.locator('.dialog-close').click()
+    for key in ['aws', 'vto', 'sizing', 'xray', 'timber']:
+        page.goto(f'http://127.0.0.1:4173/#case-{key}', wait_until='networkidle')
+        assert page.locator('#case-dialog').evaluate('(d) => d.open')
+        assert page.locator('.case-section h3').count() == 7
+        page.locator('.dialog-close').click()
+        page.wait_for_function('!document.body.classList.contains("modal-open")')
     for width in VIEWPORTS:
         page.set_viewport_size({'width': width, 'height': 900})
         page.goto('http://127.0.0.1:4173', wait_until='networkidle')
@@ -84,13 +96,15 @@ with sync_playwright() as p:
                 assert summary['y'] + summary['height'] <= diagram['y'] + 1, f'Mobile summary order at {width}'
             else:
                 assert diagram['x'] + diagram['width'] <= summary['x'] + 1, f'Desktop diagram placement at {width}'
+        for card in page.locator('.additional-project').all():
+            assert card.evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'Additional project overflow at {width}'
         for diagram in page.locator('.decision-visual').all():
             assert diagram.evaluate('(e) => e.scrollWidth <= e.clientWidth && e.scrollHeight <= e.clientHeight + 1'), f'Clipped diagram at {width}'
         heights = page.locator('.milestone-card').evaluate_all('(cards) => cards.map(card => card.getBoundingClientRect().height)')
         assert max(heights) - min(heights) <= 1, f'Uneven career cards at {width}'
         expected_roles = ['amazon', 'aws', 'internet-brands', 'rrd'] if width <= 600 else ['rrd', 'internet-brands', 'aws', 'amazon']
         assert page.locator('.trajectory-track [data-role]').evaluate_all('(buttons) => buttons.map(button => button.dataset.role)') == expected_roles
-        for key in ['aws', 'vto', 'sizing']:
+        for key in ['aws', 'vto', 'sizing', 'xray', 'timber']:
             page.locator(f'[data-case="{key}"]').click()
             assert page.locator('#case-dialog').evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'{key} dialog overflow at {width}'
             if width in [390, 1440]:
@@ -100,6 +114,7 @@ with sync_playwright() as p:
         if width == 390:
             page.screenshot(animations="disabled", path=str(ROOT / 'mobile.png'), full_page=True)
             page.locator('#home').screenshot(animations="disabled", path=str(ROOT / 'hero-mobile.png'))
+            page.locator('.additional-work').screenshot(animations="disabled", path=str(ROOT / 'additional-mobile.png'))
             page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-mobile.png'))
             page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-mobile.png'))
             assert page.locator('.trajectory-prev').is_disabled()
@@ -123,6 +138,19 @@ with sync_playwright() as p:
             page.locator('[data-case="aws"]').click()
             page.locator('.dialog-done').click()
             assert not page.locator('#case-dialog').evaluate('(d) => d.open')
+    page.set_viewport_size({'width': 1440, 'height': 1000})
+    page.goto('http://127.0.0.1:4173', wait_until='networkidle')
+    page.locator('.additional-work').screenshot(animations="disabled", path=str(ROOT / 'additional-desktop.png'))
+    page.emulate_media(reduced_motion='reduce')
+    page.locator('[data-case="timber"]').focus()
+    page.keyboard.press('Enter')
+    assert page.locator('#case-dialog').evaluate('(d) => d.open')
+    page.keyboard.press('Escape')
+    page.wait_for_function('!document.body.classList.contains("modal-open")')
+    assert page.locator('[data-case="timber"]').evaluate('(e) => e === document.activeElement')
+    page.evaluate("Object.defineProperty(navigator, 'clipboard', {value: {writeText: () => Promise.reject(new Error('denied'))}, configurable: true})")
+    page.locator('#copy-email').click()
+    page.wait_for_function("document.querySelector('#copy-status').textContent.includes('Copy the address')")
     assert not errors, errors
     print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['case studies', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
     browser.close()

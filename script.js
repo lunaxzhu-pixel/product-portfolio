@@ -1,176 +1,218 @@
 const cases = {
   "aws": {
-    "kicker": "AWS · Cloud infrastructure monetization · Unit economics · Pricing & GTM",
-    "title": "A growth engine, built into the pricing.",
-    "intro": "I owned pricing and monetization strategy for AWS observability, shaping the early roadmap, packaging, and GTM while partnering on infrastructure economics.",
-    "metric": "100+ bps",
-    "metricLabel": "Gross-margin improvement achieved through architecture and unit-economics tradeoffs.",
+    "kicker": "AWS · Application Signals · 0-to-1 cloud product",
+    "title": "From detecting a problem to knowing where to act.",
+    "intro": "I partnered with the Technical Product Manager and GM to take Application Signals from customer discovery through launch and adoption. I owned the commercial strategy, cost model, and business requirements that shaped the product.",
+    "metric": "0 → 1",
+    "metricLabel": "A cloud monitoring product taken through discovery, production billing, and post-launch iteration.",
     "sections": [
       [
-        "The problem",
-        "Increasingly complex enterprise cloud architectures made basic logs and metrics insufficient for fast incident triage. Datadog, Dynatrace, and New Relic offered specialized platforms, while AWS needed an end-to-end, full-stack observability solution. The challenge was to design pricing that gave small businesses and enterprise customers predictable costs while supporting cost-effective infrastructure and sustainable margins."
+        "Problem",
+        "Cloud applications were becoming harder to troubleshoot. Customers wanted a connected view of application health and a faster path from a failing service to the code or dependency that needed attention. They also needed to understand what that monitoring would cost."
       ],
       [
-        "The approach",
-        "Aligned pricing units with customer usage and value. Used competitive TCO research, elasticity modeling, and customer interviews to shape predictable tiers, free trials, and bundles. Partnered on architecture choices to protect unit economics."
+        "Ownership",
+        "I participated in customer discovery and shared roadmap decisions with the PMT and GM. My PRD contributions covered workload priorities, commercial requirements, and architecture cost constraints. I owned pricing and the business model; the PMT led technical product work, and engineers designed the system."
       ],
       [
-        "The outcome",
+        "Decisions",
+        "Customer interviews, workload analysis, and competitive total-cost comparisons informed a phased MVP. We prioritized language and compute-environment support around customer demand and engineering capacity. I proposed usage-based pricing, trial options, and packaging that connected the monitoring experience across services."
+      ],
+      [
+        "Tradeoffs",
+        "The initial cost model exposed a tension between competitive customer pricing and infrastructure economics. I brought that constraint to the Principal Engineer, who proposed a more efficient telemetry design. I evaluated workload scenarios and downside cases with Engineering. Cross-service monetization also required balancing customer simplicity with separate teams’ revenue interests; the GM approved the commercial approach."
+      ],
+      [
+        "Execution",
+        "I contributed to design reviews, sprint planning, and launch readiness, and worked with Engineering to identify versions ready for load testing. I partnered on metering, billing, and invoicing delivery so pricing could work in production. After launch, I reviewed adoption with the PMT and GM and escalated a gap between expected and actual uptake."
+      ],
+      [
+        "Outcomes",
         [
-          "Revenue and adoption — Established a model projecting billion-dollar-scale revenue potential, with a strategy to support business partners and enterprise customers.",
-          "Margin expansion — Helped achieve a 100+ basis-point gross-margin improvement by translating architecture tradeoffs into customer performance and unit economics."
+          "Delivered — Application Signals launched with production billing and a usage-based commercial model. The architecture decision informed the product design; modeled economics are not presented here as realized savings.",
+          "Observed — Follow-up interviews led by the GM and PMT showed customers needed more help investigating issues. I helped prioritize broader language support and deeper tracing integrations. Adoption accelerated as those capabilities became available; this was an observed relationship, not a measured causal lift."
         ]
+      ],
+      [
+        "Lessons",
+        "Discovery has to follow the customer through the full job. A dashboard could show a problem, but adoption depended on helping customers decide what to investigate next. Commercial performance became an input to the product roadmap."
       ]
     ],
-    "note": "The observability opportunity is described at billion-dollar scale; exact revenue forecasts and customer counts are omitted. The 100+ basis-point figure refers to achieved gross-margin improvement.",
-    "lifecycle": [
+    "note": "Public product context is linked below. Personal contributions describe my role during development; they do not imply sole ownership of the product. Internal financial data, workload measurements, and customer details are omitted.",
+    "sources": [
       {
-        "phase": "Discover",
-        "title": "Customer elasticity & competitive research",
-        "body": "Combined pricing elasticity modeling with competitive total-cost-of-ownership (TCO) benchmarking against Datadog and Dynatrace across enterprise workloads. Identified demand for cost predictability and transparent usage-based billing."
-      },
-      {
-        "phase": "Define",
-        "title": "Monetization framework & value metrics",
-        "body": "Built pricing, packaging, and monetization from the ground up for a portfolio with an established recurring-revenue baseline. Established six principles: cost-following pricing units, predictable billing, competitive TCO, margin-protective architecture, free-tier acquisition, and targeted migration paths."
-      },
-      {
-        "phase": "Design",
-        "title": "Architecture & pricing model pair",
-        "body": "Partnered with infrastructure architects to pair efficient logging and metrics pipelines with tiered bundling. Aligned customer costs with usage scale and designed free tiers, trials, and packaging to encourage migration from third-party tools while protecting unit economics."
-      },
-      {
-        "phase": "Build",
-        "title": "Cross-functional monetization infrastructure",
-        "body": "Partnered across Engineering, Product, Finance, Business Development, and Economics to deliver automated metering, billing, and invoicing infrastructure."
-      },
-      {
-        "phase": "Launch",
-        "title": "Global AWS ecosystem rollout",
-        "body": "Shipped within the AWS Monitoring portfolio across global AWS regions, introducing free trials, tiered discounts, and bundle packaging."
-      },
-      {
-        "phase": "Measure",
-        "title": "Revenue & margin expansion",
-        "body": "Tracked customer adoption, migration velocity, revenue, and margins. Used these measures to guide pricing, packaging, and investment decisions for a billion-dollar-scale opportunity."
+        "label": "AWS: Application Signals general availability",
+        "url": "https://aws.amazon.com/about-aws/whats-new/2024/06/amazon-cloudwatch-application-signals-application-monitoring/"
       }
     ]
   },
   "vto": {
-    "kicker": "Amazon Fashion · GenAI applications · Product-led growth · Experimentation",
+    "kicker": "Amazon Fashion · GenAI Virtual Try-On · Discovery & experimentation",
     "title": "Less uncertainty. More confident shopping.",
-    "intro": "I led GenAI virtual try-on strategy, MVP prioritization, and Figma UX prototyping, using customer research and controlled experimentation to guide the rollout decision.",
-    "metric": "Large-scale",
-    "metricLabel": "Controlled Weblab A/B experiment. Broader rollout was jointly paused with senior leadership after the return-rate guardrail was triggered.",
+    "intro": "I led product discovery and the shopping experience for GenAI Virtual Try-On, turning customer uncertainty into a prototype, an experiment, and a decision about whether to scale.",
+    "metric": "500K+",
+    "metricLabel": "Customers in a controlled A/B test of the experience. Broader rollout was paused.",
     "sections": [
       [
-        "The problem",
-        "Online apparel shoppers could not confidently predict fit or appearance. Fit-related returns and trial shopping pointed to unresolved customer uncertainty. Historical virtual try-on adoption data and customer research revealed friction and rendering-quality limitations in earlier experiences."
+        "Problem",
+        "Apparel shoppers could see the garment but still struggled to judge how it would look and fit. Customer research and earlier virtual try-on usage showed that extra setup steps and weak visual realism could undermine an otherwise useful idea."
       ],
       [
-        "The approach",
-        "Embedded photo upload, side-by-side try-on, and add-to-cart in the existing shopping flow. Customer surveys and 13 competitor benchmarks informed MVP priorities and the decision to exclude custom avatars. Partnered with Applied Science on model selection and tested the experience in a large-scale Weblab A/B experiment."
+        "Ownership",
+        "I owned customer discovery, MVP priorities, and the experience prototype. I built four UX iterations in Figma, incorporating customer feedback, leadership reviews, and experiment learning. The Technical Product Manager and Engineering led the technical build; I partnered with Applied Science on model evaluation."
       ],
       [
-        "The outcome",
+        "Decisions",
+        "I benchmarked 13 competing offerings and compared those findings with historical adoption and customer research. That evidence led me to remove custom avatars from the MVP. I kept entry on the product page and connected photo upload, side-by-side comparison, and add-to-cart in one shopping journey."
+      ],
+      [
+        "Tradeoffs",
+        "With Applied Science, I evaluated model approaches across image realism, generation latency, scalability, development speed, and infrastructure cost. We selected an open-source approach for early validation. A convincing image could increase confidence without accurately predicting fit, so purchase metrics alone could not determine readiness."
+      ],
+      [
+        "Execution",
+        "I translated the experience into customer requirements, including latency and scale expectations, and worked with technical and leadership teams on success measures and return-rate guardrails. We tested the full experience with 500K+ customers through Weblab, Amazon’s A/B testing system."
+      ],
+      [
+        "Outcomes",
         [
-          "Validated customer demand — Delivered statistically significant lifts in cart conversion, GMV, and OPS, demonstrating that GenAI visualization could increase purchase intent.",
-          "Identified the critical tradeoff — The experiment also triggered the return-rate guardrail. We hypothesized that visual try-on alone was insufficient without size-and-fit guidance.",
-          "Protected unit economics — Recommended pausing full rollout until fit prediction matured, avoiding a rollout that could materially increase return-related costs. Shifted the roadmap toward integrated size-and-fit capabilities and established a reusable AI evaluation framework."
+          "Observed — The experiment improved cart conversion and purchase-intent measures, but customer-initiated returns breached the guardrail.",
+          "Decision — I recommended pausing broader rollout and made that decision jointly with senior leadership. Fit-accuracy limitations informed the hypothesis that visualization needed size-and-fit guidance.",
+          "Next step — Integrated fit capabilities became the roadmap direction. This case describes an experiment and a rollout decision, not a broadly launched product or realized return-cost savings."
         ]
+      ],
+      [
+        "Lessons",
+        "AI quality must be evaluated in the decision it supports. Visual realism helped shoppers imagine a purchase; it did not establish that the garment would fit. The return-rate guardrail changed the product decision."
       ]
     ],
-    "note": "The experiment was conducted at scale. The conversion gains did not lead to a full rollout because downstream returns failed the guardrail.",
-    "lifecycle": [
-      {
-        "phase": "Discover",
-        "title": "Identifying root friction via data telemetry",
-        "body": "Analyzed purchase and return datasets and historical VTO Shoes telemetry to isolate friction and visual-realism problems. Surveyed apparel shoppers to validate the sources of hesitation before adding to cart."
-      },
-      {
-        "phase": "Define",
-        "title": "Scoping the opportunity & data-driven de-scoping",
-        "body": "Benchmarked 13 market solutions and internal categories. Triangulated customer research, competitor analysis, and historical adoption to de-scope custom avatars before engineering investment. Set click-through, cart conversion, GMV, and Ordered Product Sales (OPS) as success measures, with Customer-Initiated Returns as the guardrail."
-      },
-      {
-        "phase": "Design",
-        "title": "Designing the low-friction experience",
-        "body": "Personally created Figma prototypes, incorporating customer insights, UX tradeoffs, and senior leadership reviews. Integrated product-page entry, photo upload, side-by-side try-on, and seamless add-to-cart into the natural shopping journey."
-      },
-      {
-        "phase": "Build",
-        "title": "Translating customer needs into technical requirements",
-        "body": "Partnered with the Technical Product Manager, Applied Science, and engineering to define latency, scale, product-page integration, and measurement requirements. Compared proprietary Amazon diffusion models with open-source approaches and chose open source for pilot validation, balancing realism, development speed, latency, and infrastructure cost."
-      },
-      {
-        "phase": "Launch",
-        "title": "Large-scale Weblab experimentation",
-        "body": "Ran the complete experience through a large-scale controlled Weblab A/B test, measuring engagement and purchase intent alongside downstream fulfillment impact."
-      },
-      {
-        "phase": "Measure",
-        "title": "When a positive experiment becomes a no-go",
-        "body": "The experiment improved cart conversion, GMV, and OPS, but also increased Customer-Initiated Returns. I treated the return-rate movement as evidence that the product solved only part of the customer problem: visual realism helped answer “How will this look on me?” but not “Will this actually fit me?” Because fit prediction was not yet mature enough, I recommended against full rollout and shifted the roadmap toward integrated size-and-fit capabilities."
-      }
-    ]
+    "note": "The 13 benchmarks, four UX iterations, and 500K+ experiment scope describe discovery and validation. Exact commercial uplift and return-cost estimates are omitted."
   },
   "sizing": {
-    "kicker": "Amazon Fashion · Global platform strategy · ML recommendations · Unit economics",
+    "kicker": "Amazon Fashion · Global ML Size Intelligence · Data & platform strategy",
     "title": "Better fit starts with better foundations.",
-    "intro": "I diagnosed sizing-related returns, defined requirements for garment-based ML mapping, and aligned U.S. Tech and China business teams around a top-seller pilot.",
-    "metric": "100–200 bps",
-    "metricLabel": "Net sizing-defect return-rate gap isolated after category-mix normalization.",
+    "intro": "I used SQL analysis and seller research to turn a regional returns problem into requirements for garment-based ML size mapping, then aligned teams around a top-seller pilot.",
+    "metric": "10%",
+    "metricLabel": "Of the diagnosed sizing-related return-rate gap closed in the top-seller pilot, equivalent to a 10–20 basis-point reduction.",
     "sections": [
       [
-        "The problem",
-        "China FBA apparel sellers had a higher return rate than domestic US sellers. Historical assumptions blamed customer trial behavior or product mix. Through SQL analysis, category-mix normalization, and benchmarking, I isolated a 100–200 basis-point sizing-related return-rate gap and validated the root causes through seller interviews and ASIN audits."
+        "Problem",
+        "China-based apparel sellers had higher returns than domestic U.S. sellers. Product mix and customer trial behavior were plausible explanations, but neither established what the product team should change. We needed to isolate the sizing problem before choosing a solution."
       ],
       [
-        "The approach",
-        "Seller interviews and ASIN audits traced the gap to inconsistent garment measurements and size mappings. I reframed the issue as a garment-based ML platform opportunity: sellers provide raw dimensions in Seller Central, and the model recommends U.S. size mappings without requiring customer body data."
+        "Ownership",
+        "I led the root-cause investigation, seller research, and product requirements. I aligned U.S. Tech and China business teams, working with Returns, Catalog, Seller Experience, and Applied Science to move the issue into a pilot."
       ],
       [
-        "The outcome",
+        "Decisions",
+        "I used SQL to investigate return patterns and normalized for category mix so differences in assortment would not be mistaken for a sizing defect. A sizing-related gap remained. Seller interviews and audits of individual product listings then traced the problem to inconsistent garment measurements and size mappings."
+      ],
+      [
+        "Tradeoffs",
+        "Correcting individual size charts could address symptoms but would not create a reusable foundation. I proposed garment measurements as the input to ML recommendations. That approach avoided dependence on raw customer body data while making seller input quality a central product requirement."
+      ],
+      [
+        "Execution",
+        "I defined Seller Central input schemas, required measurements, freshness expectations, and accuracy validation criteria with technical partners. Research into Chinese and U.S. sizing conventions helped explain why a label alone could not reliably map across markets. Concrete listing discrepancies helped secure leadership support and engineering priority."
+      ],
+      [
+        "Outcomes",
         [
-          "Cross-organizational alignment — Aligned senior leadership, U.S. Tech, and China business teams to prioritize a previously deprioritized sizing issue and pursue garment-based ML recommendations.",
-          "Pilot launch — Launched a top-seller pilot to validate usability and mapping precision and establish a path toward broader U.S. rollout.",
-          "Next steps — Defined adoption, recommendation coverage, and fit-related returns as measures for broader rollout, with potential international expansion."
+          "Delivered — Defined ML mapping requirements, aligned the cross-regional teams, and launched a top-seller pilot.",
+          "Pilot result — The pilot closed 10% of the diagnosed 100–200 basis-point sizing-related return-rate gap, equivalent to a 10–20 basis-point reduction. This is a pilot outcome, not a global rollout result.",
+          "Future — Broader U.S. rollout and international expansion remain next steps. Seller adoption, size-chart completeness, recommendation coverage, and fit-related returns guide further validation."
         ]
+      ],
+      [
+        "Lessons",
+        "A recommendation system needs trustworthy inputs. Combining normalized data with seller context changed the problem from correcting charts to building a sizing foundation that other experiences could use."
       ]
     ],
-    "note": "The 100–200 basis-point figure is the diagnosed sizing-related return-rate gap, not an achieved reduction. The solution reached a top-seller pilot; broader rollout and international expansion remain prospective.",
-    "lifecycle": [
-      {
-        "phase": "Discover",
-        "title": "Data telemetry & qualitative root-cause isolation",
-        "body": "Used SQL analysis and category-mix normalization to isolate a 100–200 basis-point sizing-related return-rate gap. Interviewed sellers and Mandarin-speaking internal teams, and audited garment measurements against size charts. Identified inconsistent measurements and size mappings as root causes."
-      },
-      {
-        "phase": "Define",
-        "title": "Reframing from regional fix to global ML platform",
-        "body": "Reframed a regional compliance issue as a global ML platform opportunity. Replaced manual chart corrections with garment-measurement inputs and automated US size mapping, resolving the need without sharing raw US customer body data."
-      },
-      {
-        "phase": "Design",
-        "title": "Requirements & input taxonomy",
-        "body": "Defined Seller Central input schemas, required fields, data freshness, and accuracy validation thresholds. Partnered with Applied Science to move from rule-based mapping to ML size recommendations."
-      },
-      {
-        "phase": "Build",
-        "title": "Cross-organizational alignment",
-        "body": "Aligned US Tech, China regional teams, Returns, Catalog, Seller Experience, and Applied Science. Used concrete ASIN measurement discrepancies to secure senior leadership support and prioritize the Seller Central engineering work."
-      },
-      {
-        "phase": "Launch",
-        "title": "Top-seller pilot",
-        "body": "Launched a top-seller pilot to evaluate usability and mapping precision, establishing a path toward broader U.S. rollout and potential international expansion."
-      },
-      {
-        "phase": "Measure",
-        "title": "Measurement framework",
-        "body": "Defined seller adoption, size-chart completeness, recommendation coverage, and fit-related returns as measures to evaluate the pilot and guide broader rollout decisions."
-      }
-    ]
+    "note": "The baseline gap and achieved pilot reduction are different measures. Results reflect the supplied product resume; broader rollout and international expansion remain prospective."
+  },
+  "xray": {
+    "kicker": "AWS · X-Ray · Pricing & metering redesign",
+    "title": "A charging model that follows the work.",
+    "intro": "I identified a structural mismatch between X-Ray’s charging unit and its cost drivers, then led the product requirements, pricing proposal, and customer migration strategy for a hybrid GB + spans model.",
+    "metric": "GB + spans",
+    "metricLabel": "A hybrid model combining data volume with units of tracing work; a span represents an operation within a trace.",
+    "sections": [
+      [
+        "Problem",
+        "A trace could contain very different amounts of work as applications grew more complex. A charge per trace did not consistently follow that work, creating a sustainability problem and uneven billing outcomes across workloads."
+      ],
+      [
+        "Ownership",
+        "I initiated the redesign and owned the PRD, pricing document, and migration plan. The Engineering Manager owned detailed metering requirements and implementation. The Principal PM led launch readiness; I tracked metering and billing dependencies with Engineering."
+      ],
+      [
+        "Decisions",
+        "I compared volume-based, span-based, and hybrid charging models with Engineering. The hybrid GB + spans approach better reflected the cost drivers we needed to account for. I worked with Economics on elasticity and evaluated revenue, margin, and attrition scenarios to support executive review."
+      ],
+      [
+        "Tradeoffs",
+        "A more sustainable model involved a modeled near-term revenue tradeoff. It could also increase bills for some existing users. I analyzed expected bill changes by cohort and proposed specialist support and transitional credits so migration risk was part of the product design."
+      ],
+      [
+        "Execution",
+        "I translated the pricing proposal into billing behavior and customer-impact requirements, then coordinated with the Engineering Manager on metering changes and delivery milestones. I presented the decision framework for executive approval and aligned the migration plan with the Principal PM’s launch work."
+      ],
+      [
+        "Outcomes",
+        [
+          "Delivered — Secured executive approval and transitioned from per-trace billing to a hybrid GB + spans model, with a customer migration plan supporting the change.",
+          "Customer protection — Specialist support and transitional credits were incorporated into the migration approach. Forecast bill impacts were planning inputs, not evidence of realized customer savings.",
+          "Scope — This account focuses on the decisions and delivery work I owned. It does not attribute later service growth or margin changes to this project."
+        ]
+      ],
+      [
+        "Lessons",
+        "The charging unit is a product decision with engineering consequences. Changing it requires understanding both the work the system performs and the transition customers will experience."
+      ]
+    ],
+    "note": "This is a historical project account, not a description of today’s universal X-Ray pricing. Financial forecasts, customer-level bill changes, and later business results are omitted."
+  },
+  "timber": {
+    "kicker": "AWS · Timber · Internal platform delivery",
+    "title": "Make usage visible. Make action possible.",
+    "intro": "I helped unblock an internal logging platform’s billing integration by connecting engineering priority to commitments from the teams that would use it.",
+    "metric": "Delivery",
+    "metricLabel": "Engineering prioritization, executive sponsorship, and a shared approach to usage accountability.",
+    "sections": [
+      [
+        "Problem",
+        "Internal teams lacked a consistent view of their logging usage. A billing portal integration had an existing PRD and technical design, but limited capacity in the billing software team pushed delivery down the roadmap."
+      ],
+      [
+        "Ownership",
+        "I joined after product requirements and technical design were established. My contribution was securing priority, tracking delivery with the Engineering Manager, and coordinating the internal customers who would use the platform to act on their consumption."
+      ],
+      [
+        "Decisions",
+        "I used existing manual usage estimates to identify teams with meaningful optimization opportunities. I worked with those teams to establish commitments, then partnered with the Engineering Manager to take the business case to leadership and secure executive sponsorship."
+      ],
+      [
+        "Tradeoffs",
+        "The billing team had competing demands. A platform integration needed more than a projected benefit: it needed teams prepared to use the information and own follow-through. I connected the engineering request to that operating commitment."
+      ],
+      [
+        "Execution",
+        "I followed delivery milestones and dependencies with the Engineering Manager and kept the platform work tied to the sponsored goal. In parallel, I worked with internal customers to identify opportunities based on their usage patterns and track progress against their commitments."
+      ],
+      [
+        "Outcomes",
+        [
+          "Delivered — The billing portal integration launched after executive sponsorship and internal customer commitments helped restore engineering priority. I coordinated delivery with the Engineering Manager.",
+          "Operating model — Connected usage visibility with team ownership and recurring follow-up on optimization opportunities across organizations.",
+          "Attribution — Engineering owned the platform design and implementation; customer teams owned changes to their usage. No financial savings figure is claimed here."
+        ]
+      ],
+      [
+        "Lessons",
+        "Internal platforms need committed users as well as engineering capacity. Making the downstream action explicit gave leadership a concrete reason to prioritize the enabling platform work."
+      ]
+    ],
+    "note": "Sanitized internal-platform account. Internal customer identities, usage volumes, financial commitments, and savings amounts are omitted."
   }
 };
 
@@ -180,37 +222,38 @@ const roles = {
     "title": "Pricing Analyst",
     "period": "August 2015 – August 2017",
     "location": "Los Angeles, CA",
-    "focus": "Pricing & analytics",
-    "description": "Built the analytical foundation for my work in product economics: understanding customer purchasing behavior, modeling pricing decisions, and evaluating deal profitability.",
+    "focus": "Pricing analysis & scenario modeling",
+    "description": "Built quantitative pricing models using Oracle Database to support deal win rates and margins.",
     "skills": [
-      "Statistical modeling",
-      "Scenario analysis",
-      "Pricing strategy",
+      "Quantitative pricing",
+      "Statistical analysis",
+      "Scenario modeling",
       "Oracle Database"
     ],
     "achievements": [
-      "Built statistical pricing models and scenario simulations to optimize deal profitability.",
-      "Analyzed customer purchasing trends in Oracle Database to inform pricing strategy."
+      "Built quantitative pricing models to support deal win rates and margins.",
+      "Used statistical analysis and scenario modeling in Oracle Database to evaluate pricing decisions."
     ],
     "cases": []
   },
   "internet-brands": {
     "company": "Internet Brands",
-    "title": "Senior Financial Analyst / Business Partner",
+    "title": "Senior Financial Analyst",
     "period": "August 2017 – May 2021",
     "location": "Los Angeles, CA",
-    "focus": "SaaS growth & monetization",
-    "description": "Served as product and finance partner for a $20M ARR SaaS business, leading pricing, segmentation, and performance management across the customer lifecycle.",
+    "focus": "SaaS Product Strategy & Monetization",
+    "description": "Owned subscription pricing, customer segmentation, and digital funnel optimization for a $20M ARR consumer SaaS business, connecting customer economics with packaging and lifecycle decisions.",
     "skills": [
-      "SaaS monetization",
+      "Subscription pricing",
       "Customer segmentation",
+      "Elasticity & ARPU/LTV",
       "Funnel optimization",
-      "Salesforce & Tableau"
+      "Tableau & Salesforce"
     ],
     "achievements": [
-      "Increased ARR by 10% through bundling, upsell, and cross-sell monetization models.",
-      "Improved lead-to-paid conversion by 50% through digital funnel optimization.",
-      "Built Salesforce and Tableau dashboards for activation, churn, and revenue, cutting reporting time from 10 days to 4."
+      "Delivered 10% ARR growth and a 50% conversion improvement through consumer SaaS monetization and digital funnel optimization.",
+      "Used elasticity and ARPU/LTV modeling to inform packaging, upsell, and conversion strategies.",
+      "Automated Tableau and Salesforce dashboards, reducing reporting time from 10 days to 4—a 60% reduction—and improving access to customer lifecycle insights."
     ],
     "cases": []
   },
@@ -219,51 +262,57 @@ const roles = {
     "title": "Finance Strategy Manager",
     "period": "June 2021 – February 2025",
     "location": "Seattle, WA",
-    "focus": "Product economics & monetization",
-    "description": "Partnered directly with the GM for AWS Application Performance Monitoring to drive portfolio strategy across pricing, monetization, P&L, investment planning, and margin optimization.",
+    "focus": "AWS Product Strategy & Monetization",
+    "description": "Drove cloud product strategy and monetization across four AWS services. Co-owned Application Signals’ roadmap, PRDs, feature prioritization, and launch readiness with Product and Engineering, while leading pricing and cost strategy.",
     "skills": [
-      "Early product roadmaps",
-      "Pricing & packaging",
-      "Go-to-market strategy",
-      "Cloud unit economics",
-      "Portfolio strategy"
+      "Product roadmaps & PRDs",
+      "Launch readiness",
+      "Usage-based pricing",
+      "Metering & billing",
+      "Cloud portfolio strategy",
+      "Engineering collaboration"
     ],
     "achievements": [
-      "Defined the early roadmap, pricing, and go-to-market strategy for a new observability product with billion-dollar-scale potential.",
-      "Translated customer interviews, competitive research, usage analysis, and elasticity modeling into feature priorities and packaging decisions.",
-      "Partnered with Engineering and Applied Science on compute, storage, indexing, and data-transfer tradeoffs, helping achieve a 100+ basis-point gross-margin improvement.",
-      "Owned APM pricing models, discount structures, and contract economics with Product, Sales, Finance, Legal, and Economics.",
-      "Repriced a service generating $50M in annual revenue and increased gross margin by 30+ percentage points."
+      "Application Signals — Co-owned the 0-to-1 product launch with Product and Engineering; secured SVP approval for tiered usage-based pricing and launched a cross-service observability bundle.",
+      "X-Ray — Led the pricing and billing redesign, defined product requirements, and transitioned from per-trace billing to a GB + spans model. Secured VP approval through elasticity, margin, and customer bill-impact analysis.",
+      "Timber — Secured initial customer commitments to restore executive priority for an internal usage-metering platform; partnered with Engineering and more than 40 internal teams to launch the platform and scale adoption.",
+      "Cloud portfolio — Governed pricing and monetization decisions across four services, using customer elasticity, competitive total cost of ownership, and unit economics to guide product strategy."
     ],
     "cases": [
       {
         "key": "aws",
-        "title": "AWS observability: pricing for sustainable growth"
+        "title": "Application Signals: discovery to adoption"
+      },
+      {
+        "key": "xray",
+        "title": "X-Ray: pricing, metering & customer migration"
+      },
+      {
+        "key": "timber",
+        "title": "Timber: internal platform delivery"
       }
     ]
   },
   "amazon": {
-    "company": "Amazon Retail · Fashion",
+    "company": "Amazon Retail",
     "title": "Senior Product Manager",
     "period": "February 2025 – Present",
     "location": "Seattle, WA",
-    "focus": "GenAI experiences & global sizing platforms",
-    "description": "Lead product strategy across GenAI virtual try-on and sizing intelligence, connecting customer research, hands-on prototyping, controlled experimentation, and ML platform requirements with long-term unit economics.",
+    "focus": "AI/ML products & scalable decision frameworks",
+    "description": "Lead product strategy and roadmap prioritization for GenAI shopping experiences and ML sizing, combining customer research, experimentation, and cross-functional execution. Build reusable analysis frameworks that help teams make product and business decisions.",
     "skills": [
-      "GenAI product strategy",
-      "Figma UX prototyping",
-      "Weblab experimentation",
-      "SQL & customer research",
-      "ML platform requirements",
-      "Cross-functional leadership"
+      "AI/ML product strategy",
+      "Roadmap prioritization",
+      "Customer experimentation",
+      "SQL & seller research",
+      "ML product requirements",
+      "Cross-team adoption"
     ],
     "achievements": [
-      "Led 0-to-1 strategy and Figma UX prototyping for virtual try-on; de-scoped lower-value features such as custom avatars using research, historical adoption data, and benchmarking of 13 competing offerings.",
-      "Defined success and guardrail metrics and tested the end-to-end VTO experience through a large-scale Weblab A/B experiment. Made the strategic call with senior leadership to pause full rollout after elevated return-rate risk exposed fit-accuracy gaps.",
-      "Partnered with Applied Science to evaluate image realism, latency, scale, development speed, and infrastructure cost, contributing to the selection of an open-source approach for early validation.",
-      "Diagnosed a 100–200 basis-point sizing-related return-rate gap among China FBA sellers after normalizing for category mix; traced the gap to inconsistent garment measurements and size mappings.",
-      "Combined SQL analysis, seller interviews, ASIN-level audits, and GB/T versus ASTM research to define requirements for an ML-based size-mapping solution.",
-      "Aligned senior leadership, U.S. Tech, and China business teams to prioritize the sizing issue; launched a top-seller pilot to establish a path toward broader U.S. rollout and potential international expansion."
+      "GenAI Virtual Try-On — Led product strategy and MVP prioritization across more than five engineering, UX, and research teams. Combined customer research, adoption data, and 13 competitor benchmarks to prioritize features and remove a high-friction custom avatar experience.",
+      "Experimentation — Defined success measures and return-rate guardrails for a 500K+ customer A/B test. Identified fit-accuracy gaps and elevated return risks, and partnered with senior leadership to pause broader rollout.",
+      "Global Size Intelligence — Diagnosed a 100–200 basis-point sizing-related return-rate gap through SQL analysis, seller interviews, and product-listing audits. Defined ML size-mapping requirements and launched a top-seller pilot that closed 10% of the gap, equivalent to a 10–20 basis-point return reduction.",
+      "Decision frameworks — Scaled a reusable mix-analysis framework to more than 10 teams through training and documentation. Separately developed entitlement and opportunity-sizing frameworks adopted by two teams."
     ],
     "cases": [
       {
@@ -366,16 +415,16 @@ function renderCase(key) {
       body.forEach(text => add('li', '', text, list));
     } else add('p', '', body, section);
   }
-  const lifecycle = add('section', 'case-section case-lifecycle', '');
-  add('h3', '', 'Product Development Lifecycle', lifecycle);
-  const steps = add('ol', 'lifecycle-steps', '', lifecycle);
-  item.lifecycle.forEach((step, index) => {
-    const entry = add('li', 'lifecycle-step', '', steps);
-    add('span', 'lifecycle-number', String(index + 1).padStart(2, '0'), entry).setAttribute('aria-hidden', 'true');
-    const detail = add('div', 'lifecycle-detail', '', entry);
-    add('h4', '', `${step.phase} — ${step.title}`, detail);
-    add('p', '', step.body, detail);
-  });
+  if (item.sources && item.sources.length) {
+    const sources = add('div', 'case-sources', '');
+    add('span', 'eyebrow', 'PUBLIC PRODUCT CONTEXT', sources);
+    for (const source of item.sources) {
+      const link = add('a', 'text-link', source.label + ' ↗', sources);
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
+  }
   add('p', 'case-note', item.note);
 }
 function openCase(key, trigger, origin = null) {
