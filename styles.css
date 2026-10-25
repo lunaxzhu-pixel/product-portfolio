@@ -257,20 +257,24 @@
 .work-index a:hover{background:#e4edda;border-color:#aebda0}
 .work-index-number{font-size:10px;color:#647853}
 .work-section .project-grid{margin-top:0}
-.work-section .project-grid .project{grid-template-columns:repeat(2,minmax(0,1fr));scroll-margin-top:110px}
+.work-section .project-grid .project{grid-template-columns:minmax(0,.38fr) minmax(0,.62fr);scroll-margin-top:110px}
 .work-section .project-grid .project .project-copy{justify-content:flex-start;padding:32px}
 .work-section .project-grid .project .decision-framework{padding:32px;background:#e5e9df}
 .work-section .project-grid .project .project-summary{margin-top:16px}
 .project-ownership{padding-top:15px;border-top:1px solid var(--line)}
 .work-section .project .project-metrics strong{font-size:clamp(16px,1.6vw,21px)}
 .work-section .project .project-metrics>div{min-height:84px}
-.work-section .project .case-study-button{margin-top:24px}
+.work-section .project .case-study-button{width:100%;margin-top:24px;padding:20px 22px;font-size:16px;box-shadow:0 5px 12px #193e3524}
+.work-section .project .case-study-button .case-button-arrow{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border:1px solid #dce9b96b;border-radius:50%;background:#ffffff14;font-size:25px;line-height:1;transition:transform .2s,background .2s}
+.work-section .project .case-study-button:hover .case-button-arrow{transform:translateX(3px);background:#ffffff26}
 .decision-framework{display:flex;flex-direction:column;gap:0;margin:0}
 .decision-framework figcaption{margin-bottom:18px}
 .decision-framework figcaption h4{margin-top:12px}
 .decision-framework .tryon-flow{margin:0 0 20px;gap:9px}
 .decision-framework .tryon-flow li{padding:11px}
-.decision-framework .flow-decision{margin-top:auto}
+.decision-framework .flow-decision{margin-top:auto;background:#f5f1e4;color:var(--ink);border:1px solid #d1c9b3;border-left:3px solid #9b8a60;box-shadow:none}
+.decision-framework .flow-decision .eyebrow{color:#75643b}
+.decision-framework .flow-decision p{color:#435647}
 .decision-framework .flow-decision strong{font-size:17px;line-height:1.5}
 .framework-node{min-width:0;padding:13px;border:1px solid #cbd5c3;border-radius:9px;background:#f8faf3}
 .framework-node strong{font-size:12px;line-height:1.5;display:block}
