@@ -21,9 +21,10 @@ The existing AWS hash is retained. Legacy renamed-project links are resolved to 
 
 ## Disclosure decisions
 
-- Explicitly cleared by the user: 13 competitor benchmarks, 500K+ experiment customers, 100–200 bps category-adjusted sizing gap, and approximately 10% pilot gap closure / 10–20 bps reduction.
+- Explicitly cleared by the user: 13 competitor benchmarks, 100–200 bps category-adjusted sizing gap, and approximately 10% pilot gap closure / 10–20 bps reduction.
 - User directed descriptive naming and qualitative internal-team scope and approval wording. These replace the internal platform name, team count, and specific executive levels in public-facing narratives.
 - Financial claims remain omitted pending individual clearance. Historical publication and private notes are not treated as fresh approval.
+- The latest homepage update replaces the VTO sample size with qualitative experiment language throughout the public site, including career references and lifecycle content. The four homepage indicators now cover experience, case studies, domains, and experimentation.
 - VTO has no claimed conversion improvement, broad launch, or return reduction.
 - Sizing shows pilot results without implying global rollout or invented model implementation.
 - Application Signals separates initial preview/GA from subsequent cross-service bundling and shared product ownership from independent pricing/cost scope.

@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
@@ -31,6 +32,17 @@ with sync_playwright() as p:
     page.locator('#writing').screenshot(animations="disabled", path=str(ROOT / 'writing-desktop.png'))
     assert page.title() == 'Luna Zhu — AI/ML Products, Cloud Platforms & Monetization'
     assert page.locator('h1').count() == 1
+    assert page.locator('.metric > strong').all_text_contents() == ['11+', '5', '3', 'Large-scale']
+    assert page.locator('.metric-label').all_text_contents() == ['Years of Experience', 'Product Case Studies', 'Product Domains', 'Experimentation']
+    assert page.locator('.metric p').all_text_contents() == [
+        'Years of ExperienceProduct, cloud & business strategy',
+        'Product Case StudiesAI/ML, cloud & monetization',
+        'Product DomainsAI/ML · Cloud Platforms · Monetization',
+        'ExperimentationCustomer A/B testing & rollout decisions',
+    ]
+    for asset in ['index.html', 'script.js', 'case-studies.js']:
+        source = context.request.get(BASE_URL + '/' + asset).text()
+        assert not re.search(r'500\s*k|500[,.\s]?000|half[ -]a[ -]million|0\.5\s*million', source, re.I), asset
     assert page.locator('.hero-intro').inner_text().startswith('Senior Product Manager at Amazon, ex-AWS, with 11+ years')
     assert '11+ years' in page.locator('.hero-intro').inner_text()
     for key in CASE_KEYS:
@@ -155,6 +167,11 @@ with sync_playwright() as p:
         page.set_viewport_size({'width': width, 'height': 900})
         page.goto(BASE_URL, wait_until='networkidle')
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), f'Overflow at {width}'
+        for metric in page.locator('.metric').all():
+            assert metric.evaluate('(e) => e.scrollWidth <= e.clientWidth'), f'Metric overflow at {width}'
+            assert metric.locator('strong').evaluate('(e) => e.getBoundingClientRect().right <= e.parentElement.getBoundingClientRect().right + 1'), f'Metric value clipped at {width}'
+        if width in [390, 1440]:
+            page.locator('.impact').screenshot(animations="disabled", path=str(ROOT / f'metrics-{width}.png'))
         for card in page.locator('#work .project').all():
             summary = card.locator('.project-copy').bounding_box()
             diagram = card.locator('.decision-visual').bounding_box()
@@ -251,5 +268,5 @@ with sync_playwright() as p:
     for asset in ['assets/favicon.svg', 'assets/luna-zhu.png', 'styles.css', 'script.js']:
         assert context.request.get(BASE_URL + '/' + asset).status == 200, asset
     assert not errors, errors
-    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['30 lifecycle stages', 'lifecycle jump and return focus', 'lifecycle mobile readability', 'lifecycle reduced-motion scrolling', 'five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'resume CTA removed and previous paths return 404', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
+    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['four updated homepage metrics without overflow', 'no exact VTO experiment sample size in served content', '30 lifecycle stages', 'lifecycle jump and return focus', 'lifecycle mobile readability', 'lifecycle reduced-motion scrolling', 'five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'resume CTA removed and previous paths return 404', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
     browser.close()

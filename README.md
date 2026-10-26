@@ -103,9 +103,10 @@ Details retain the native accessible dialog and add an expandable framework and 
 
 The current work is authorized for the review branch and a shareable Vercel Preview only. The earlier production release was separately authorized; do not merge to main or update GitHub Pages without new explicit approval.
 
-- The user cleared 13 competitor benchmarks, the 500K+ customer experiment, the 100–200 basis-point category-adjusted sizing gap, and approximately 10% pilot gap closure / 10–20 basis-point reduction.
+- The user cleared 13 competitor benchmarks, the 100–200 basis-point category-adjusted sizing gap, and approximately 10% pilot gap closure / 10–20 basis-point reduction.
 - The user selected descriptive naming and qualitative internal-team scope and approval wording for AWS work. Those choices are applied to cards, dialogs, and career references.
 - Financial outcomes and other uncleared internal measures are omitted from the public case data, including hidden data or alternate metric fields.
+- The latest homepage update replaces the VTO sample size with qualitative experiment language throughout the public site, including career references and lifecycle content. The four homepage indicators now cover experience, case studies, domains, and experimentation.
 - VTO describes disciplined experimentation and a paused broader rollout, without claiming conversion lift or return reduction.
 - Sizing distinguishes the baseline gap from the achieved pilot result and future expansion. No model architecture or accuracy is invented.
 - Application Signals distinguishes shared product ownership from independent commercial strategy. Public preview and GA dates link to AWS announcements. Later bundling is distinct from initial GA; the exact bundle date is not asserted without public corroboration.

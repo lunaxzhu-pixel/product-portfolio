@@ -92,7 +92,7 @@ const roles = {
     ],
     "achievements": [
       "GenAI Virtual Try-On — Led strategy and MVP prioritization across engineering, UX, and research teams. Synthesized customer research, adoption data, and 13 competitor benchmarks; led iterative Figma prototyping and deprioritized custom avatars.",
-      "Experimentation — Defined success measures and quality guardrails for a 500K+ customer A/B test. Partnered with senior leadership to pause broader rollout after fit-accuracy and return-rate concerns.",
+      "Experimentation — Defined success measures and quality guardrails for a large-scale customer A/B test. Partnered with senior leadership to pause broader rollout after fit-accuracy and return-rate concerns.",
       "Global Size Intelligence — Isolated a 100–200 basis-point category-adjusted sizing-related return-rate gap. Turned SQL analysis, seller interviews, and listing audits into ML size-mapping requirements.",
       "Pilot validation — Launched a top-seller pilot achieving approximately 10% gap closure, equivalent to roughly 10–20 basis points of return-rate reduction. Broader expansion remains a future decision."
     ],

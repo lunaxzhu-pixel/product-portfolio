@@ -17,16 +17,16 @@ const cases = {
         "competitor solutions benchmarked"
       ],
       [
-        "500K+",
-        "customers in the A/B test"
+        "A/B test",
+        "large-scale customer experiment"
       ],
       [
         "Paused",
         "broader rollout at the quality gate"
       ]
     ],
-    "metric": "500K+",
-    "metricLabel": "Customers in a controlled A/B test. The outcome was a disciplined rollout decision.",
+    "metric": "A/B test",
+    "metricLabel": "Large-scale customer experiment. The outcome was a disciplined rollout decision.",
     "sections": [
       [
         "Problem",
@@ -46,7 +46,7 @@ const cases = {
       ],
       [
         "Execution",
-        "I iterated on the prototype with UX and technical partners, evaluated implementation tradeoffs, and reviewed results from a 500K+ customer A/B test with senior leadership."
+        "I iterated on the prototype with UX and technical partners, evaluated implementation tradeoffs, and reviewed results from a large-scale customer A/B test with senior leadership."
       ],
       [
         "Outcomes",
@@ -192,7 +192,7 @@ const cases = {
           "points": [
             {
               "label": "Controlled launch",
-              "text": "I coordinated product and technical stakeholders around the 500K+ customer A/B experiment. This was controlled testing, not unrestricted general availability."
+              "text": "I coordinated product and technical stakeholders around the large-scale customer A/B experiment. This was controlled testing, not unrestricted general availability."
             },
             {
               "label": "Different success signals",

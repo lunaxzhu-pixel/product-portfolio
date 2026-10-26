@@ -377,3 +377,11 @@
   .lifecycle-jump,.lifecycle-back{font-size:14px}
 }
 @media(max-width:360px){.framework-sources,.framework-branches,.framework-lanes{grid-template-columns:1fr}.framework-options{grid-template-columns:1fr}.framework-options .framework-node{text-align:left}.case-milestones{grid-template-columns:1fr;gap:0}.case-pagination{grid-template-columns:1fr}.framework-lane>.eyebrow{min-height:0}.hero-domains{font-size:8px}}
+
+/* Keep the experience indicators aligned while accommodating a qualitative value. */
+.metric-label{display:block}
+.metric--text strong{font-size:30px;line-height:54.6px;letter-spacing:-.05em;white-space:nowrap}
+@media(min-width:601px) and (max-width:1100px){.metric--text strong{font-size:22px;line-height:47.6px}}
+@media(min-width:601px) and (max-width:1000px){.metric--text strong{line-height:39.2px}}
+@media(max-width:600px){.metric--text strong{font-size:26px;line-height:44.8px}}
+@media(max-width:360px){.metric--text strong{font-size:23px}}
