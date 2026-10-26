@@ -342,12 +342,11 @@
 .lifecycle-stage h4{font-family:Manrope,Arial,sans-serif;font-size:18px;font-weight:500;line-height:1.5;letter-spacing:-.025em}
 .lifecycle-phase{font-weight:700}
 .lifecycle-stage-body{margin-left:52px}
-.lifecycle-focus{font-size:15px;line-height:1.7;margin:12px 0 14px;color:var(--ink)}
-.lifecycle-points{list-style:disc;padding-left:18px;margin:0}
+.lifecycle-points{list-style:disc;padding-left:18px;margin:14px 0 0}
 .lifecycle-points li{font-size:14px;line-height:1.8;color:#526257;overflow-wrap:break-word}
 .lifecycle-points li+li{margin-top:12px}
 .lifecycle-points strong{color:var(--ink);font-weight:600}
-.lifecycle-decision::marker{color:#7a875a}
+.lifecycle-stage.is-pivotal .lifecycle-points li::marker{color:#7a875a}
 .lifecycle-stage.is-pivotal{padding:20px;border:1px solid #d1c9b3;border-radius:12px;background:#f5f1e4}
 .lifecycle-stage.is-pivotal:before{display:none}
 .lifecycle-stage.is-pivotal .lifecycle-number{background:#f8f5eb;border-color:#c9bc97}

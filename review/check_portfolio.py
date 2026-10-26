@@ -42,7 +42,10 @@ with sync_playwright() as p:
         assert page.locator('#case-content').get_attribute('data-active-case') == key
         assert page.locator('.case-lifecycle h3').inner_text() == 'Product Development Lifecycle'
         assert page.locator('.lifecycle-phase').all_text_contents() == LIFECYCLE_PHASES[key]
-        assert page.locator('.lifecycle-points > li').count() == 24
+        for stage in page.locator('.lifecycle-stage').all():
+            assert stage.locator('.lifecycle-points > li').count() >= 2
+        labels = [label.rstrip(': ') for label in page.locator('.lifecycle-points strong').all_text_contents()]
+        assert not any(label in labels for label in ['My contribution', 'Methods & evidence', 'Decision & tradeoff', 'Result / next step'])
         assert page.locator('.lifecycle-stage.is-pivotal').count() == 1
         assert page.locator('#work .case-lifecycle').count() == 0
         page.locator('.lifecycle-jump').focus()
@@ -111,10 +114,11 @@ with sync_playwright() as p:
     assert 'Amazon Retail' in page.locator('.career-company').inner_text()
     page.locator('.dialog-done').click()
     page.locator('#experience').screenshot(animations="disabled", path=str(ROOT / 'trajectory-desktop.png'))
-    resume_link = page.locator('a:has-text("View resume")').get_attribute('href')
-    response = context.request.get(BASE_URL + '/' + resume_link)
-    assert response.status == 200 and response.body().startswith(b'%PDF')
-    assert response.body() == (ROOT.parent / 'assets' / 'Luna-Zhu-Resume.pdf').read_bytes(), 'Preview serves an outdated resume'
+    assert page.locator('a[href*=".pdf"], a[download]').count() == 0
+    assert page.locator('a, button').evaluate_all('(items) => items.every(e => !/resume/i.test(e.textContent + (e.getAttribute("href") || "")))')
+    for old_path in ['/assets/Luna-Zhu-Resume.pdf', '/assets/Luna-Zhu-Resume.pdf?v=20261024', '/resume.pdf', '/assets/resume.pdf', '/Luna_Zhu_Product_Resume.pdf', '/assets/Luna_Zhu_Product_Resume.pdf', '/assets/luna-zhu-resume.pdf']:
+        assert context.request.get(BASE_URL + old_path).status == 404, old_path
+    assert not list((ROOT.parent / 'assets').rglob('*.pdf'))
     for anchor in page.locator('a[href^="#"]').all():
         target = anchor.get_attribute('href')
         assert page.locator(target).count() == 1, target
@@ -247,5 +251,5 @@ with sync_playwright() as p:
     for asset in ['assets/favicon.svg', 'assets/luna-zhu.png', 'styles.css', 'script.js']:
         assert context.request.get(BASE_URL + '/' + asset).status == 200, asset
     assert not errors, errors
-    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['30 lifecycle stages', 'lifecycle jump and return focus', 'lifecycle mobile readability', 'lifecycle reduced-motion scrolling', 'five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'PDF resume', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
+    print(json.dumps({'result': 'passed', 'viewports': VIEWPORTS, 'checks': ['30 lifecycle stages', 'lifecycle jump and return focus', 'lifecycle mobile readability', 'lifecycle reduced-motion scrolling', 'five ordered case studies', 'tailored expandable diagrams', 'previous/next case navigation', 'disclosure-safe case data', 'focus containment', 'Escape and focus restoration', 'direct case and role URLs', 'four career milestone dialogs', 'related case studies and return to role', 'keyboard activation', 'mobile timeline scrolling', 'resume CTA removed and previous paths return 404', 'anchor links', 'copy email', 'mobile navigation', 'no horizontal overflow', 'unclipped diagrams', 'aligned career cards', 'no JavaScript errors']}))
     browser.close()

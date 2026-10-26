@@ -117,56 +117,110 @@ const cases = {
         {
           "phase": "Discover",
           "title": "Identify friction in the shopping journey",
-          "focus": "Where did existing try-on experiences leave apparel shoppers uncertain?",
-          "work": "I examined purchase and return journeys and historical try-on adoption, including the VTO Shoes experience.",
-          "method": "I combined journey telemetry with targeted shopper-survey evidence. I examined immersive-mode entry friction and visual realism as potential barriers to useful adoption.",
-          "decision": "The product problem was apparel shopping uncertainty, not simply access to a more immersive experience. Visual novelty would not be enough to resolve it.",
-          "result": "Discovery focused the opportunity on a useful shopping aid that fit the purchase journey and set realistic expectations."
+          "points": [
+            {
+              "label": "Journey analysis",
+              "text": "I examined purchase and return journeys and historical try-on adoption, including VTO Shoes, to locate unresolved apparel-shopping friction."
+            },
+            {
+              "label": "Customer evidence",
+              "text": "I combined journey telemetry with targeted shopper-survey evidence, examining immersive-mode entry and visual realism as potential adoption barriers."
+            },
+            {
+              "label": "Problem to solve",
+              "text": "I focused the opportunity on useful shopping assistance and realistic fit expectations, rather than a more immersive experience alone."
+            }
+          ]
         },
         {
           "phase": "Define",
           "title": "Scope the MVP and reject costly friction",
-          "focus": "Was a custom avatar necessary to deliver the core customer benefit?",
-          "work": "I benchmarked 13 competitors and relevant internal experiences, and assessed how improvements in diffusion approaches changed what an MVP could deliver.",
-          "method": "I brought together survey findings, competitor evidence, and adoption data to evaluate the proposed avatar feature before substantial engineering investment.",
-          "decision": "I deprioritized custom avatars. I defined CTR, cart conversion, and GMV/OPS as engagement and purchase measures, with Customer-Initiated Return Rate as a quality guardrail.",
-          "result": "The MVP had a narrower feature scope and an evaluation plan that considered customer behavior alongside return risk."
+          "points": [
+            {
+              "label": "Competitive assessment",
+              "text": "I benchmarked 13 competitors and relevant internal experiences, and assessed how improvements in diffusion approaches changed the feasible MVP."
+            },
+            {
+              "label": "Avatar decision",
+              "text": "Survey findings, competitor evidence, and adoption data led me to deprioritize custom avatars before substantial engineering investment."
+            },
+            {
+              "label": "Evaluation plan",
+              "text": "I defined CTR, cart conversion, and GMV/OPS as engagement and purchase measures, with Customer-Initiated Return Rate as the quality guardrail."
+            }
+          ]
         },
         {
           "phase": "Design",
           "title": "Make try-on part of shopping",
-          "focus": "How could shoppers reach useful comparisons without leaving their purchase flow?",
-          "work": "I personally developed iterative Figma prototypes and used UX reviews and leadership feedback to refine the experience.",
-          "method": "The designs explored product-detail-page entry, side-by-side style and color comparison, and direct add-to-cart. I also evaluated open-source and proprietary diffusion approaches with technical partners.",
-          "decision": "I prioritized shopping utility over visual novelty: entry, comparison, and the next purchase action mattered alongside generated-image quality.",
-          "result": "The prototypes gave UX reviews and technical scoping a concrete customer flow to assess before delivery."
+          "points": [
+            {
+              "label": "Hands-on prototyping",
+              "text": "I personally developed iterative Figma prototypes, refining them through UX reviews and leadership feedback."
+            },
+            {
+              "label": "Shopping flow",
+              "text": "I explored product-detail-page entry, side-by-side style and color comparison, and direct add-to-cart. The prototypes made the customer journey concrete for technical scoping."
+            },
+            {
+              "label": "Model strategy",
+              "text": "I evaluated open-source and proprietary diffusion approaches with technical partners. Shopping utility and generated-image quality both mattered; visual novelty alone was insufficient."
+            }
+          ]
         },
         {
           "phase": "Build",
           "title": "Translate the experience into requirements",
-          "focus": "What needed to be true for the MVP to work within a product detail page?",
-          "work": "I partnered with a Technical PM, Applied Science, and Engineering on customer and experience-level requirements.",
-          "method": "Our scoping covered response latency, product-detail-page integration, anticipated scale, and measurement. I connected those considerations to the intended customer journey.",
-          "decision": "We evaluated visual quality against development speed, scalability, and cost. My role was product requirements and prioritization, not independently engineering or training the diffusion model.",
-          "result": "The work translated prototypes into an achievable experiment scope and explicit experience criteria for technical delivery."
+          "points": [
+            {
+              "label": "Experience requirements",
+              "text": "I partnered with a Technical PM, Applied Science, and Engineering on latency, product-detail-page integration, anticipated scale, and measurement requirements."
+            },
+            {
+              "label": "Implementation tradeoffs",
+              "text": "We weighed visual quality against development speed, scalability, and cost to define an achievable experiment scope."
+            },
+            {
+              "label": "Ownership boundary",
+              "text": "I owned product requirements and prioritization with technical partners; I did not independently engineer or train the diffusion model."
+            }
+          ]
         },
         {
           "phase": "Launch",
           "title": "Run a controlled customer experiment",
-          "focus": "Could the experience support shopping decisions while meeting its quality guardrail?",
-          "work": "I coordinated product and technical stakeholders around the controlled A/B experiment and the measures used to evaluate it.",
-          "method": "The 500K+ customer test examined engagement and purchase behavior alongside Customer-Initiated Return Rate. These were different signals, not interchangeable definitions of success.",
-          "decision": "This launch was controlled experimentation, not unrestricted general availability. The return guardrail remained part of the rollout decision.",
-          "result": "The experiment produced evidence for the rollout review rather than an assumption that the experience was ready for general availability."
+          "points": [
+            {
+              "label": "Controlled launch",
+              "text": "I coordinated product and technical stakeholders around the 500K+ customer A/B experiment. This was controlled testing, not unrestricted general availability."
+            },
+            {
+              "label": "Different success signals",
+              "text": "I evaluated engagement and purchase behavior alongside Customer-Initiated Return Rate. Purchase intent and return risk were distinct inputs to the scale decision."
+            },
+            {
+              "label": "Rollout review",
+              "text": "The experiment supplied evidence for the quality review rather than a presumption that the experience should expand."
+            }
+          ]
         },
         {
           "phase": "Measure",
           "title": "Know when not to scale",
-          "focus": "Did the evidence justify broader rollout, beyond an appealing generated experience?",
-          "work": "I reviewed the experiment with technical partners and senior leadership and recommended against broader rollout while fit-accuracy and return-rate concerns remained.",
-          "method": "I considered purchase behavior alongside the quality guardrail, separating appearance visualization from actual fit prediction.",
-          "decision": "A purchase-intent signal cannot establish accurate fit. I prioritized customer trust and return risk over expanding the experience before the quality bar was met.",
-          "result": "Broader rollout was paused. The product lesson was to evaluate size-and-fit capabilities alongside visualization; that direction is not presented as a subsequently delivered launch."
+          "points": [
+            {
+              "label": "Appearance versus fit",
+              "text": "I reviewed experiment evidence with technical partners and senior leadership. A purchase-intent signal could not establish accurate fit."
+            },
+            {
+              "label": "The no-go decision",
+              "text": "I recommended against broader rollout while fit-accuracy and return-rate concerns remained, prioritizing trust and return risk over reach."
+            },
+            {
+              "label": "Implication",
+              "text": "Broader rollout was paused. The lesson was to evaluate size-and-fit capabilities alongside visualization; that direction is not presented as a delivered follow-on launch."
+            }
+          ]
         }
       ]
     }
@@ -286,56 +340,102 @@ const cases = {
         {
           "phase": "Discover",
           "title": "Separate a sizing signal from category mix",
-          "focus": "Was the apparent return gap explained by what sellers sold, or by a sizing problem?",
-          "work": "I investigated sizing-related returns among China-based FBA apparel sellers using SQL.",
-          "method": "I used category-adjusted comparisons to distinguish the sizing-related signal from differences in assortment. The diagnosed gap was 100–200 basis points.",
-          "decision": "I treated the adjusted gap as a problem to investigate, not proof that seller location caused returns or that an ML intervention would close the entire gap.",
-          "result": "The analysis supplied a defined baseline and narrowed the investigation to sizing-related causes."
+          "points": [
+            {
+              "label": "SQL investigation",
+              "text": "I investigated sizing-related returns among China-based FBA apparel sellers using category-adjusted comparisons."
+            },
+            {
+              "label": "Separate the drivers",
+              "text": "Adjusting for assortment differences isolated a 100–200 basis-point gap. I treated it as a problem to investigate, not proof that seller location caused returns."
+            },
+            {
+              "label": "Baseline",
+              "text": "The adjusted gap narrowed discovery to sizing-related causes; it did not establish how much an ML intervention could close."
+            }
+          ]
         },
         {
           "phase": "Diagnose",
           "title": "Connect return data to seller evidence",
-          "focus": "Which listing and size-mapping problems could account for the signal?",
-          "work": "I validated the quantitative findings through seller interviews and ASIN-level audits.",
-          "method": "I compared seller explanations with product-listing evidence to identify inconsistent size labels and mapping problems, rather than treating every return as a sizing issue.",
-          "decision": "The intervention needed to address an upstream data problem. A return-rate difference alone did not specify what a recommendation system should do.",
-          "result": "Research connected the aggregate signal to concrete sizing information and mapping requirements."
+          "points": [
+            {
+              "label": "Seller validation",
+              "text": "I combined seller interviews with ASIN-level audits to test the quantitative findings against product-listing evidence."
+            },
+            {
+              "label": "Upstream problem",
+              "text": "Inconsistent size labels and mapping problems connected the return signal to unreliable sizing information. I distinguished these issues from other drivers of returns."
+            },
+            {
+              "label": "Requirement direction",
+              "text": "The intervention needed to improve size mapping; the aggregate return gap alone could not specify recommendation behavior."
+            }
+          ]
         },
         {
           "phase": "Define",
           "title": "Turn root causes into ML product requirements",
-          "focus": "What did the mapping solution need to help sellers and shoppers do more consistently?",
-          "work": "I translated the seller research and listing audits into ML-assisted size-mapping requirements.",
-          "method": "I used the observed label inconsistencies to frame data-quality needs and the seller workflow. Requirements described the customer problem and intended mapping behavior, with technical implementation owned by the relevant teams.",
-          "decision": "I focused on size mapping instead of a general return-reduction program. The requirements had to remain tied to the sizing issue identified in discovery.",
-          "result": "The result was a product direction that technical teams could scope and validate with a targeted seller pilot."
+          "points": [
+            {
+              "label": "Research to requirements",
+              "text": "I translated seller research and listing audits into ML-assisted size-mapping requirements, including data-quality needs and the seller workflow."
+            },
+            {
+              "label": "Product scope",
+              "text": "I described the intended mapping behavior and customer problem, leaving technical implementation to the relevant teams."
+            },
+            {
+              "label": "Validation choice",
+              "text": "I kept requirements tied to the diagnosed sizing issue and chose a targeted pilot before committing to wider expansion."
+            }
+          ]
         },
         {
           "phase": "Build",
           "title": "Align technical scope with regional context",
-          "focus": "How could the team deliver a useful pilot without assuming global readiness?",
-          "work": "I worked across U.S. technical and China business teams to align solution requirements and pilot scope.",
-          "method": "I connected technical discussions back to seller evidence, data quality, and the original category-adjusted return problem.",
-          "decision": "My ownership was translating research and aligning the product scope. Technical teams owned the ML implementation; the pilot was the vehicle for testing whether the product addressed the diagnosed problem.",
-          "result": "The shared scope supported a focused pilot with selected top sellers rather than an immediate global rollout."
+          "points": [
+            {
+              "label": "Cross-region alignment",
+              "text": "I aligned U.S. technical and China business teams on solution requirements and pilot scope, connecting technical discussions to seller evidence and data quality."
+            },
+            {
+              "label": "Delivery boundary",
+              "text": "I owned research translation and product scope; technical teams owned ML implementation. The shared scope supported selected top sellers rather than an immediate global rollout."
+            }
+          ]
         },
         {
           "phase": "Pilot",
           "title": "Validate with selected top sellers",
-          "focus": "Did the proposed intervention address the diagnosed problem in practice?",
-          "work": "I launched the targeted top-seller pilot with regional and technical partners.",
-          "method": "The pilot linked the size-mapping intervention to the sizing-related return gap established by the investigation.",
-          "decision": "A focused cohort made the solution testable. Its outcome would inform a broader decision, not establish effectiveness across every category and seller.",
-          "result": "The pilot generated the reported gap-closure result and a basis for considering further expansion."
+          "points": [
+            {
+              "label": "Pilot delivery",
+              "text": "I launched the top-seller pilot with regional and technical partners, linking the mapping intervention back to the diagnosed return gap."
+            },
+            {
+              "label": "Bounded evidence",
+              "text": "A focused cohort made validation practical. Its results informed the expansion decision without establishing effectiveness for every seller and category."
+            }
+          ]
         },
         {
           "phase": "Measure",
           "title": "Interpret gap closure carefully",
-          "focus": "What does the reported improvement mean relative to the baseline?",
-          "work": "I evaluated the reported pilot result against the diagnosed sizing-related gap rather than presenting it as a reduction in all returns.",
-          "method": "Approximately 10% gap closure corresponds to roughly 10–20 basis points against a 100–200 basis-point baseline when the cohort and return-rate definition are comparable.",
-          "decision": "The distinction is relative gap closure versus an absolute return-rate change. The pilot result should not be generalized into a global impact or a causal model-accuracy claim.",
-          "result": "Further expansion remains a separate decision. The pilot evidence supports a bounded result, rather than a claim of global effectiveness."
+          "points": [
+            {
+              "label": "Reported result",
+              "text": "I evaluated approximately 10% pilot gap closure against the diagnosed sizing-related baseline, rather than presenting it as a reduction in all returns."
+            },
+            {
+              "label": "Measurement basis",
+              "text": "Ten percent of a 100–200 basis-point gap corresponds to roughly 10–20 basis points when the cohort and return-rate definition are comparable."
+            },
+            {
+              "label": "Rollout boundary",
+              "text": "The pilot result does not establish global impact or model accuracy. Further expansion remains a separate decision."
+            }
+          ]
         }
       ]
     }
@@ -477,56 +577,102 @@ const cases = {
         {
           "phase": "Discover",
           "title": "Understand the observability workflow",
-          "focus": "What prevented developers from adopting connected application observability?",
-          "work": "I worked with Product and Engineering to connect customer observability problems and adoption barriers to product requirements.",
-          "method": "Discovery considered the customer need to move across metrics, traces, and logs, alongside supported workloads and integration needs. This describes the workflow requirement, not a claim that every integration shipped at GA.",
-          "decision": "Technical availability was insufficient if customers could not fit the service into their investigation workflow or predict its usage costs.",
-          "result": "Customer needs informed both the capability roadmap and the commercial-model work."
+          "points": [
+            {
+              "label": "Customer workflow",
+              "text": "I worked with Product and Engineering to connect observability problems and adoption barriers to requirements for moving across metrics, traces, and logs."
+            },
+            {
+              "label": "Adoption constraints",
+              "text": "Supported workloads, integrations, and predictable usage costs informed the opportunity. These workflow requirements do not imply every integration shipped at GA."
+            },
+            {
+              "label": "Product implication",
+              "text": "Technical availability alone was insufficient; capability and commercial-model work needed to address the same customer use cases."
+            }
+          ]
         },
         {
           "phase": "Define",
           "title": "Develop two connected product tracks",
-          "focus": "How should product usefulness and the commercial model reinforce one another?",
-          "work": "I jointly developed roadmap and PRD decisions with Product and Engineering, while independently leading pricing, business strategy, and cost economics.",
-          "method": "I considered customer segments and workloads alongside usage-based pricing and technical economics. This connected what customers needed with how usage would be charged.",
-          "decision": "Shared product ownership did not mean sole ownership of engineering architecture. The commercial track was my independent responsibility, with technical input from Engineering.",
-          "result": "Requirements and commercial design could be evaluated together rather than treating pricing as a final launch attachment."
+          "points": [
+            {
+              "label": "Shared product track",
+              "text": "I jointly developed roadmap and PRD decisions with Product and Engineering, considering customer segments and workloads."
+            },
+            {
+              "label": "Independent commercial track",
+              "text": "I led pricing, business strategy, and cost economics, connecting usage-based charges to customer needs with engineering input."
+            },
+            {
+              "label": "Ownership boundary",
+              "text": "I coordinated the tracks rather than claiming sole ownership of the product or core engineering architecture."
+            }
+          ]
         },
         {
           "phase": "Prioritize",
           "title": "Balance adoption and sustainable usage",
-          "focus": "Which capability and packaging choices made the launch useful and economically viable?",
-          "work": "I participated in feature prioritization and launch-readiness decisions and designed the three-tier usage-based pricing structure.",
-          "method": "I evaluated free and usage-based allowances alongside cost economics, usage efficiency, and customer adoption needs with technical partners.",
-          "decision": "A low-friction entry model still had to account for infrastructure consumption. Product priorities and pricing allowances needed to support the same customer use cases.",
-          "result": "These tradeoffs informed the initial launch scope and commercial structure without making later bundling part of GA."
+          "points": [
+            {
+              "label": "Launch choices",
+              "text": "I participated in feature prioritization and launch-readiness decisions and designed the three-tier usage-based pricing structure."
+            },
+            {
+              "label": "Adoption versus consumption",
+              "text": "I evaluated free and usage-based allowances against usage efficiency and cost economics with technical partners. Low-friction entry still had to account for infrastructure consumption."
+            },
+            {
+              "label": "One coherent model",
+              "text": "Capability priorities and allowances needed to support the same use cases. Later bundling remained separate from initial GA."
+            }
+          ]
         },
         {
           "phase": "Build",
           "title": "Coordinate product and commercial requirements",
-          "focus": "What needed to align before the service and its charging model could launch?",
-          "work": "I partnered with Product Management and Engineering on product readiness and connected pricing and cost requirements to delivery decisions.",
-          "method": "I collaborated on economics validation and usage efficiency while supporting integration and adoption work across teams.",
-          "decision": "Engineering owned the system implementation. My contribution was aligning the product and commercial requirements and resolving their tradeoffs with the relevant owners.",
-          "result": "Launch readiness covered the customer-facing product and commercial experience, not just technical availability."
+          "points": [
+            {
+              "label": "Requirements into delivery",
+              "text": "I partnered with Product Management and Engineering on readiness, connecting pricing and cost requirements to shared roadmap and launch decisions."
+            },
+            {
+              "label": "Technical partnership",
+              "text": "I collaborated on economics validation and usage efficiency while supporting integration and adoption work. Engineering owned system implementation."
+            },
+            {
+              "label": "Readiness bar",
+              "text": "The customer-facing product and commercial experience had to be ready together; technical availability was only one part of that decision."
+            }
+          ]
         },
         {
           "phase": "Launch",
           "title": "Move from preview to general availability",
-          "focus": "Was the product ready for customers to evaluate and then adopt more broadly?",
-          "work": "I supported pricing approval and customer-facing launch coordination within the shared product launch effort.",
-          "method": "Public preview began November 30, 2023; general availability followed on June 10, 2024. The official announcements are linked below.",
-          "decision": "Preview and GA were separate milestones. Later cross-service packaging should not be retroactively attributed to the initial GA release.",
-          "result": "The service reached GA with a tiered usage-based model. Public launch dates verify availability, not personal ownership or private business results."
+          "points": [
+            {
+              "label": "Launch coordination",
+              "text": "I supported pricing approval and customer-facing coordination within the shared launch effort."
+            },
+            {
+              "label": "Separate milestones",
+              "text": "Public preview began November 30, 2023; GA followed on June 10, 2024. The linked announcements verify availability, while later cross-service packaging remains a separate phase."
+            }
+          ]
         },
         {
           "phase": "Iterate",
           "title": "Use adoption needs to revisit priorities",
-          "focus": "What still stood between a launched service and useful customer adoption?",
-          "work": "I supported product integration and adoption decisions and subsequently advanced bundled pricing across observability services.",
-          "method": "Adoption observations informed discussions about integrations, language support, and packaging. These were inputs to roadmap iteration, not evidence of a quantified adoption lift.",
-          "decision": "Later bundling represented another product and commercial decision after GA. The public account separates that work from the original launch.",
-          "result": "The work continued through adoption and packaging iteration, with later bundling kept separate from the original launch."
+          "points": [
+            {
+              "label": "Adoption-led iteration",
+              "text": "I supported product integration and adoption decisions. Observations informed prioritization of integrations, language support, and packaging without establishing a quantified adoption lift."
+            },
+            {
+              "label": "Later bundling",
+              "text": "I subsequently advanced bundled pricing across observability services. This was another product and commercial decision after GA, not part of the original launch."
+            }
+          ]
         }
       ]
     }
@@ -650,56 +796,106 @@ const cases = {
         {
           "phase": "Diagnose",
           "title": "Question the billing unit",
-          "focus": "Why was per-trace billing no longer tracking service economics reliably?",
-          "work": "I identified deterioration in service economics and investigated the mismatch between per-trace charges and the work behind each trace.",
-          "method": "I evaluated the underlying usage and cost drivers. A trace can represent different amounts of data and tracing activity as application complexity changes.",
-          "decision": "A price-point adjustment alone would leave the structural mismatch in place. The charging unit itself needed evaluation.",
-          "result": "The diagnosis reframed the task as a pricing and billing-product redesign rather than a simple rate change."
+          "points": [
+            {
+              "label": "Economics diagnosis",
+              "text": "I investigated deteriorating service economics and the mismatch between per-trace charging and the work represented by each trace."
+            },
+            {
+              "label": "Cost drivers",
+              "text": "Application complexity changes data volume and tracing activity. I evaluated those drivers rather than assuming every trace represented equivalent work."
+            },
+            {
+              "label": "Structural decision",
+              "text": "A price-point adjustment alone would leave the mismatch in place, so I reframed the task as a billing-product redesign."
+            }
+          ]
         },
         {
           "phase": "Evaluate",
           "title": "Compare commercial and technical alternatives",
-          "focus": "Which model could represent usage while remaining understandable to customers?",
-          "work": "I compared usage-volume, metric/activity-based, and hybrid approaches.",
-          "method": "I evaluated cost alignment, metering implications, and customer bill impact together, rather than judging the commercial alternatives on service economics alone.",
-          "decision": "A single unit can be simpler to explain, while a hybrid can represent more than one usage dimension. Neither simplicity nor cost fit was sufficient on its own.",
-          "result": "The evaluation supported a model choice and identified the migration questions that had to accompany it."
+          "points": [
+            {
+              "label": "Alternatives",
+              "text": "I compared usage-volume, metric/activity-based, and hybrid approaches."
+            },
+            {
+              "label": "Evaluation lenses",
+              "text": "I considered cost alignment, metering implications, and customer bill impact together, without disclosing internal measurements or a numerical ranking."
+            },
+            {
+              "label": "Tradeoff",
+              "text": "A single unit can be simpler to explain; a hybrid can represent multiple usage dimensions. Neither simplicity nor cost fit was sufficient on its own."
+            }
+          ]
         },
         {
           "phase": "Define",
           "title": "Translate GB + spans into product requirements",
-          "focus": "How should the selected model map to charging and metering behavior?",
-          "work": "I selected GB + spans and led product requirements and pricing documentation with engineering input.",
-          "method": "GB represents data volume; spans represent operations within traces. I translated those charging dimensions into requirements for metering and billing logic.",
-          "decision": "The hybrid reflects both dimensions instead of assuming every trace is equivalent. That cost-alignment rationale had to be weighed against a more complex customer bill.",
-          "result": "The output was a defined commercial model and requirements for Engineering, not a claim that I authored the underlying implementation."
+          "points": [
+            {
+              "label": "Model selection",
+              "text": "I selected GB + spans and led product requirements and pricing documentation with engineering input."
+            },
+            {
+              "label": "From units to requirements",
+              "text": "GB represents data volume; spans represent operations within traces. I translated those charging dimensions into metering and billing requirements."
+            },
+            {
+              "label": "Customer lens",
+              "text": "The hybrid better represents both dimensions than treating traces as equivalent, but adds bill complexity. Customer predictability had to be evaluated alongside cost alignment."
+            }
+          ]
         },
         {
           "phase": "Align",
           "title": "Evaluate the business and customer transition",
-          "focus": "Could the redesign be supported beyond a single expected usage scenario?",
-          "work": "I prepared multi-year financial scenarios, assessed elasticity and customer bill impact, and developed the leadership recommendation.",
-          "method": "Scenario modeling examined the commercial implications of the proposed charging units alongside customer-transition considerations.",
-          "decision": "Modeled benefits were forecasts, not realized outcomes. Leadership alignment required considering bill predictability and migration risk as well as service economics.",
-          "result": "Leadership approved the redesign, establishing a basis for the engineering and rollout work."
+          "points": [
+            {
+              "label": "Scenario analysis",
+              "text": "I prepared multi-year financial scenarios and assessed elasticity and customer bill impact alongside transition considerations."
+            },
+            {
+              "label": "Approval case",
+              "text": "I developed the leadership recommendation, weighing service economics against bill predictability and migration risk. Modeled benefits remained forecasts, not realized results."
+            },
+            {
+              "label": "Alignment",
+              "text": "Leadership approved the redesign, establishing a basis for engineering and rollout work."
+            }
+          ]
         },
         {
           "phase": "Implement",
           "title": "Partner on billing delivery and rollout",
-          "focus": "How would the requirements become a customer-facing charging experience?",
-          "work": "I coordinated with Engineering on metering and billing redesign and developed rollout and customer-transition considerations.",
-          "method": "The work connected pricing documentation, product requirements, and bill-impact analysis to delivery discussions.",
-          "decision": "The transition was part of the product design. Cost alignment did not remove the need to consider customers whose bills would change.",
-          "result": "Engineering delivered the underlying system changes, supported by the product requirements and transition planning."
+          "points": [
+            {
+              "label": "Engineering coordination",
+              "text": "I connected pricing documentation, product requirements, and bill-impact analysis to metering and billing redesign with Engineering."
+            },
+            {
+              "label": "Transition planning",
+              "text": "I developed rollout and customer-transition considerations. Cost alignment did not remove the need to address customers whose bills would change."
+            },
+            {
+              "label": "Delivery attribution",
+              "text": "Engineering delivered the underlying system changes; my work supplied the commercial requirements and transition planning."
+            }
+          ]
         },
         {
           "phase": "Measure",
           "title": "Separate redesign ownership from later results",
-          "focus": "Which outcomes can be attributed to the period I directly led?",
-          "work": "My direct contribution was the diagnosis, model selection, requirements, customer-impact analysis, and rollout planning.",
-          "method": "Later service performance was observed after my transition out of AWS. The account keeps that timing separate from the work I directly led.",
-          "decision": "A modeled margin scenario is not a measured launch result, and a later observed outcome should not be represented as one I personally measured at launch.",
-          "result": "The public case describes the redesign and its rationale. Financial improvement values remain omitted pending disclosure authorization."
+          "points": [
+            {
+              "label": "Direct contribution",
+              "text": "I led diagnosis, model selection, requirements, customer-impact analysis, and rollout planning. Later service performance was observed after my transition out of AWS."
+            },
+            {
+              "label": "Outcome boundary",
+              "text": "I distinguish that later observation from modeled scenarios and personally measured launch results. Financial improvement values remain omitted pending authorization."
+            }
+          ]
         }
       ]
     }
@@ -813,56 +1009,98 @@ const cases = {
         {
           "phase": "Discover",
           "title": "Identify the visibility gap",
-          "focus": "What made logging consumption difficult for internal teams to understand and optimize?",
-          "work": "I identified the limitations of manual internal usage tracking and the resulting visibility problem.",
-          "method": "I assessed logging-cost visibility and the opportunity for internal customer teams to change consumption.",
-          "decision": "The product problem was useful visibility that teams could act on, not simply collecting more usage data.",
-          "result": "Discovery connected the platform opportunity to internal customers and their optimization needs."
+          "points": [
+            {
+              "label": "Visibility problem",
+              "text": "I identified limitations in manual internal usage tracking and assessed logging-cost visibility for customer teams."
+            },
+            {
+              "label": "Customer action",
+              "text": "I connected the platform opportunity to consumption optimization. The goal was visibility teams could act on, not simply more usage data."
+            }
+          ]
         },
         {
           "phase": "Size Opportunity",
           "title": "Build an economic case for prioritization",
-          "focus": "Where could the platform create enough value to justify engineering attention?",
-          "work": "I identified potential internal customer teams and evaluated savings opportunities and economic value.",
-          "method": "Opportunity sizing connected consumption-optimization needs to the proposed usage and metering platform.",
-          "decision": "Potential savings could support a business case but could not be treated as realized benefits. Engineering capacity still had competing priorities.",
-          "result": "The opportunity assessment informed customer discussions and the case for renewed investment."
+          "points": [
+            {
+              "label": "Opportunity assessment",
+              "text": "I identified potential internal customer teams and evaluated savings opportunities and economic value."
+            },
+            {
+              "label": "Investment case",
+              "text": "I connected those needs to a usage and metering platform competing for engineering capacity."
+            },
+            {
+              "label": "Evidence boundary",
+              "text": "Potential savings informed customer discussions and prioritization; they were not treated as realized benefits."
+            }
+          ]
         },
         {
           "phase": "Secure Buy-in",
           "title": "Turn potential demand into commitments",
-          "focus": "What evidence would make the platform worth prioritizing?",
-          "work": "I developed the customer business case, secured initial commitments, and helped restore executive prioritization.",
-          "method": "I connected the opportunity assessment with customer goals and a proposed adoption path, so the prioritization discussion had concrete demand behind it.",
-          "decision": "Commitments strengthened the investment case; they were not realized savings. The decision still depended on delivery and subsequent customer action.",
-          "result": "The initiative regained priority for engineering delivery, with customer commitments distinct from the later value-realization work."
+          "points": [
+            {
+              "label": "Customer commitments",
+              "text": "I developed the business case and secured initial commitments, connecting customer goals to the opportunity assessment and an adoption path."
+            },
+            {
+              "label": "Prioritization decision",
+              "text": "I used that concrete demand to help restore executive priority for engineering delivery."
+            },
+            {
+              "label": "Commitment versus value",
+              "text": "Commitments strengthened the investment case, but benefits still depended on delivery and customer action. I kept them separate from later value realization."
+            }
+          ]
         },
         {
           "phase": "Build",
           "title": "Partner on an existing platform initiative",
-          "focus": "How could product and adoption work support technical delivery?",
-          "work": "I partnered with Engineering on platform delivery and connected the customer business case to the initiative.",
-          "method": "I joined work with an existing product and technical design. My contribution centered on prioritization, customer needs, and adoption planning.",
-          "decision": "Engineering owned architecture and implementation. I did not independently build the platform or author its core technical design.",
-          "result": "The shared delivery effort produced a usage and metering platform for internal teams."
+          "points": [
+            {
+              "label": "Delivery partnership",
+              "text": "I joined an initiative with an existing product and technical design and partnered with Engineering on platform delivery."
+            },
+            {
+              "label": "My scope",
+              "text": "I connected the customer business case to prioritization, customer needs, and adoption planning. Engineering owned architecture and implementation; I did not independently build the platform."
+            }
+          ]
         },
         {
           "phase": "Launch",
           "title": "Connect delivery to internal onboarding",
-          "focus": "What would help teams move from interest to actual platform use?",
-          "work": "I coordinated internal launch and stakeholder onboarding with Engineering and customer teams.",
-          "method": "The adoption work connected platform availability to teams with identified consumption-optimization opportunities.",
-          "decision": "A functioning platform was a delivery milestone, not proof that customers had changed usage or realized benefits.",
-          "result": "Launch created the basis for broader adoption and follow-up on customer goals."
+          "points": [
+            {
+              "label": "Internal launch",
+              "text": "I coordinated launch and stakeholder onboarding with Engineering and customer teams that had identified optimization opportunities."
+            },
+            {
+              "label": "Beyond availability",
+              "text": "A functioning usage platform was a delivery milestone, not proof of changed consumption or realized benefits. Launch established the basis for adoption follow-up."
+            }
+          ]
         },
         {
           "phase": "Scale",
           "title": "Track adoption and value realization",
-          "focus": "Was the platform creating value beyond its initial customer commitments?",
-          "work": "I drove broader internal adoption and coordinated with teams on consumption optimization and value realization.",
-          "method": "I tracked progress as the program expanded, keeping initial commitments separate from subsequently realized benefits.",
-          "decision": "The economic case needed follow-through: teams had to use the visibility and change consumption. A commitment or platform launch alone did not establish savings.",
-          "result": "The program extended beyond its initial commitments. Its value depended on adoption and follow-through, with committed and realized impact kept distinct."
+          "points": [
+            {
+              "label": "Adoption work",
+              "text": "I drove broader internal adoption and coordinated consumption optimization and value realization with customer teams."
+            },
+            {
+              "label": "Tracking progress",
+              "text": "As the program expanded beyond initial commitments, I kept committed and subsequently realized benefits distinct."
+            },
+            {
+              "label": "Value test",
+              "text": "Teams had to use the visibility and change consumption. Commitments and platform availability alone did not establish savings."
+            }
+          ]
         }
       ]
     }

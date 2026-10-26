@@ -44,7 +44,7 @@ The user authorized pushing and publishing the reviewed revision on October 24, 
 
 ## Phase 3: validation
 
-Use `npm run check`, start the local server, and run `.venv/bin/python review/check_portfolio.py`. The suite covers the requested ordering, five dialogs, seven narrative sections, tailored expandable diagrams, previous/next navigation, role links, legacy hashes, keyboard focus, mobile navigation, assets, resume delivery, clipboard, responsive overflow, and console errors.
+Use `npm run check`, start the local server, and run `.venv/bin/python review/check_portfolio.py`. The suite covers the requested ordering, five dialogs, seven narrative sections, tailored expandable diagrams, previous/next navigation, role links, legacy hashes, keyboard focus, mobile navigation, assets, resume-path removal, clipboard, responsive overflow, and console errors.
 
 No lint, type-check, or build command exists. Do not install a framework or add a build pipeline solely for those checks.
 
@@ -54,7 +54,7 @@ Completed validation:
 - The Playwright suite passed at 320, 390, 600, 601, 700, 768, 800, 1024, and 1440 pixels, including all five cases, their diagrams, navigation, focus management, reduced-motion behavior, and local asset delivery.
 - No JavaScript errors, console errors, failed asset requests, or horizontal overflow were reported.
 - Desktop cards and mobile dialogs were visually reviewed for typography, spacing, and readable diagrams.
-- About and Point of View match the starting revision; the resume PDF is byte-for-byte unchanged.
+- About and Point of View match the starting revision. The resume was preserved during that revision and is removed in the final polish below.
 - Validation completed before publication. The user subsequently authorized publication; individual AWS financial claims remain excluded from website narratives.
 
 
@@ -89,3 +89,16 @@ New private survey/prototyping counts, directional experiment results, a specifi
 This update remains review-branch / Preview only. The resume and production domain configuration are unchanged.
 
 Validation of the lifecycle addition passed at 320, 390, 600, 601, 700, 768, 800, 1024, and 1440px. The suite verifies six stages per case, all four stage detail fields, pivotal-decision emphasis, jump/return focus, visible jump targets below the sticky header, reduced-motion scrolling, all existing navigation, and overflow. Desktop and 390px lifecycle screenshots were visually reviewed. JavaScript syntax and diff checks passed; the static project has no separate build/lint/type-check commands.
+
+
+## Final polish: lifecycle readability and resume removal
+
+All six stages in each case remain. Context-specific bullet headings replace the repeated four-field template and focus questions. Research, direct ownership, technical tradeoffs, measured pilot boundaries, and project-specific central decisions remain; executive summaries, diagrams, and Selected Work card data are unchanged. Font sizes are retained.
+
+The only resume CTA was in the hero. It and the sole tracked PDF have been removed. No other resume link, PDF reference, structured data, sitemap entry, or download control exists in the served HTML/JavaScript. The hero retains its primary Selected Work action. Deployment packaging excludes documentation, private notes, and all PDFs and removes stale assets from prior staging directories.
+
+The browser suite now checks the absence of resume/download controls and 404 responses for the prior PDF URL (including its version query) and common alternate paths. Historical exposure is tracked separately in ignored local notes: production and old immutable previews are not altered by this review-branch update. Git-history copies and external caches are not purged. No resume file outside the website repository is removed.
+
+No new metric, experiment finding, financial figure, responsibility, or implementation detail is added. Explicitly cleared Amazon figures are retained; pending survey/prototype counts, directional results, internal roadmap details, exact later-bundling month, executive ranks, and financial outcomes remain withheld. Qualitative internal-process accounts still need owner review before production publication.
+
+Final-polish local validation passed at all nine configured widths, including absence of resume controls, old-path 404 responses, all 30 lifecycle stages, navigation/focus/reduced-motion checks, and no horizontal overflow or JavaScript errors. Hero spacing and the mobile pivotal-decision treatment were visually reviewed. The original user-supplied resume outside the repository retains its previously verified SHA-256. Historical production, three prior previews, and Git-history PDF exposure were confirmed and recorded privately for follow-up.

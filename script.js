@@ -334,10 +334,9 @@ function renderLifecycle(key) {
     addElement('span', 'lifecycle-phase', stage.phase, stageTitle);
     stageTitle.append(document.createTextNode(` — ${stage.title}`));
     const body = addElement('div', 'lifecycle-stage-body', undefined, item);
-    addElement('p', 'lifecycle-focus', stage.focus, body);
     const points = addElement('ul', 'lifecycle-points', undefined, body);
-    [['My contribution', stage.work], ['Methods & evidence', stage.method], ['Decision & tradeoff', stage.decision], ['Result / next step', stage.result]].forEach(([label, text]) => {
-      const point = addElement('li', label === 'Decision & tradeoff' ? 'lifecycle-decision' : '', undefined, points);
+    stage.points.forEach(({ label, text }) => {
+      const point = addElement('li', '', undefined, points);
       addElement('strong', '', label + ': ', point);
       point.append(document.createTextNode(text));
     });
