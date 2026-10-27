@@ -57,7 +57,7 @@ const cases = {
       ],
       [
         "Lessons & Tradeoffs",
-        "Removing avatar setup reduced MVP scope; it did not remove the need to evaluate the AI experience. The harder tradeoff was reach versus trust: compelling output was insufficient when fit expectations and return risks remained unresolved."
+        "Removing avatar setup kept the MVP focused on the core AI try-on experience and reduced development complexity. The more consequential decision came after experimentation: while VTO increased engagement, unresolved fit expectations and potential return risks made broader rollout premature. The priority was not simply driving adoption, but ensuring the experience helped customers make better purchase decisions."
       ]
     ],
     "note": "Scope: controlled customer experimentation and a rollout decision. The diagram is a conceptual view of the decision process.",
